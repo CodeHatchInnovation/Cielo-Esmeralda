@@ -5,18 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cielo Esmeralda - Tu Experiencia Culinaria</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Google Fonts: Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome for icons -->
+    <!-- Font Awesome para iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts: Lora para encabezados -->
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts: Inter para texto de cuerpo (como fallback para Geist Sans) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body class="font-inter text-custom-brown bg-custom-beige antialiased">
+<body class="antialiased">
 
     <!-- Header -->
-    <header class="fixed top-0 left-0 w-full bg-custom-dark-green text-white p-4 z-50 shadow-md">
+    <header class="fixed top-0 left-0 w-full bg-accent text-accent-foreground p-4 z-50 shadow-md backdrop-blur">
         <nav class="container mx-auto flex justify-between items-center px-4">
             <!-- Logo -->
-            <div class="text-xl font-bold text-custom-gold">Cielo Esmeralda</div>
+            <div class="flex-shrink-0">
+                <img src="https://placehold.co/120x40/014D43/F9F7F4?text=LOGO" alt="Cielo Esmeralda Logo" class="h-10 w-auto">
+            </div>
 
             <!-- Desktop Navigation -->
             <ul class="hidden md:flex space-x-8 items-center">
@@ -30,39 +34,39 @@
 
             <!-- Voice Navigation and Reserve Button (Desktop) -->
             <div class="hidden md:flex items-center space-x-4">
-                <button id="voice-nav-btn" class="p-2 rounded-full hover:bg-opacity-80 transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-custom-gold" title="Navegación por Voz">
+                <button id="voice-nav-btn" class="p-2 rounded-full hover:bg-opacity-80 transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-ring" title="Navegación por Voz">
                     <i class="fas fa-microphone h-6 w-6"></i>
                 </button>
-                <a href="#reservaciones" class="bg-custom-green text-white px-4 py-2 rounded-full flex items-center space-x-2 shadow-lg hover:bg-opacity-90 transition-all duration-300 smooth-scroll">
+                <a href="#reservaciones" class="btn-primary px-4 py-2 rounded-full flex items-center space-x-2 shadow-md hover:shadow-lg transition-all duration-300 smooth-scroll">
                     <span>Reservar Ahora</span>
-                    <i class="fas fa-arrow-right h-4 w-4"></i>
+                    <i class="fas fa-arrow-right h-4 w-4 btn-icon-animate"></i>
                 </a>
             </div>
 
             <!-- Hamburger Menu (Mobile) -->
             <div class="md:hidden flex items-center">
-                <button id="mobile-voice-nav-btn" class="p-2 mr-2 rounded-full hover:bg-opacity-80 transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-custom-gold" title="Navegación por Voz">
+                <button id="mobile-voice-nav-btn" class="p-2 mr-2 rounded-full hover:bg-opacity-80 transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-ring" title="Navegación por Voz">
                     <i class="fas fa-microphone h-6 w-6"></i>
                 </button>
-                <button id="menu-toggle" class="text-white focus:outline-none">
+                <button id="menu-toggle" class="text-accent-foreground focus:outline-none">
                     <i class="fas fa-bars w-8 h-8"></i>
                 </button>
             </div>
         </nav>
 
         <!-- Mobile Menu Overlay -->
-        <div id="mobile-menu" class="md:hidden absolute top-full left-0 w-full bg-custom-dark-green shadow-lg py-4 transition-all duration-300 ease-in-out hidden">
+        <div id="mobile-menu" class="md:hidden absolute top-full left-0 w-full bg-accent shadow-lg py-4 transition-all duration-300 ease-in-out hidden">
             <ul class="flex flex-col items-center space-y-4">
-                <li><a href="#inicio" class="block py-2 text-white hover:text-gray-300 smooth-scroll mobile-menu-link">Inicio</a></li>
-                <li><a href="#nosotros" class="block py-2 text-white hover:text-gray-300 smooth-scroll mobile-menu-link">Nosotros</a></li>
-                <li><a href="#menu" class="block py-2 text-white hover:text-gray-300 smooth-scroll mobile-menu-link">Menú</a></li>
-                <li><a href="#sucursales" class="block py-2 text-white hover:text-gray-300 smooth-scroll mobile-menu-link">Sucursales</a></li>
-                <li><a href="#reservaciones" class="block py-2 text-white hover:text-gray-300 smooth-scroll mobile-menu-link">Reservaciones</a></li>
-                <li><a href="#contacto" class="block py-2 text-white hover:text-gray-300 smooth-scroll mobile-menu-link">Contacto</a></li>
+                <li><a href="#inicio" class="block py-2 text-accent-foreground hover:text-gray-300 smooth-scroll mobile-menu-link">Inicio</a></li>
+                <li><a href="#nosotros" class="block py-2 text-accent-foreground hover:text-gray-300 smooth-scroll mobile-menu-link">Nosotros</a></li>
+                <li><a href="#menu" class="block py-2 text-accent-foreground hover:text-gray-300 smooth-scroll mobile-menu-link">Menú</a></li>
+                <li><a href="#sucursales" class="block py-2 text-accent-foreground hover:text-gray-300 smooth-scroll mobile-menu-link">Sucursales</a></li>
+                <li><a href="#reservaciones" class="block py-2 text-accent-foreground hover:text-gray-300 smooth-scroll mobile-menu-link">Reservaciones</a></li>
+                <li><a href="#contacto" class="block py-2 text-accent-foreground hover:text-gray-300 smooth-scroll mobile-menu-link">Contacto</a></li>
                 <li>
-                    <a href="#reservaciones" class="bg-custom-green text-white px-4 py-2 rounded-full flex items-center space-x-2 shadow-lg hover:bg-opacity-90 transition-all duration-300 smooth-scroll mobile-menu-link">
+                    <a href="#reservaciones" class="btn-primary px-4 py-2 rounded-full flex items-center space-x-2 shadow-md hover:shadow-lg transition-all duration-300 smooth-scroll mobile-menu-link">
                         <span>Reservar Ahora</span>
-                        <i class="fas fa-arrow-right h-4 w-4"></i>
+                        <i class="fas fa-arrow-right h-4 w-4 btn-icon-animate"></i>
                     </a>
                 </li>
             </ul>
@@ -70,34 +74,34 @@
     </header>
 
     <!-- Hero Section -->
-    <section id="inicio" class="relative pt-24 pb-16 md:pt-32 md:pb-24 overflow-hidden bg-custom-beige">
+    <section id="inicio" class="relative py-20 md:py-28 overflow-hidden bg-background">
         <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-8 md:gap-16">
             <div class="w-full md:w-1/2 text-center md:text-left">
-                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-custom-brown leading-tight mb-4">
-                    Bienvenido a <span class="text-custom-green">Cielo Esmeralda</span>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-4">
+                    Bienvenido a <span class="text-primary">Cielo Esmeralda</span>
                 </h1>
-                <p class="text-lg md:text-xl text-custom-brown mb-8">
+                <p class="text-lg md:text-xl text-foreground mb-8">
                     Descubre una experiencia culinaria única donde la tradición se encuentra con la innovación. Sabores auténticos en un ambiente elegante y acogedor.
                 </p>
                 <div class="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
-                    <a href="#reservaciones" class="bg-custom-green text-white px-6 py-3 rounded-full flex items-center justify-center space-x-2 shadow-lg hover:bg-opacity-90 transition-all duration-300 text-lg smooth-scroll">
+                    <a href="#reservaciones" class="btn-primary px-6 py-3 rounded-md flex items-center justify-center space-x-2 shadow-md hover:shadow-lg transition-all duration-300 text-lg smooth-scroll">
                         <span>Reservar Mesa</span>
-                        <i class="fas fa-arrow-right h-5 w-5"></i>
+                        <i class="fas fa-arrow-right h-5 w-5 btn-icon-animate"></i>
                     </a>
-                    <a href="#menu" class="border border-gray-400 text-custom-brown px-6 py-3 rounded-full flex items-center justify-center space-x-2 hover:bg-gray-100 transition-all duration-300 text-lg smooth-scroll">
+                    <a href="#menu" class="btn-secondary px-6 py-3 rounded-md flex items-center justify-center space-x-2 transition-all duration-300 text-lg">
                         <span>Ver Menú</span>
-                        <i class="fas fa-chevron-right h-5 w-5"></i>
+                        <i class="fas fa-chevron-right h-5 w-5 btn-icon-animate"></i>
                     </a>
                 </div>
             </div>
 
             <!-- Slider/Carousel -->
             <div id="hero-slider" class="w-full md:w-1/2 relative flex items-center justify-center" onmouseenter="pauseSlider()" onmouseleave="startSlider()">
-                <div class="relative w-full max-w-lg aspect-square overflow-hidden rounded-xl shadow-2xl bg-white p-4">
+                <div class="relative w-full max-w-lg aspect-square overflow-hidden rounded-xl shadow-2xl bg-card p-4">
                     <!-- Slide Images -->
                     <div class="slides-container absolute inset-0 transition-transform duration-700 ease-in-out">
-                        <img src="https://placehold.co/400x400/C8D5B9/4B3F38?text=Slide+1" alt="Delicious food 1" class="slide-img w-full h-full object-cover absolute top-0 left-0" onerror="this.onerror=null; this.src='https://placehold.co/400x400?text=Image+1';" />
-                        <img src="https://placehold.co/400x400/A2D2FF/4B3F38?text=Slide+2" alt="Restaurant interior" class="slide-img w-full h-full object-cover absolute top-0 left-full" onerror="this.onerror=null; this.src='https://placehold.co/400x400?text=Image+2';" />
+                        <img src="https://placehold.co/400x400/C8D5B9/4B3F38?text=Slide+1" alt="Delicious food 1" class="slide-img w-full h-full object-cover absolute top-0 left-0 img-hover-effect" onerror="this.onerror=null; this.src='https://placehold.co/400x400?text=Image+1';" />
+                        <img src="https://placehold.co/400x400/A2D2FF/4B3F38?text=Slide+2" alt="Restaurant interior" class="slide-img w-full h-full object-cover absolute top-0 left-full img-hover-effect" onerror="this.onerror=null; this.src='https://placehold.co/400x400?text=Image+2';" />
                         <img src="https://placehold.co/400x400/9BB8A9/4B3F38?text=Slide+3" alt="Special dish" class="slide-img w-full h-full object-cover absolute top-0 left-[200%]" onerror="this.onerror=null; this.src='https://placehold.co/400x400?text=Image+3';" />
                     </div>
 
@@ -119,10 +123,10 @@
 
                     <!-- Navigation Arrows -->
                     <button class="slider-arrow left-4" onclick="prevSlide()">
-                        <i class="fas fa-chevron-left h-6 w-6 text-custom-brown"></i>
+                        <i class="fas fa-chevron-left h-6 w-6 text-foreground"></i>
                     </button>
                     <button class="slider-arrow right-4" onclick="nextSlide()">
-                        <i class="fas fa-chevron-right h-6 w-6 text-custom-brown"></i>
+                        <i class="fas fa-chevron-right h-6 w-6 text-foreground"></i>
                     </button>
 
                     <!-- Indicators -->
@@ -137,32 +141,32 @@
     </section>
 
     <!-- About Us Section -->
-    <section id="nosotros" class="py-16 md:py-24 bg-custom-light-green">
+    <section id="nosotros" class="py-20 md:py-28 bg-secondary">
         <div class="container mx-auto px-4 text-center">
-            <div class="flex justify-center items-center mb-4 text-custom-green">
-                <i class="fas fa-heart h-10 w-10"></i>
+            <div class="flex justify-center items-center mb-4 text-primary">
+                <i class="fas fa-heart h-10 w-10 icon-hover-effect"></i>
             </div>
-            <h2 class="text-3xl md:text-4xl font-bold text-custom-brown mb-4">Nuestra Historia</h2>
-            <p class="text-lg md:text-xl text-custom-brown mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-foreground mb-4">Nuestra Historia</h2>
+            <p class="text-lg md:text-xl text-foreground mb-12">
                 Conoce la pasión y dedicación que define a Cielo Esmeralda.
             </p>
 
             <div class="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-16">
                 <div class="w-full md:w-1/2 text-left">
-                    <h3 class="text-2xl md:text-3xl font-bold text-custom-green mb-6">Filosofía</h3>
-                    <p class="text-lg text-custom-brown mb-4">
+                    <h3 class="text-2xl md:text-3xl font-bold text-primary mb-6">Filosofía</h3>
+                    <p class="text-lg text-foreground mb-4">
                         En Cielo Esmeralda, creemos en la magia de los ingredientes frescos y de temporada, transformados en platillos que deleitan el paladar y cuentan una historia. Nuestra cocina es un homenaje a la tradición, con un toque de modernidad que sorprende y enamora.
                     </p>
-                    <p class="text-lg text-custom-brown">
+                    <p class="text-lg text-foreground">
                         Cada visita es una oportunidad para crear recuerdos inolvidables, rodeado de un ambiente cálido y un servicio que te hace sentir en casa. Te invitamos a ser parte de nuestra familia.
                     </p>
                 </div>
                 <div class="w-full md:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <div class="rounded-xl overflow-hidden shadow-xl">
-                        <img src="https://placehold.co/400x300/C8D5B9/4B3F38?text=Interior+1" alt="Restaurant Interior 1" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://placehold.co/400x300?text=Image+4';" />
+                    <div class="rounded-xl overflow-hidden shadow-xl card-hover-effect">
+                        <img src="https://placehold.co/400x300/C8D5B9/4B3F38?text=Interior+1" alt="Restaurant Interior 1" class="w-full h-full object-cover img-hover-effect" onerror="this.onerror=null; this.src='https://placehold.co/400x300?text=Image+4';" />
                     </div>
-                    <div class="rounded-xl overflow-hidden shadow-xl">
-                        <img src="https://placehold.co/400x300/A2D2FF/4B3F38?text=Interior+2" alt="Restaurant Interior 2" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://placehold.co/400x300?text=Image+5';" />
+                    <div class="rounded-xl overflow-hidden shadow-xl card-hover-effect">
+                        <img src="https://placehold.co/400x300/A2D2FF/4B3F38?text=Interior+2" alt="Restaurant Interior 2" class="w-full h-full object-cover img-hover-effect" onerror="this.onerror=null; this.src='https://placehold.co/400x300?text=Image+5';" />
                     </div>
                 </div>
             </div>
@@ -170,89 +174,89 @@
     </section>
 
     <!-- Menu Section -->
-    <section id="menu" class="py-16 md:py-24 bg-custom-beige">
+    <section id="menu" class="py-20 md:py-28 bg-background">
         <div class="container mx-auto px-4 text-center">
-            <div class="flex justify-center items-center mb-4 text-custom-green">
-                <i class="fas fa-book-open h-10 w-10"></i>
+            <div class="flex justify-center items-center mb-4 text-primary">
+                <i class="fas fa-book-open h-10 w-10 icon-hover-effect"></i>
             </div>
-            <h2 class="text-3xl md:text-4xl font-bold text-custom-brown mb-4">Nuestro Menú Digital</h2>
-            <p class="text-lg md:text-xl text-custom-brown mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-foreground mb-4">Nuestro Menú Digital</h2>
+            <p class="text-lg md:text-xl text-foreground mb-12">
                 Escanea el código QR con tu dispositivo móvil para explorar nuestra exquisita selección.
             </p>
 
             <div class="flex flex-col md:flex-row justify-center items-stretch gap-8 mb-8">
-                <div class="bg-white p-6 rounded-xl shadow-lg flex flex-col items-center w-full max-w-sm">
-                    <h3 class="text-2xl font-bold text-custom-green mb-4">Menú de Comida</h3>
-                    <img src="https://placehold.co/250x250/C8D5B9/4B3F38?text=QR+Comida" alt="QR Code for Food Menu" class="w-48 h-48 sm:w-64 sm:h-64 rounded-lg" onerror="this.onerror=null; this.src='https://placehold.co/250x250?text=QR+Food';" />
+                <div class="bg-card p-6 rounded-xl shadow-xl border border-border text-left w-full max-w-sm flex flex-col items-center card-hover-effect">
+                    <h3 class="text-2xl font-bold text-primary mb-4">Menú de Comida</h3>
+                    <img src="https://placehold.co/250x250/C8D5B9/4B3F38?text=QR+Comida" alt="QR Code for Food Menu" class="w-48 h-48 sm:w-64 sm:h-64 rounded-lg img-hover-effect" onerror="this.onerror=null; this.src='https://placehold.co/250x250?text=QR+Food';" />
                 </div>
-                <div class="bg-white p-6 rounded-xl shadow-lg flex flex-col items-center w-full max-w-sm">
-                    <h3 class="text-2xl font-bold text-custom-green mb-4">Menú de Bebidas</h3>
-                    <img src="https://placehold.co/250x250/A2D2FF/4B3F38?text=QR+Bebidas" alt="QR Code for Drinks Menu" class="w-48 h-48 sm:w-64 sm:h-64 rounded-lg" onerror="this.onerror=null; this.src='https://placehold.co/250x250?text=QR+Drinks';" />
+                <div class="bg-card p-6 rounded-xl shadow-xl border border-border text-left w-full max-w-sm flex flex-col items-center card-hover-effect">
+                    <h3 class="text-2xl font-bold text-primary mb-4">Menú de Bebidas</h3>
+                    <img src="https://placehold.co/250x250/A2D2FF/4B3F38?text=QR+Bebidas" alt="QR Code for Drinks Menu" class="w-48 h-48 sm:w-64 sm:h-64 rounded-lg img-hover-effect" onerror="this.onerror=null; this.src='https://placehold.co/250x250?text=QR+Drinks';" />
                 </div>
             </div>
 
-            <p class="text-lg text-custom-brown mb-8">
+            <p class="text-lg text-foreground mb-8">
                 ¿Problemas con el QR?
-                <a href="https://example.com/menu.pdf" target="_blank" rel="noopener noreferrer" class="text-custom-green font-semibold hover:underline transition-colors">
+                <a href="https://example.com/menu.pdf" target="_blank" rel="noopener noreferrer" class="text-primary font-semibold hover:underline transition-colors">
                     Descarga el menú completo en PDF.
                 </a>
             </p>
 
-            <a href="#reservaciones" class="bg-custom-green text-white px-6 py-3 rounded-full flex items-center justify-center mx-auto space-x-2 shadow-lg hover:bg-opacity-90 transition-all duration-300 text-lg smooth-scroll">
+            <a href="#reservaciones" class="btn-primary px-6 py-3 rounded-md flex items-center justify-center mx-auto space-x-2 shadow-md hover:shadow-lg transition-all duration-300 text-lg smooth-scroll">
                 <span>Reservar Ahora</span>
-                <i class="fas fa-arrow-right h-5 w-5"></i>
+                <i class="fas fa-arrow-right h-5 w-5 btn-icon-animate"></i>
             </a>
         </div>
     </section>
 
     <!-- Locations Section -->
-    <section id="sucursales" class="py-16 md:py-24 bg-custom-light-green">
+    <section id="sucursales" class="py-20 md:py-28 bg-secondary">
         <div class="container mx-auto px-4 text-center">
-            <div class="flex justify-center items-center mb-4 text-custom-green">
-                <i class="fas fa-map-marker-alt h-10 w-10"></i>
+            <div class="flex justify-center items-center mb-4 text-primary">
+                <i class="fas fa-map-marker-alt h-10 w-10 icon-hover-effect"></i>
             </div>
-            <h2 class="text-3xl md:text-4xl font-bold text-custom-brown mb-4">Nuestras Sucursales</h2>
-            <p class="text-lg md:text-xl text-custom-brown mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-foreground mb-4">Nuestras Sucursales</h2>
+            <p class="text-lg md:text-xl text-foreground mb-12">
                 Encuentra tu Cielo Esmeralda más cercano. ¡Te esperamos!
             </p>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
                 <!-- Sucursal 1 -->
-                <div class="bg-white p-6 rounded-xl shadow-lg text-left w-full max-w-sm flex flex-col justify-between">
+                <div class="bg-card p-6 rounded-xl shadow-xl border border-border text-left w-full max-w-sm flex flex-col justify-between card-hover-effect">
                     <div>
-                        <h3 class="text-2xl font-bold text-custom-green mb-2">Cielo Esmeralda - Aeropuerto</h3>
-                        <p class="text-lg text-custom-brown mb-2">Aeródromo Mexiquense, Valle Escondido y Club de Golf Valle Escondido, 52930 Cdad. López Mateos, Méx.</p>
-                        <p class="text-lg text-custom-brown mb-4">+52 55 4879 2277</p>
+                        <h3 class="text-2xl font-bold text-primary mb-2">Cielo Esmeralda - Aeropuerto</h3>
+                        <p class="text-lg text-foreground mb-2">Aeródromo Mexiquense, Valle Escondido y Club de Golf Valle Escondido, 52930 Cdad. López Mateos, Méx.</p>
+                        <p class="text-lg text-foreground mb-4">+52 55 4879 2277</p>
                     </div>
-                    <a href="https://maps.app.goo.gl/example1" target="_blank" rel="noopener noreferrer" class="text-custom-green font-semibold hover:underline flex items-center space-x-2 transition-colors">
+                    <a href="https://maps.app.goo.gl/example1" target="_blank" rel="noopener noreferrer" class="text-primary font-semibold hover:underline flex items-center space-x-2 transition-colors">
                         <span>Ver en Google Maps</span>
-                        <i class="fas fa-external-link-alt h-5 w-5"></i>
+                        <i class="fas fa-external-link-alt h-5 w-5 icon-hover-effect"></i>
                     </a>
                 </div>
 
                 <!-- Sucursal 2 -->
-                <div class="bg-white p-6 rounded-xl shadow-lg text-left w-full max-w-sm flex flex-col justify-between">
+                <div class="bg-card p-6 rounded-xl shadow-xl border border-border text-left w-full max-w-sm flex flex-col justify-between card-hover-effect">
                     <div>
-                        <h3 class="text-2xl font-bold text-custom-green mb-2">Cielo Esmeralda - Chiluca</h3>
-                        <p class="text-lg text-custom-brown mb-2">Manzana 033, Residencial Chiluca, Chiluca y Club de Golf Chiluca, 52930 Cdad. López Mateos, Méx.</p>
-                        <p class="text-lg text-custom-brown mb-4">+52 55 3667 7175</p>
+                        <h3 class="text-2xl font-bold text-primary mb-2">Cielo Esmeralda - Chiluca</h3>
+                        <p class="text-lg text-foreground mb-2">Manzana 033, Residencial Chiluca, Chiluca y Club de Golf Chiluca, 52930 Cdad. López Mateos, Méx.</p>
+                        <p class="text-lg text-foreground mb-4">+52 55 3667 7175</p>
                     </div>
-                    <a href="https://maps.app.goo.gl/example2" target="_blank" rel="noopener noreferrer" class="text-custom-green font-semibold hover:underline flex items-center space-x-2 transition-colors">
+                    <a href="https://maps.app.goo.gl/example2" target="_blank" rel="noopener noreferrer" class="text-primary font-semibold hover:underline flex items-center space-x-2 transition-colors">
                         <span>Ver en Google Maps</span>
-                        <i class="fas fa-external-link-alt h-5 w-5"></i>
+                        <i class="fas fa-external-link-alt h-5 w-5 icon-hover-effect"></i>
                     </a>
                 </div>
 
                 <!-- Sucursal 3 -->
-                <div class="bg-white p-6 rounded-xl shadow-lg text-left w-full max-w-sm flex flex-col justify-between">
+                <div class="bg-card p-6 rounded-xl shadow-xl border border-border text-left w-full max-w-sm flex flex-col justify-between card-hover-effect">
                     <div>
-                        <h3 class="text-2xl font-bold text-custom-green mb-2">Cielo Esmeralda - Lomas Verdes</h3>
-                        <p class="text-lg text-custom-brown mb-2">Blvd. de la Sta. Cruz 142, Sta Cruz Acatlán, 53150 Naucalpan de Juárez, Méx.</p>
-                        <p class="text-lg text-custom-brown mb-4">+52 55 1329 5638</p>
+                        <h3 class="text-2xl font-bold text-primary mb-2">Cielo Esmeralda - Lomas Verdes</h3>
+                        <p class="text-lg text-foreground mb-2">Blvd. de la Sta. Cruz 142, Sta Cruz Acatlán, 53150 Naucalpan de Juárez, Méx.</p>
+                        <p class="text-lg text-foreground mb-4">+52 55 1329 5638</p>
                     </div>
-                    <a href="https://maps.app.goo.gl/example3" target="_blank" rel="noopener noreferrer" class="text-custom-green font-semibold hover:underline flex items-center space-x-2 transition-colors">
+                    <a href="https://maps.app.goo.gl/example3" target="_blank" rel="noopener noreferrer" class="text-primary font-semibold hover:underline flex items-center space-x-2 transition-colors">
                         <span>Ver en Google Maps</span>
-                        <i class="fas fa-external-link-alt h-5 w-5"></i>
+                        <i class="fas fa-external-link-alt h-5 w-5 icon-hover-effect"></i>
                     </a>
                 </div>
             </div>
@@ -260,29 +264,29 @@
     </section>
 
     <!-- Reservations Section -->
-    <section id="reservaciones" class="py-16 md:py-24 bg-custom-beige">
+    <section id="reservaciones" class="py-20 md:py-28 bg-background">
         <div class="container mx-auto px-4 text-center">
-            <div class="flex justify-center items-center mb-4 text-custom-green space-x-2">
-                <i class="fas fa-utensils h-10 w-10"></i>
-                <i class="fas fa-calendar-check h-10 w-10"></i>
+            <div class="flex justify-center items-center mb-4 text-primary space-x-2">
+                <i class="fas fa-utensils h-10 w-10 icon-hover-effect"></i>
+                <i class="fas fa-calendar-check h-10 w-10 icon-hover-effect"></i>
             </div>
-            <h2 class="text-3xl md:text-4xl font-bold text-custom-brown mb-4">Reserva tu Mesa</h2>
-            <p class="text-lg md:text-xl text-custom-brown mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-foreground mb-4">Reserva tu Mesa</h2>
+            <p class="text-lg md:text-xl text-foreground mb-12">
                 Asegura tu lugar en Cielo Esmeralda y prepárate para una experiencia gastronómica inolvidable.
             </p>
 
-            <div class="bg-white p-6 md:p-8 rounded-xl shadow-lg w-full max-w-2xl mx-auto">
+            <div class="bg-card p-6 md:p-8 rounded-xl shadow-xl w-full max-w-2xl mx-auto border border-border">
                 <form id="reservation-form" class="space-y-6">
                     <div>
-                        <label for="branch" class="block text-lg font-semibold text-custom-brown mb-2">Sucursal</label>
+                        <label for="branch" class="block text-lg font-semibold text-foreground mb-2">Sucursal</label>
                         <div class="relative">
                             <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                <i class="fas fa-building h-6 w-6 text-gray-400"></i>
+                                <i class="fas fa-building h-6 w-6 text-muted-foreground"></i>
                             </div>
                             <select
                                 id="branch"
                                 name="branch"
-                                class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-custom-green focus:border-custom-green transition-all bg-gray-50 text-custom-brown"
+                                class="w-full pl-10 pr-4 py-3 border border-border rounded-md focus:ring-ring focus:border-primary transition-all bg-input text-foreground"
                                 required
                             >
                                 <option value="">Selecciona una sucursal</option>
@@ -295,24 +299,24 @@
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
-                            <label for="fullName" class="block text-lg font-semibold text-custom-brown mb-2">Nombre Completo</label>
+                            <label for="fullName" class="block text-lg font-semibold text-foreground mb-2">Nombre Completo</label>
                             <input
                                 type="text"
                                 id="fullName"
                                 name="fullName"
                                 placeholder="Ej: Ana Pérez"
-                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-custom-green focus:border-custom-green transition-all bg-gray-50 text-custom-brown"
+                                class="w-full px-4 py-3 border border-border rounded-md focus:ring-ring focus:border-primary transition-all bg-input text-foreground"
                                 required
                             />
                         </div>
                         <div>
-                            <label for="phone" class="block text-lg font-semibold text-custom-brown mb-2">Teléfono</label>
+                            <label for="phone" class="block text-lg font-semibold text-foreground mb-2">Teléfono</label>
                             <input
                                 type="tel"
                                 id="phone"
                                 name="phone"
                                 placeholder="Ej: 55 1234 5678"
-                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-custom-green focus:border-custom-green transition-all bg-gray-50 text-custom-brown"
+                                class="w-full px-4 py-3 border border-border rounded-md focus:ring-ring focus:border-primary transition-all bg-input text-foreground"
                                 pattern="[0-9]{10}"
                                 title="Por favor, ingresa un número de teléfono de 10 dígitos (solo números)."
                                 required
@@ -321,17 +325,17 @@
                     </div>
 
                     <div>
-                        <label for="email" class="block text-lg font-semibold text-custom-brown mb-2">Correo Electrónico</label>
+                        <label for="email" class="block text-lg font-semibold text-foreground mb-2">Correo Electrónico</label>
                         <div class="relative">
                             <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                <i class="fas fa-envelope h-6 w-6 text-gray-400"></i>
+                                <i class="fas fa-envelope h-6 w-6 text-muted-foreground"></i>
                             </div>
                             <input
                                 type="email"
                                 id="email"
                                 name="email"
                                 placeholder="Ej: ana.perez@correo.com"
-                                class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-custom-green focus:border-custom-green transition-all bg-gray-50 text-custom-brown"
+                                class="w-full pl-10 pr-4 py-3 border border-border rounded-md focus:ring-ring focus:border-primary transition-all bg-input text-foreground"
                                 required
                             />
                         </div>
@@ -339,30 +343,30 @@
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
-                            <label for="date" class="block text-lg font-semibold text-custom-brown mb-2">Fecha</label>
+                            <label for="date" class="block text-lg font-semibold text-foreground mb-2">Fecha</label>
                             <div class="relative">
                                 <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                    <i class="fas fa-calendar-alt h-6 w-6 text-gray-400"></i>
+                                    <i class="fas fa-calendar-alt h-6 w-6 text-muted-foreground"></i>
                                 </div>
                                 <input
                                     type="date"
                                     id="date"
                                     name="date"
-                                    class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-custom-green focus:border-custom-green transition-all bg-gray-50 text-custom-brown"
+                                    class="w-full pl-10 pr-4 py-3 border border-border rounded-md focus:ring-ring focus:border-primary transition-all bg-input text-foreground"
                                     required
                                 />
                             </div>
                         </div>
                         <div>
-                            <label for="time" class="block text-lg font-semibold text-custom-brown mb-2">Hora</label>
+                            <label for="time" class="block text-lg font-semibold text-foreground mb-2">Hora</label>
                             <div class="relative">
                                 <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                    <i class="fas fa-clock h-6 w-6 text-gray-400"></i>
+                                    <i class="fas fa-clock h-6 w-6 text-muted-foreground"></i>
                                 </div>
                                 <select
                                     id="time"
                                     name="time"
-                                    class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-custom-green focus:border-custom-green transition-all bg-gray-50 text-custom-brown"
+                                    class="w-full pl-10 pr-4 py-3 border border-border rounded-md focus:ring-ring focus:border-primary transition-all bg-input text-foreground"
                                     required
                                 >
                                     <option value="">Selecciona una hora</option>
@@ -383,15 +387,15 @@
                     </div>
 
                     <div>
-                        <label for="diners" class="block text-lg font-semibold text-custom-brown mb-2">Número de Comensales</label>
+                        <label for="diners" class="block text-lg font-semibold text-foreground mb-2">Número de Comensales</label>
                         <div class="relative">
                             <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                <i class="fas fa-users h-6 w-6 text-gray-400"></i>
+                                <i class="fas fa-users h-6 w-6 text-muted-foreground"></i>
                             </div>
                             <select
                                 id="diners"
                                 name="diners"
-                                class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-custom-green focus:border-custom-green transition-all bg-gray-50 text-custom-brown"
+                                class="w-full pl-10 pr-4 py-3 border border-border rounded-md focus:ring-ring focus:border-primary transition-all bg-input text-foreground"
                                 required
                             >
                                 <option value="">Selecciona comensales</option>
@@ -410,164 +414,163 @@
                     </div>
 
                     <div>
-                        <label for="notes" class="block text-lg font-semibold text-custom-brown mb-2">Notas Adicionales (opcional)</label>
+                        <label for="notes" class="block text-lg font-semibold text-foreground mb-2">Notas Adicionales (opcional)</label>
                         <div class="relative">
                             <div class="absolute top-3 left-3 flex items-center pointer-events-none">
-                                <i class="fas fa-comment-alt h-6 w-6 text-gray-400"></i>
+                                <i class="fas fa-comment-alt h-6 w-6 text-muted-foreground"></i>
                             </div>
                             <textarea
                                 id="notes"
                                 name="notes"
                                 rows="4"
                                 placeholder="Ej: Alergia al gluten, mesa cerca de la ventana, celebración de cumpleaños..."
-                                class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-custom-green focus:border-custom-green transition-all bg-gray-50 text-custom-brown resize-y"
+                                class="w-full pl-10 pr-4 py-3 border border-border rounded-md focus:ring-ring focus:border-primary transition-all bg-input text-foreground resize-y"
                             ></textarea>
                         </div>
                     </div>
 
                     <button
                         type="submit"
-                        class="w-full bg-custom-green text-white px-6 py-3 rounded-full flex items-center justify-center space-x-2 shadow-lg hover:bg-opacity-90 transition-all duration-300 text-lg font-semibold"
+                        class="btn-primary w-full px-6 py-3 rounded-md flex items-center justify-center space-x-2 shadow-md hover:shadow-lg transition-all duration-300 text-lg font-semibold"
                     >
                         <span>Confirmar Reservación</span>
-                        <i class="fas fa-check h-6 w-6"></i>
+                        <i class="fas fa-check h-6 w-6 btn-icon-animate"></i>
                     </button>
                     <div id="reservation-message" class="mt-4 text-center text-green-600 font-semibold hidden"></div>
-                     <div id="reservation-user-id" class="mt-2 text-center text-sm text-gray-500 hidden"></div>
+                     <div id="reservation-user-id" class="mt-2 text-center text-sm text-muted-foreground hidden"></div>
                 </form>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contacto" class="py-16 md:py-24 bg-custom-light-green">
+    <section id="contacto" class="py-20 md:py-28 bg-secondary">
         <div class="container mx-auto px-4 text-center">
-            <div class="flex justify-center items-center mb-4 text-custom-green">
-                <i class="fas fa-comments h-10 w-10"></i>
+            <div class="flex justify-center items-center mb-4 text-primary">
+                <i class="fas fa-comments h-10 w-10 icon-hover-effect"></i>
             </div>
-            <h2 class="text-3xl md:text-4xl font-bold text-custom-brown mb-4">Contáctanos</h2>
-            <p class="text-lg md:text-xl text-custom-brown mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-foreground mb-4">Contáctanos</h2>
+            <p class="text-lg md:text-xl text-foreground mb-12">
                 ¿Tienes preguntas o comentarios? Estamos aquí para ayudarte.
             </p>
 
             <div class="flex flex-col md:flex-row justify-center gap-8 items-stretch">
                 <!-- Contact Info Column -->
-                <div class="w-full md:w-1/2 bg-white p-6 md:p-8 rounded-xl shadow-lg text-left">
-                    <h3 class="text-2xl font-bold text-custom-green mb-6">Nuestras Sucursales</h3>
+                <div class="w-full md:w-1/2 bg-card p-6 md:p-8 rounded-xl shadow-xl border border-border text-left">
+                    <h3 class="text-2xl font-bold text-primary mb-6">Nuestras Sucursales</h3>
                     <div class="space-y-6">
                         <!-- Sucursal Aeropuerto -->
                         <div>
-                            <div class="flex items-center space-x-2 text-custom-brown mb-1">
-                                <i class="fas fa-building h-6 w-6 text-custom-green"></i>
+                            <div class="flex items-center space-x-2 text-foreground mb-1">
+                                <i class="fas fa-building h-6 w-6 text-primary"></i>
                                 <p class="text-xl font-semibold">Cielo Esmeralda - Aeropuerto</p>
                             </div>
-                            <div class="flex items-center space-x-2 text-custom-brown mb-1">
-                                <i class="fas fa-phone h-5 w-5 text-gray-600"></i>
+                            <div class="flex items-center space-x-2 text-foreground mb-1">
+                                <i class="fas fa-phone h-5 w-5 text-muted-foreground"></i>
                                 <p>+52 55 4879 2277</p>
                             </div>
-                            <div class="flex items-start space-x-2 text-custom-brown">
-                                <i class="fas fa-map-marker-alt h-5 w-5 text-gray-600 flex-shrink-0 mt-1"></i>
+                            <div class="flex items-start space-x-2 text-foreground">
+                                <i class="fas fa-map-marker-alt h-5 w-5 text-muted-foreground flex-shrink-0 mt-1"></i>
                                 <p>Aeródromo Mexiquense, Valle Escondido y Club de Golf Valle Escondido, 52930 Cdad. López Mateos, Méx.</p>
                             </div>
                         </div>
 
                         <!-- Sucursal Chiluca -->
                         <div>
-                            <div class="flex items-center space-x-2 text-custom-brown mb-1">
-                                <i class="fas fa-building h-6 w-6 text-custom-green"></i>
+                            <div class="flex items-center space-x-2 text-foreground mb-1">
+                                <i class="fas fa-building h-6 w-6 text-primary"></i>
                                 <p class="text-xl font-semibold">Cielo Esmeralda - Chiluca</p>
                             </div>
-                            <div class="flex items-center space-x-2 text-custom-brown mb-1">
-                                <i class="fas fa-phone h-5 w-5 text-gray-600"></i>
+                            <div class="flex items-center space-x-2 text-foreground mb-1">
+                                <i class="fas fa-phone h-5 w-5 text-muted-foreground"></i>
                                 <p>+52 55 3667 7175</p>
                             </div>
-                            <div class="flex items-start space-x-2 text-custom-brown">
-                                <i class="fas fa-map-marker-alt h-5 w-5 text-gray-600 flex-shrink-0 mt-1"></i>
+                            <div class="flex items-start space-x-2 text-foreground">
+                                <i class="fas fa-map-marker-alt h-5 w-5 text-muted-foreground flex-shrink-0 mt-1"></i>
                                 <p>Manzana 033, Residencial Chiluca, Chiluca y Club de Golf Chiluca, 52930 Cdad. López Mateos, Méx.</p>
                             </div>
                         </div>
 
                         <!-- Sucursal Lomas Verdes -->
                         <div>
-                            <div class="flex items-center space-x-2 text-custom-brown mb-1">
-                                <i class="fas fa-building h-6 w-6 text-custom-green"></i>
+                            <div class="flex items-center space-x-2 text-foreground mb-1">
+                                <i class="fas fa-building h-6 w-6 text-primary"></i>
                                 <p class="text-xl font-semibold">Cielo Esmeralda - Lomas Verdes</p>
                             </div>
-                            <div class="flex items-center space-x-2 text-custom-brown mb-1">
-                                <i class="fas fa-phone h-5 w-5 text-gray-600"></i>
+                            <div class="flex items-center space-x-2 text-foreground mb-1">
+                                <i class="fas fa-phone h-5 w-5 text-muted-foreground"></i>
                                 <p>+52 55 1329 5638</p>
                             </div>
-                            <div class="flex items-start space-x-2 text-custom-brown">
-                                <i class="fas fa-map-marker-alt h-5 w-5 text-gray-600 flex-shrink-0 mt-1"></i>
+                            <div class="flex items-start space-x-2 text-foreground">
+                                <i class="fas fa-map-marker-alt h-5 w-5 text-muted-foreground flex-shrink-0 mt-1"></i>
                                 <p>Blvd. de la Sta. Cruz 142, Sta Cruz Acatlán, 53150 Naucalpan de Juárez, Méx.</p>
                             </div>
                         </div>
 
                         <!-- Correo General -->
                         <div>
-                            <h4 class="text-xl font-semibold text-custom-green mb-2">Correo General</h4>
-                            <div class="flex items-center space-x-2 text-custom-brown">
-                                <i class="fas fa-envelope h-5 w-5 text-gray-600"></i>
+                            <h4 class="text-xl font-semibold text-primary mb-2">Correo General</h4>
+                            <div class="flex items-center space-x-2 text-foreground">
+                                <i class="fas fa-envelope h-5 w-5 text-muted-foreground"></i>
                                 <p>cieloesmeraldamx@gmail.com</p>
                             </div>
                         </div>
 
                         <!-- Horario General -->
                         <div>
-                            <h4 class="text-xl font-semibold text-custom-green mb-2">Horario General</h4>
-                            <div class="flex items-center space-x-2 text-custom-brown">
-                                <i class="fas fa-clock h-5 w-5 text-gray-600"></i>
+                            <h4 class="text-xl font-semibold text-primary mb-2">Horario General</h4>
+                            <div class="flex items-center space-x-2 text-foreground">
+                                <i class="fas fa-clock h-5 w-5 text-muted-foreground"></i>
                                 <p>Lunes a Domingo: 08:00 AM - 06:00 PM</p>
                             </div>
-                            <p class="text-sm text-gray-500 mt-1">(Sujeto a cambios por sucursal o días festivos)</p>
+                            <p class="text-sm text-muted-foreground mt-1">(Sujeto a cambios por sucursal o días festivos)</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Contact Form Column -->
-                <div class="w-full md:w-1/2 bg-white p-6 md:p-8 rounded-xl shadow-lg text-left flex flex-col">
-                    <h3 class="text-2xl font-bold text-custom-brown mb-6">Envíanos un Mensaje</h3>
+                <div class="w-full md:w-1/2 bg-card p-6 md:p-8 rounded-xl shadow-xl border border-border text-left flex flex-col">
+                    <h3 class="text-2xl font-bold text-foreground mb-6">Envíanos un Mensaje</h3>
                     <form id="contact-form" class="space-y-6 flex-grow flex flex-col">
                         <div>
-                            <label for="contactFullName" class="block text-lg font-semibold text-custom-brown mb-2">Nombre Completo</label>
+                            <label for="contactFullName" class="block text-lg font-semibold text-foreground mb-2">Nombre Completo</label>
                             <input
                                 type="text"
                                 id="contactFullName"
                                 name="contactFullName"
                                 placeholder="Ej: Carlos López"
-                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-custom-green focus:border-custom-green transition-all bg-gray-50 text-custom-brown"
+                                class="w-full px-4 py-3 border border-border rounded-md focus:ring-ring focus:border-primary transition-all bg-input text-foreground"
                                 required
                             />
                         </div>
                         <div>
-                            <label for="contactEmail" class="block text-lg font-semibold text-custom-brown mb-2">Correo Electrónico</label>
+                            <label for="contactEmail" class="block text-lg font-semibold text-foreground mb-2">Correo Electrónico</label>
                             <input
                                 type="email"
                                 id="contactEmail"
                                 name="contactEmail"
                                 placeholder="Ej: carlos.lopez@correo.com"
-                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-custom-green focus:border-custom-green transition-all bg-gray-50 text-custom-brown"
+                                class="w-full px-4 py-3 border border-border rounded-md focus:ring-ring focus:border-primary transition-all bg-input text-foreground"
                                 required
                             />
                         </div>
                         <div class="flex-grow">
-                            <label for="message" class="block text-lg font-semibold text-custom-brown mb-2">Mensaje</label>
+                            <label for="message" class="block text-lg font-semibold text-foreground mb-2">Mensaje</label>
                             <textarea
                                 id="message"
                                 name="message"
                                 rows="6"
                                 placeholder="Escribe tu mensaje aquí..."
-                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-custom-green focus:border-custom-green transition-all bg-gray-50 text-custom-brown resize-y"
-                                required
+                                class="w-full px-4 py-3 border border-border rounded-md focus:ring-ring focus:border-primary transition-all bg-input text-foreground resize-y"
                             ></textarea>
                         </div>
 
                         <button
                             type="submit"
-                            class="w-full bg-custom-green text-white px-6 py-3 rounded-full flex items-center justify-center space-x-2 shadow-lg hover:bg-opacity-90 transition-all duration-300 text-lg font-semibold mt-auto"
+                            class="btn-primary w-full px-6 py-3 rounded-md flex items-center justify-center space-x-2 shadow-md hover:shadow-lg transition-all duration-300 text-lg font-semibold mt-auto"
                         >
                             <span>Enviar Mensaje</span>
-                            <i class="fas fa-paper-plane h-6 w-6"></i>
+                            <i class="fas fa-paper-plane h-6 w-6 btn-icon-animate"></i>
                         </button>
                         <div id="contact-message" class="mt-4 text-center text-green-600 font-semibold hidden"></div>
                     </form>
@@ -577,12 +580,13 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-custom-footer-beige py-12 md:py-16 text-custom-brown">
+    <footer class="bg-card py-12 md:py-16 text-foreground">
         <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
             <!-- Logo and Description -->
             <div class="flex flex-col items-center md:items-start text-center md:text-left">
+                <!-- Footer Logo -->
                 <img
-                    src="https://placehold.co/80x80/6B9080/FFFFFF?text=Logo"
+                    src="https://placehold.co/80x80/F2EFE8/4B3F38?text=LOGO"
                     alt="Cielo Esmeralda Logo"
                     class="w-20 h-20 mb-4 rounded-full shadow-md"
                     onerror="this.onerror=null; this.src='https://placehold.co/80x80?text=Logo';"
@@ -607,21 +611,21 @@
             <!-- Business Hours -->
             <div class="text-center md:text-left">
                 <h4 class="text-xl font-bold mb-4 flex items-center justify-center md:justify-start space-x-2">
-                    <i class="fas fa-clock h-6 w-6 text-custom-green"></i>
+                    <i class="fas fa-clock h-6 w-6 text-primary"></i>
                     <span>Horario de Atención</span>
                 </h4>
                 <p class="text-lg">Lunes a Domingo: 08:00 AM - 06:00 PM</p>
-                <p class="text-sm text-gray-600">(Sujeto a cambios por sucursal o días festivos)</p>
+                <p class="text-sm text-muted-foreground">(Sujeto a cambios por sucursal o días festivos)</p>
             </div>
 
             <!-- Social Media -->
             <div class="text-center md:text-left">
                 <h4 class="text-xl font-bold mb-4">Síguenos</h4>
                 <div class="flex justify-center md:justify-start space-x-4">
-                    <a href="https://facebook.com/cieloesmeralda" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-custom-green transition-colors">
+                    <a href="https://facebook.com/cieloesmeralda" target="_blank" rel="noopener noreferrer" class="text-muted-foreground hover:text-primary transition-colors">
                         <i class="fab fa-facebook-f h-8 w-8"></i>
                     </a>
-                    <a href="https://instagram.com/cieloesmeralda" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-custom-green transition-colors">
+                    <a href="https://instagram.com/cieloesmeralda" target="_blank" rel="noopener noreferrer" class="text-muted-foreground hover:text-primary transition-colors">
                         <i class="fab fa-instagram h-8 w-8"></i>
                     </a>
                 </div>
@@ -630,27 +634,27 @@
     </footer>
 
     <!-- Chatbot Floating Icon -->
-    <button id="chatbot-toggle" class="fixed bottom-8 right-8 bg-custom-green text-white p-4 rounded-full shadow-lg hover:scale-105 transition-transform duration-300 z-40" title="Abrir Chatbot">
+    <button id="chatbot-toggle" class="fixed bottom-8 left-8 bg-primary text-primary-foreground p-4 rounded-full shadow-lg hover:scale-105 transition-transform duration-300 z-40" title="Abrir Chatbot">
         <i class="fas fa-comments h-8 w-8"></i>
     </button>
 
     <!-- Chatbot Window -->
-    <div id="chatbot-window" class="fixed bottom-24 right-8 w-80 h-96 bg-white rounded-lg shadow-xl flex flex-col z-50 border border-gray-200 hidden">
-        <div class="bg-custom-dark-green text-white p-3 rounded-t-lg flex justify-between items-center">
+    <div id="chatbot-window" class="fixed bottom-24 left-8 w-80 h-96 bg-card rounded-lg shadow-xl flex flex-col z-50 border border-border hidden">
+        <div class="bg-primary text-primary-foreground p-3 rounded-t-lg flex justify-between items-center">
             <h3 class="font-bold">Asistente de Cielo Esmeralda</h3>
-            <button id="chatbot-close" class="text-white hover:text-gray-300">
+            <button id="chatbot-close" class="text-primary-foreground hover:text-gray-300">
                 <i class="fas fa-times h-6 w-6"></i>
             </button>
         </div>
         <div id="chat-messages" class="flex-grow p-3 overflow-y-auto space-y-3" style="max-height: calc(100% - 100px);">
             <!-- Chat messages will be appended here -->
         </div>
-        <form id="chat-form" class="p-3 border-t border-gray-200">
+        <form id="chat-form" class="p-3 border-border border-t">
             <input
                 type="text"
                 id="chat-input"
                 placeholder="Escribe tu mensaje..."
-                class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-custom-green"
+                class="w-full p-2 border border-border rounded-lg focus:outline-none focus:ring-1 focus:ring-ring bg-input text-foreground"
             />
             <button type="submit" class="hidden">Enviar</button>
         </form>
