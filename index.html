@@ -1,739 +1,430 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cielo Esmeralda - Tu Experiencia Culinaria</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- Font Awesome para iconos -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Google Fonts: Lora para encabezados -->
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Google Fonts: Inter para texto de cuerpo (como fallback para Geist Sans) -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-</head>
-<body class="antialiased">
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap');
+/* Google Fonts: Inter para texto de cuerpo (como fallback si Geist Sans no está integrado con un cargador personalizado) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
-    <!-- Header -->
-    <header class="fixed top-0 left-0 w-full bg-accent text-accent-foreground p-4 z-50 shadow-md backdrop-blur">
-        <nav class="container mx-auto flex justify-between items-center px-4">
-            <!-- Logo -->
-            <div class="flex-shrink-0">
-                <img src="https://placehold.co/120x40/014D43/F9F7F4?text=LOGO" alt="Cielo Esmeralda Logo" class="h-10 w-auto">
-            </div>
 
-            <!-- Desktop Navigation -->
-            <ul class="hidden md:flex space-x-8 items-center">
-                <li><a href="#inicio" class="hover:text-gray-300 transition-colors smooth-scroll">Inicio</a></li>
-                <li><a href="#nosotros" class="hover:text-gray-300 transition-colors smooth-scroll">Nosotros</a></li>
-                <li><a href="#menu" class="hover:text-gray-300 transition-colors smooth-scroll">Menú</a></li>
-                <li><a href="#sucursales" class="hover:text-gray-300 transition-colors smooth-scroll">Sucursales</a></li>
-                <li><a href="#reservaciones" class="hover:text-gray-300 transition-colors smooth-scroll">Reservaciones</a></li>
-                <li><a href="#contacto" class="hover:text-gray-300 transition-colors smooth-scroll">Contacto</a></li>
-            </ul>
+/* Global resets de los detalles proporcionados */
+*, :before, :after {
+    box-sizing: border-box;
+    border-width: 0;
+    border-style: solid;
+    --tw-border-spacing-x: 0;
+    --tw-border-spacing-y: 0;
+    --tw-translate-x: 0;
+    --tw-translate-y: 0;
+    --tw-rotate: 0;
+    --tw-skew-x: 0;
+    --tw-skew-y: 0;
+    --tw-scale-x: 1;
+    --tw-scale-y: 1;
+    --tw-pan-x: ;
+    --tw-pan-y: ;
+    --tw-pinch-zoom: ;
+    --tw-scroll-snap-strictness: proximity;
+    --tw-gradient-from-position: ;
+    --tw-gradient-via-position: ;
+    --tw-gradient-to-position: ;
+    --tw-ordinal: ;
+    --tw-slashed-zero: ;
+    --tw-numeric-figure: ;
+    --tw-numeric-spacing: ;
+    --tw-numeric-fraction: ;
+    --tw-ring-inset: ;
+    --tw-ring-offset-width: 0px;
+    --tw-ring-offset-color: #fff;
+    --tw-ring-color: #3b82f680;
+    --tw-ring-offset-shadow: 0 0 #0000;
+    --tw-ring-shadow: 0 0 #0000;
+    --tw-shadow: 0 0 #0000;
+    --tw-shadow-colored: 0 0 #0000;
+    --tw-blur: ;
+    --tw-brightness: ;
+    --tw-contrast: ;
+    --tw-grayscale: ;
+    --tw-hue-rotate: ;
+    --tw-invert: ;
+    --tw-saturate: ;
+    --tw-sepia: ;
+    --tw-drop-shadow: ;
+    --tw-backdrop-blur: ;
+    --tw-backdrop-brightness: ;
+    --tw-backdrop-contrast: ;
+    --tw-backdrop-grayscale: ;
+    --tw-backdrop-hue-rotate: ;
+    --tw-backdrop-invert: ;
+    --tw-backdrop-opacity: ;
+    --tw-backdrop-saturate: ;
+    --tw-backdrop-sepia: ;
+    --tw-contain-size: ;
+    --tw-contain-layout: ;
+    --tw-contain-paint: ;
+}
 
-            <!-- Voice Navigation and Reserve Button (Desktop) -->
-            <div class="hidden md:flex items-center space-x-4">
-                <button id="voice-nav-btn" class="p-2 rounded-full hover:bg-opacity-80 transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-ring" title="Navegación por Voz">
-                    <i class="fas fa-microphone h-6 w-6"></i>
-                </button>
-                <a href="#reservaciones" class="btn-primary px-4 py-2 rounded-md flex items-center space-x-2 shadow-md hover:shadow-lg transition-all duration-300 smooth-scroll">
-                    <span>Reservar Ahora</span>
-                    <i class="fas fa-arrow-right h-4 w-4 btn-icon-animate"></i>
-                </a>
-            </div>
+:before, :after {
+    --tw-content: "";
+}
 
-            <!-- Hamburger Menu (Mobile) -->
-            <div class="md:hidden flex items-center">
-                <button id="mobile-voice-nav-btn" class="p-2 mr-2 rounded-full hover:bg-opacity-80 transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-ring" title="Navegación por Voz">
-                    <i class="fas fa-microphone h-6 w-6"></i>
-                </button>
-                <button id="menu-toggle" class="text-accent-foreground focus:outline-none">
-                    <i class="fas fa-bars w-8 h-8"></i>
-                </button>
-            </div>
-        </nav>
+html, :host {
+    line-height: 1.5;
+    -webkit-text-size-adjust: 100%;
+    -moz-tab-size: 4;
+    tab-size: 4;
+    /* Geist Sans Fallback: Inter, luego la pila de fuentes del sistema */
+    font-family: 'Inter', ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-feature-settings: normal;
+    font-variation-settings: normal;
+    -webkit-tap-highlight-color: transparent;
+}
 
-        <!-- Mobile Menu Overlay -->
-        <div id="mobile-menu" class="md:hidden absolute top-full left-0 w-full bg-accent shadow-lg py-4 transition-all duration-300 ease-in-out hidden">
-            <ul class="flex flex-col items-center space-y-4">
-                <li><a href="#inicio" class="block py-2 text-accent-foreground hover:text-gray-300 smooth-scroll mobile-menu-link">Inicio</a></li>
-                <li><a href="#nosotros" class="block py-2 text-accent-foreground hover:text-gray-300 smooth-scroll mobile-menu-link">Nosotros</a></li>
-                <li><a href="#menu" class="block py-2 text-accent-foreground hover:text-gray-300 smooth-scroll mobile-menu-link">Menú</a></li>
-                <li><a href="#sucursales" class="block py-2 text-accent-foreground hover:text-gray-300 smooth-scroll mobile-menu-link">Sucursales</a></li>
-                <li><a href="#reservaciones" class="block py-2 text-accent-foreground hover:text-gray-300 smooth-scroll mobile-menu-link">Reservaciones</a></li>
-                <li><a href="#contacto" class="block py-2 text-accent-foreground hover:text-gray-300 smooth-scroll mobile-menu-link">Contacto</a></li>
-                <li>
-                    <a href="#reservaciones" class="btn-primary px-4 py-2 rounded-md flex items-center space-x-2 shadow-md hover:shadow-lg transition-all duration-300 smooth-scroll mobile-menu-link">
-                        <span>Reservar Ahora</span>
-                        <i class="fas fa-arrow-right h-4 w-4 btn-icon-animate"></i>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </header>
+body {
+    margin: 0;
+    line-height: inherit;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
 
-    <!-- Hero Section -->
-    <section id="inicio" class="relative py-20 md:py-28 overflow-hidden bg-background">
-        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-8 md:gap-16">
-            <div class="w-full md:w-1/2 text-center md:text-left">
-                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-4">
-                    Bienvenido a <span class="text-primary">Cielo Esmeralda</span>
-                </h1>
-                <p class="text-lg md:text-xl text-foreground mb-8">
-                    Descubre una experiencia culinaria única donde la tradición se encuentra con la innovación. Sabores auténticos en un ambiente elegante y acogedor.
-                </p>
-                <div class="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
-                    <a href="#reservaciones" class="btn-primary px-6 py-3 rounded-md flex items-center justify-center space-x-2 shadow-md hover:shadow-lg transition-all duration-300 text-lg smooth-scroll">
-                        <span>Reservar Mesa</span>
-                        <i class="fas fa-arrow-right h-5 w-5 btn-icon-animate"></i>
-                    </a>
-                    <a href="#menu" class="btn-secondary px-6 py-3 rounded-md flex items-center justify-center space-x-2 transition-all duration-300 text-lg">
-                        <span>Ver Menú</span>
-                        <i class="fas fa-chevron-right h-5 w-5 btn-icon-animate"></i>
-                    </a>
-                </div>
-            </div>
+/* Paleta de Colores HSL */
+:root {
+    /* Modo Claro (Predeterminado) */
+    --background: 39 33% 94%;       /* Tono crema muy claro (#F5F1EA) */
+    --foreground: 20 10% 30%;       /* Gris oscuro neutro (#4B3F38) */
+    --primary: 172 60% 35%;         /* Verde azulado oscuro medio (~#33807B) */
+    --primary-foreground: 39 33% 96%; /* Texto claro para primario (~#F9F7F4) */
+    --accent: 172 97% 15%;          /* Verde azulado muy oscuro y saturado (#014D43) */
+    --accent-foreground: 39 33% 96%;  /* Texto claro para acento (~#F9F7F4) */
+    --secondary: 150 40% 92%;       /* Verde muy claro y suave (~#E6F0EB) */
+    --secondary-foreground: 150 40% 25%; /* Verde más oscuro para texto secundario (~#2C5B49) */
+    --card: 39 33% 92%;             /* Tono crema para tarjetas y popovers (~#F2EFE8) */
+    --card-foreground: 20 10% 30%;  /* Texto para tarjetas/popovers (igual que foreground) */
+    --popover: 39 33% 90%;          /* Tono crema ligeramente más oscuro que el fondo principal (~#EEEAE2) */
+    --popover-foreground: 20 10% 30%; /* Texto para popovers (igual que foreground) */
+    --muted: 39 30% 88%;            /* Gris/beige tenue (~#CFC8BB) */
+    --muted-foreground: 20 10% 50%; /* Gris medio para texto secundario e iconos (~#84766E) */
+    --border: 39 20% 85%;           /* Borde sutil basado en la paleta crema (~#D1CEC6) */
+    --input: 39 33% 90%;            /* Fondo para inputs (igual que popover) */
+    --ring: 172 60% 45%;            /* Color de anillo/enfoque (~#44AA9E) */
+    --destructive: 0 70% 50%;       /* Rojo para errores (~#BF2424) */
+    --destructive-foreground: 0 0% 98%; /* Texto blanco para destructivo */
 
-            <!-- Slider/Carousel -->
-            <div id="hero-slider" class="w-full md:w-1/2 relative flex items-center justify-center" onmouseenter="pauseSlider()" onmouseleave="startSlider()">
-                <div class="relative w-full max-w-lg aspect-square overflow-hidden rounded-xl shadow-2xl bg-card p-4">
-                    <!-- Slide Images -->
-                    <div class="slides-container absolute inset-0 transition-transform duration-700 ease-in-out">
-                        <img src="https://placehold.co/400x400/C8D5B9/4B3F38?text=Slide+1" alt="Delicious food 1" class="slide-img w-full h-full object-cover absolute top-0 left-0 img-hover-effect" onerror="this.onerror=null; this.src='https://placehold.co/400x400?text=Image+1';" />
-                        <img src="https://placehold.co/400x400/A2D2FF/4B3F38?text=Slide+2" alt="Restaurant interior" class="slide-img w-full h-full object-cover absolute top-0 left-full img-hover-effect" onerror="this.onerror=null; this.src='https://placehold.co/400x400?text=Image+2';" />
-                        <img src="https://placehold.co/400x400/9BB8A9/4B3F38?text=Slide+3" alt="Special dish" class="slide-img w-full h-full object-cover absolute top-0 left-[200%]" onerror="this.onerror=null; this.src='https://placehold.co/400x400?text=Image+3';" />
-                    </div>
+    --radius: .5rem; /* radio de borde para rounded-md */
+}
 
-                    <!-- Slider content (text overlay) -->
-                    <div class="slide-content absolute inset-0 flex items-center justify-center p-4">
-                        <div class="text-white text-center p-4 bg-black bg-opacity-40 rounded-lg slide-text" data-slide="0">
-                            <h3 class="text-xl md:text-2xl font-bold">El dúo perfecto</h3>
-                            <p class="text-lg md:text-xl">PARA TU MAÑANA</p>
-                        </div>
-                        <div class="text-white text-center p-4 bg-black bg-opacity-40 rounded-lg slide-text hidden" data-slide="1">
-                            <h3 class="text-xl md:text-2xl font-bold">Ambiente Único</h3>
-                            <p class="text-lg md:text-xl">Momentos Inolvidables</p>
-                        </div>
-                        <div class="text-white text-center p-4 bg-black bg-opacity-40 rounded-lg slide-text hidden" data-slide="2">
-                            <h3 class="text-xl md:text-2xl font-bold">Sabores Auténticos</h3>
-                            <p class="text-lg md:text-xl">Con Toque de Modernidad</p>
-                        </div>
-                    </div>
+/* Aplicar colores basados en HSL */
+body {
+    color: hsl(var(--foreground));
+    background-color: hsl(var(--background));
+}
 
-                    <!-- Navigation Arrows -->
-                    <button class="slider-arrow left-4" onclick="prevSlide()">
-                        <i class="fas fa-chevron-left h-6 w-6 text-foreground"></i>
-                    </button>
-                    <button class="slider-arrow right-4" onclick="nextSlide()">
-                        <i class="fas fa-chevron-right h-6 w-6 text-foreground"></i>
-                    </button>
+.bg-background { background-color: hsl(var(--background)); }
+.text-foreground { color: hsl(var(--foreground)); }
 
-                    <!-- Indicators -->
-                    <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
-                        <button class="slider-indicator w-3 h-3 rounded-full bg-gray-400 transition-colors duration-300" data-slide="0"></button>
-                        <button class="slider-indicator w-3 h-3 rounded-full bg-gray-400 transition-colors duration-300" data-slide="1"></button>
-                        <button class="slider-indicator w-3 h-3 rounded-full bg-gray-400 transition-colors duration-300" data-slide="2"></button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+.bg-primary { background-color: hsl(var(--primary)); }
+.text-primary { color: hsl(var(--primary)); }
+.text-primary-foreground { color: hsl(var(--primary-foreground)); }
 
-    <!-- About Us Section -->
-    <section id="nosotros" class="py-20 md:py-28 bg-secondary">
-        <div class="container mx-auto px-4 text-center">
-            <div class="flex justify-center items-center mb-4 text-primary">
-                <i class="fas fa-heart h-10 w-10 icon-hover-effect"></i>
-            </div>
-            <h2 class="text-3xl md:text-4xl font-bold text-foreground mb-4">Nuestra Historia</h2>
-            <p class="text-lg md:text-xl text-foreground mb-12">
-                Conoce la pasión y dedicación que define a Cielo Esmeralda.
-            </p>
+.bg-accent { background-color: hsl(var(--accent)); }
+.text-accent-foreground { color: hsl(var(--accent-foreground)); }
 
-            <div class="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-16">
-                <div class="w-full md:w-1/2 text-left">
-                    <h3 class="text-2xl md:text-3xl font-bold text-primary mb-6">Filosofía</h3>
-                    <p class="text-lg text-foreground mb-4">
-                        En Cielo Esmeralda, creemos en la magia de los ingredientes frescos y de temporada, transformados en platillos que deleitan el paladar y cuentan una historia. Nuestra cocina es un homenaje a la tradición, con un toque de modernidad que sorprende y enamora.
-                    </p>
-                    <p class="text-lg text-foreground">
-                        Cada visita es una oportunidad para crear recuerdos inolvidables, rodeado de un ambiente cálido y un servicio que te hace sentir en casa. Te invitamos a ser parte de nuestra familia.
-                    </p>
-                </div>
-                <div class="w-full md:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <div class="rounded-xl overflow-hidden shadow-xl card-hover-effect">
-                        <img src="https://placehold.co/400x300/C8D5B9/4B3F38?text=Interior+1" alt="Restaurant Interior 1" class="w-full h-full object-cover img-hover-effect" onerror="this.onerror=null; this.src='https://placehold.co/400x300?text=Image+4';" />
-                    </div>
-                    <div class="rounded-xl overflow-hidden shadow-xl card-hover-effect">
-                        <img src="https://placehold.co/400x300/A2D2FF/4B3F38?text=Interior+2" alt="Restaurant Interior 2" class="w-full h-full object-cover img-hover-effect" onerror="this.onerror=null; this.src='https://placehold.co/400x300?text=Image+5';" />
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+.bg-secondary { background-color: hsl(var(--secondary)); }
+.text-secondary-foreground { color: hsl(var(--secondary-foreground)); }
 
-    <!-- Menu Section -->
-    <section id="menu" class="py-20 md:py-28 bg-background">
-        <div class="container mx-auto px-4 text-center">
-            <div class="flex justify-center items-center mb-4 text-primary">
-                <i class="fas fa-book-open h-10 w-10 icon-hover-effect"></i>
-            </div>
-            <h2 class="text-3xl md:text-4xl font-bold text-foreground mb-4">Nuestro Menú Digital</h2>
-            <p class="text-lg md:text-xl text-foreground mb-12">
-                Escanea el código QR con tu dispositivo móvil para explorar nuestra exquisita selección.
-            </p>
+.bg-card { background-color: hsl(var(--card)); }
+.text-card-foreground { color: hsl(var(--card-foreground)); }
 
-            <div class="flex flex-col md:flex-row justify-center items-stretch gap-8 mb-8">
-                <div class="bg-card p-6 rounded-xl shadow-xl border border-border text-left w-full max-w-sm flex flex-col items-center card-hover-effect">
-                    <h3 class="text-2xl font-bold text-primary mb-4">Menú de Comida</h3>
-                    <img src="https://placehold.co/250x250/C8D5B9/4B3F38?text=QR+Comida" alt="QR Code for Food Menu" class="w-48 h-48 sm:w-64 sm:h-64 rounded-lg img-hover-effect" onerror="this.onerror=null; this.src='https://placehold.co/250x250?text=QR+Food';" />
-                </div>
-                <div class="bg-card p-6 rounded-xl shadow-xl border border-border text-left w-full max-w-sm flex flex-col items-center card-hover-effect">
-                    <h3 class="text-2xl font-bold text-primary mb-4">Menú de Bebidas</h3>
-                    <img src="https://placehold.co/250x250/A2D2FF/4B3F38?text=QR+Bebidas" alt="QR Code for Drinks Menu" class="w-48 h-48 sm:w-64 sm:h-64 rounded-lg img-hover-effect" onerror="this.onerror=null; this.src='https://placehold.co/250x250?text=QR+Drinks';" />
-                </div>
-            </div>
+.bg-popover { background-color: hsl(var(--popover)); }
+.text-popover-foreground { color: hsl(var(--popover-foreground)); }
 
-            <p class="text-lg text-foreground mb-8">
-                ¿Problemas con el QR?
-                <a href="https://example.com/menu.pdf" target="_blank" rel="noopener noreferrer" class="text-primary font-semibold hover:underline transition-colors">
-                    Descarga el menú completo en PDF.
-                </a>
-            </p>
+.text-muted-foreground { color: hsl(var(--muted-foreground)); }
+.border-border { border-color: hsl(var(--border)); }
+.bg-input { background-color: hsl(var(--input)); }
+.text-input-foreground { color: hsl(var(--input-foreground, var(--foreground))); }
 
-            <a href="#reservaciones" class="btn-primary px-6 py-3 rounded-md flex items-center justify-center mx-auto space-x-2 shadow-md hover:shadow-lg transition-all duration-300 text-lg smooth-scroll">
-                <span>Reservar Ahora</span>
-                <i class="fas fa-arrow-right h-5 w-5 btn-icon-animate"></i>
-            </a>
-        </div>
-    </section>
+/* Para el pie de página, usa el color de la tarjeta */
+footer {
+    background-color: hsl(var(--card));
+}
 
-    <!-- Locations Section -->
-    <section id="sucursales" class="py-20 md:py-28 bg-secondary">
-        <div class="container mx-auto px-4 text-center">
-            <div class="flex justify-center items-center mb-4 text-primary">
-                <i class="fas fa-map-marker-alt h-10 w-10 icon-hover-effect"></i>
-            </div>
-            <h2 class="text-3xl md:text-4xl font-bold text-foreground mb-4">Nuestras Sucursales</h2>
-            <p class="text-lg md:text-xl text-foreground mb-12">
-                Encuentra tu Cielo Esmeralda más cercano. ¡Te esperamos!
-            </p>
+/* --- Tipografía --- */
+/* Encabezados (h1, h2, h3, etc.): Fuente Lora (Serif) */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Lora', serif;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.05); /* Sombra de texto sutil */
+}
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
-                <!-- Sucursal 1 -->
-                <div class="bg-card p-6 rounded-xl shadow-xl border border-border text-left w-full max-w-sm flex flex-col justify-between card-hover-effect">
-                    <div>
-                        <h3 class="text-2xl font-bold text-primary mb-2">Cielo Esmeralda - Aeropuerto</h3>
-                        <p class="text-lg text-foreground mb-2">Aeródromo Mexiquense, Valle Escondido y Club de Golf Valle Escondido, 52930 Cdad. López Mateos, Méx.</p>
-                        <p class="text-lg text-foreground mb-4">+52 55 4879 2277</p>
-                    </div>
-                    <a href="https://maps.app.goo.gl/example1" target="_blank" rel="noopener noreferrer" class="text-primary font-semibold hover:underline flex items-center space-x-2 transition-colors">
-                        <span>Ver en Google Maps</span>
-                        <i class="fas fa-external-link-alt h-5 w-5 icon-hover-effect"></i>
-                    </a>
-                </div>
+/* Cuerpo de Texto (párrafos, botones): Geist Sans (Sans-serif) - manejado por el selector html/body */
 
-                <!-- Sucursal 2 -->
-                <div class="bg-card p-6 rounded-xl shadow-xl border border-border text-left w-full max-w-sm flex flex-col justify-between card-hover-effect">
-                    <div>
-                        <h3 class="text-2xl font-bold text-primary mb-2">Cielo Esmeralda - Chiluca</h3>
-                        <p class="text-lg text-foreground mb-2">Manzana 033, Residencial Chiluca, Chiluca y Club de Golf Chiluca, 52930 Cdad. López Mateos, Méx.</p>
-                        <p class="text-lg text-foreground mb-4">+52 55 3667 7175</p>
-                    </div>
-                    <a href="https://maps.app.goo.gl/example2" target="_blank" rel="noopener noreferrer" class="text-primary font-semibold hover:underline flex items-center space-x-2 transition-colors">
-                        <span>Ver en Google Maps</span>
-                        <i class="fas fa-external-link-alt h-5 w-5 icon-hover-effect"></i>
-                    </a>
-                </div>
 
-                <!-- Sucursal 3 -->
-                <div class="bg-card p-6 rounded-xl shadow-xl border border-border text-left w-full max-w-sm flex flex-col justify-between card-hover-effect">
-                    <div>
-                        <h3 class="text-2xl font-bold text-primary mb-2">Cielo Esmeralda - Lomas Verdes</h3>
-                        <p class="text-lg text-foreground mb-2">Blvd. de la Sta. Cruz 142, Sta Cruz Acatlán, 53150 Naucalpan de Juárez, Méx.</p>
-                        <p class="text-lg text-foreground mb-4">+52 55 1329 5638</p>
-                    </div>
-                    <a href="https://maps.app.goo.gl/example3" target="_blank" rel="noopener noreferrer" class="text-primary font-semibold hover:underline flex items-center space-x-2 transition-colors">
-                        <span>Ver en Google Maps</span>
-                        <i class="fas fa-external-link-alt h-5 w-5 icon-hover-effect"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
+/* --- Estructura, Espaciado y Sombras --- */
+/* Relleno vertical generoso para secciones */
+section {
+    padding-top: 5rem; /* 80px */
+    padding-bottom: 5rem;
+}
+@media (min-width: 768px) { /* md breakpoint */
+    section {
+        padding-top: 7rem; /* 112px */
+        padding-bottom: 7rem;
+    }
+}
 
-    <!-- Reservations Section -->
-    <section id="reservaciones" class="py-20 md:py-28 bg-background">
-        <div class="container mx-auto px-4 text-center">
-            <div class="flex justify-center items-center mb-4 text-primary space-x-2">
-                <i class="fas fa-utensils h-10 w-10 icon-hover-effect"></i>
-                <i class="fas fa-calendar-check h-10 w-10 icon-hover-effect"></i>
-            </div>
-            <h2 class="text-3xl md:text-4xl font-bold text-foreground mb-4">Reserva tu Mesa</h2>
-            <p class="text-lg md:text-xl text-foreground mb-12">
-                Asegura tu lugar en Cielo Esmeralda y prepárate para una experiencia gastronómica inolvidable.
-            </p>
+/* Ancho máximo del contenedor de contenido */
+.container {
+    width: 100%; /* Asegura que ocupe todo el ancho disponible */
+    max-width: 1280px; /* max-w-screen-xl */
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
 
-            <div class="bg-card p-6 md:p-8 rounded-xl shadow-xl w-full max-w-2xl mx-auto border border-border">
-                <form id="reservation-form" class="space-y-6">
-                    <div>
-                        <label for="branch" class="block text-lg font-semibold text-foreground mb-2">Sucursal</label>
-                        <div class="relative">
-                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                <i class="fas fa-building h-6 w-6 text-muted-foreground"></i>
-                            </div>
-                            <select
-                                id="branch"
-                                name="branch"
-                                class="w-full pl-10 pr-4 py-3 border border-border rounded-md focus:ring-ring focus:border-primary transition-all bg-input text-foreground"
-                                required
-                            >
-                                <option value="">Selecciona una sucursal</option>
-                                <option value="aeropuerto">Cielo Esmeralda - Aeropuerto</option>
-                                <option value="chiluca">Cielo Esmeralda - Chiluca</option>
-                                <option value="lomas-verdes">Cielo Esmeralda - Lomas Verdes</option>
-                            </select>
-                        </div>
-                    </div>
+/* Sombras */
+.shadow-md { box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); }
+.shadow-lg { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); }
+.shadow-xl { box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); }
+.shadow-2xl { box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); }
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <label for="fullName" class="block text-lg font-semibold text-foreground mb-2">Nombre Completo</label>
-                            <input
-                                type="text"
-                                id="fullName"
-                                name="fullName"
-                                placeholder="Ej: Ana Pérez"
-                                class="w-full px-4 py-3 border border-border rounded-md focus:ring-ring focus:border-primary transition-all bg-input text-foreground"
-                                required
-                            />
-                        </div>
-                        <div>
-                            <label for="phone" class="block text-lg font-semibold text-foreground mb-2">Teléfono</label>
-                            <input
-                                type="tel"
-                                id="phone"
-                                name="phone"
-                                placeholder="Ej: 55 1234 5678"
-                                class="w-full px-4 py-3 border border-border rounded-md focus:ring-ring focus:border-primary transition-all bg-input text-foreground"
-                                pattern="[0-9]{10}"
-                                title="Por favor, ingresa un número de teléfono de 10 dígitos (solo números)."
-                                required
-                            />
-                        </div>
-                    </div>
 
-                    <div>
-                        <label for="email" class="block text-lg font-semibold text-foreground mb-2">Correo Electrónico</label>
-                        <div class="relative">
-                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                <i class="fas fa-envelope h-6 w-6 text-muted-foreground"></i>
-                            </div>
-                            <input
-                                type="email"
-                                id="email"
-                                name="email"
-                                placeholder="Ej: ana.perez@correo.com"
-                                class="w-full pl-10 pr-4 py-3 border border-border rounded-md focus:ring-ring focus:border-primary transition-all bg-input text-foreground"
-                                required
-                            />
-                        </div>
-                    </div>
+/* --- Estilo de Componentes Específicos --- */
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <label for="date" class="block text-lg font-semibold text-foreground mb-2">Fecha</label>
-                            <div class="relative">
-                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                    <i class="fas fa-calendar-alt h-6 w-6 text-muted-foreground"></i>
-                                </div>
-                                <input
-                                    type="date"
-                                    id="date"
-                                    name="date"
-                                    class="w-full pl-10 pr-4 py-3 border border-border rounded-md focus:ring-ring focus:border-primary transition-all bg-input text-foreground"
-                                    required
-                                />
-                            </div>
-                        </div>
-                        <div>
-                            <label for="time" class="block text-lg font-semibold text-foreground mb-2">Hora</label>
-                            <div class="relative">
-                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                    <i class="fas fa-clock h-6 w-6 text-muted-foreground"></i>
-                                </div>
-                                <select
-                                    id="time"
-                                    name="time"
-                                    class="w-full pl-10 pr-4 py-3 border border-border rounded-md focus:ring-ring focus:border-primary transition-all bg-input text-foreground"
-                                    required
-                                >
-                                    <option value="">Selecciona una hora</option>
-                                    <option value="08:00">08:00 AM</option>
-                                    <option value="09:00">09:00 AM</option>
-                                    <option value="10:00">10:00 AM</option>
-                                    <option value="11:00">11:00 AM</option>
-                                    <option value="12:00">12:00 PM</option>
-                                    <option value="13:00">01:00 PM</option>
-                                    <option value="14:00">02:00 PM</option>
-                                    <option value="15:00">03:00 PM</option>
-                                    <option value="16:00">04:00 PM</option>
-                                    <option value="17:00">05:00 PM</option>
-                                    <option value="18:00">06:00 PM</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
+/* Header */
+header {
+    z-index: 100;
+}
+/* Efecto de desenfoque de fondo */
+.backdrop-blur {
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+}
+/* Asegurar que los enlaces de navegación del header usen accent-foreground */
+header nav ul li a, header nav button {
+    color: hsl(var(--accent-foreground));
+}
+/* Elementos del menú móvil */
+#mobile-menu ul li a {
+    color: hsl(var(--accent-foreground));
+}
 
-                    <div>
-                        <label for="diners" class="block text-lg font-semibold text-foreground mb-2">Número de Comensales</label>
-                        <div class="relative">
-                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                <i class="fas fa-users h-6 w-6 text-muted-foreground"></i>
-                            </div>
-                            <select
-                                id="diners"
-                                name="diners"
-                                class="w-full pl-10 pr-4 py-3 border border-border rounded-md focus:ring-ring focus:border-primary transition-all bg-input text-foreground"
-                                required
-                            >
-                                <option value="">Selecciona comensales</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10+</option>
-                            </select>
-                        </div>
-                    </div>
+/* Botones */
+.btn-primary {
+    background-color: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+    padding: 0.75rem 1.5rem; /* px-6 py-3 para ser más cortos */
+    border-radius: var(--radius); /* rounded-md */
+    box-shadow: var(--tw-shadow); /* Sombra inicial */
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 1.125rem;
+    font-weight: 600;
+    text-decoration: none;
+    border: none;
+    /* Definición de la sombra para el estado normal del botón */
+    --tw-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -1px var(--tw-shadow-color);
+}
+.btn-primary:hover {
+    background-color: hsla(var(--primary), 0.9);
+    transform: translateY(-2px); /* Ligero levantamiento */
+    /* Definición de la sombra para el estado hover del botón */
+    --tw-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -2px var(--tw-shadow-color);
+    box-shadow: var(--tw-shadow);
+}
 
-                    <div>
-                        <label for="notes" class="block text-lg font-semibold text-foreground mb-2">Notas Adicionales (opcional)</label>
-                        <div class="relative">
-                            <div class="absolute top-3 left-3 flex items-center pointer-events-none">
-                                <i class="fas fa-comment-alt h-6 w-6 text-muted-foreground"></i>
-                            </div>
-                            <textarea
-                                id="notes"
-                                name="notes"
-                                rows="4"
-                                placeholder="Ej: Alergia al gluten, mesa cerca de la ventana, celebración de cumpleaños..."
-                                class="w-full pl-10 pr-4 py-3 border border-border rounded-md focus:ring-ring focus:border-primary transition-all bg-input text-foreground resize-y"
-                            ></textarea>
-                        </div>
-                    </div>
+.btn-secondary {
+    border: 1px solid hsla(var(--primary), 0.2); /* border-primary/20 */
+    color: hsl(var(--foreground));
+    background-color: transparent;
+    padding: 0.75rem 1.5rem; /* px-6 py-3 para ser más cortos */
+    border-radius: var(--radius); /* rounded-md */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 1.125rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+.btn-secondary:hover {
+    background-color: hsl(var(--accent)); /* Se rellena con el color de acento al pasar el ratón */
+    color: hsl(var(--accent-foreground)); /* El texto cambia a foreground del acento */
+    border-color: hsl(var(--accent)); /* El borde también se vuelve color de acento */
+}
+/* Animación de la flecha en los botones */
+.btn-icon-animate {
+    transition: transform 0.3s ease-out;
+}
+.btn-primary:hover .btn-icon-animate,
+.btn-secondary:hover .btn-icon-animate {
+    transform: translateX(4px); /* Desplaza la flecha a la derecha */
+}
 
-                    <button
-                        type="submit"
-                        class="btn-primary w-full px-6 py-3 rounded-md flex items-center justify-center space-x-2 shadow-md hover:shadow-lg transition-all duration-300 text-lg font-semibold"
-                    >
-                        <span>Confirmar Reservación</span>
-                        <i class="fas fa-check h-6 w-6 btn-icon-animate"></i>
-                    </button>
-                    <div id="reservation-message" class="mt-4 text-center text-green-600 font-semibold hidden"></div>
-                     <div id="reservation-user-id" class="mt-2 text-center text-sm text-muted-foreground hidden"></div>
-                </form>
-            </div>
-        </div>
-    </section>
 
-    <!-- Contact Section -->
-    <section id="contacto" class="py-20 md:py-28 bg-secondary">
-        <div class="container mx-auto px-4 text-center">
-            <div class="flex justify-center items-center mb-4 text-primary">
-                <i class="fas fa-comments h-10 w-10 icon-hover-effect"></i>
-            </div>
-            <h2 class="text-3xl md:text-4xl font-bold text-foreground mb-4">Contáctanos</h2>
-            <p class="text-lg md:text-xl text-foreground mb-12">
-                ¿Tienes preguntas o comentarios? Estamos aquí para ayudarte.
-            </p>
+/* Tarjetas (Card) */
+.bg-card {
+    border-radius: 0.75rem; /* rounded-xl */
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); /* shadow-xl */
+    border: 1px solid hsla(var(--primary), 0.1); /* border-primary/20 */
+    transition: all 0.3s ease;
+}
+.card-hover-effect:hover { /* Aplicar a un div con bg-card */
+    transform: translateY(-4px); /* Se eleva */
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); /* Sombra más grande (shadow-2xl) */
+}
 
-            <div class="flex flex-col md:flex-row justify-center gap-8 items-stretch">
-                <!-- Contact Info Column -->
-                <div class="w-full md:w-1/2 bg-card p-6 md:p-8 rounded-xl shadow-xl border border-border text-left">
-                    <h3 class="text-2xl font-bold text-primary mb-6">Nuestras Sucursales</h3>
-                    <div class="space-y-6">
-                        <!-- Sucursal Aeropuerto -->
-                        <div>
-                            <div class="flex items-center space-x-2 text-foreground mb-1">
-                                <i class="fas fa-building h-6 w-6 text-primary"></i>
-                                <p class="text-xl font-semibold">Cielo Esmeralda - Aeropuerto</p>
-                            </div>
-                            <div class="flex items-center space-x-2 text-foreground mb-1">
-                                <i class="fas fa-phone h-5 w-5 text-muted-foreground"></i>
-                                <p>+52 55 4879 2277</p>
-                            </div>
-                            <div class="flex items-start space-x-2 text-foreground">
-                                <i class="fas fa-map-marker-alt h-5 w-5 text-muted-foreground flex-shrink-0 mt-1"></i>
-                                <p>Aeródromo Mexiquense, Valle Escondido y Club de Golf Valle Escondido, 52930 Cdad. López Mateos, Méx.</p>
-                            </div>
-                        </div>
 
-                        <!-- Sucursal Chiluca -->
-                        <div>
-                            <div class="flex items-center space-x-2 text-foreground mb-1">
-                                <i class="fas fa-building h-6 w-6 text-primary"></i>
-                                <p class="text-xl font-semibold">Cielo Esmeralda - Chiluca</p>
-                            </div>
-                            <div class="flex items-center space-x-2 text-foreground mb-1">
-                                <i class="fas fa-phone h-5 w-5 text-muted-foreground"></i>
-                                <p>+52 55 3667 7175</p>
-                            </div>
-                            <div class="flex items-start space-x-2 text-foreground">
-                                <i class="fas fa-map-marker-alt h-5 w-5 text-muted-foreground flex-shrink-0 mt-1"></i>
-                                <p>Manzana 033, Residencial Chiluca, Chiluca y Club de Golf Chiluca, 52930 Cdad. López Mateos, Méx.</p>
-                            </div>
-                        </div>
+/* Formularios (Inputs, Selects, Calendario) */
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+input[type="date"],
+select,
+textarea {
+    box-sizing: border-box;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    font-size: 1rem;
+    border-radius: var(--radius); /* rounded-md */
+    border: 1px solid hsl(var(--border));
+    padding: 0.75rem 1rem; /* Relleno consistente */
+    background-color: hsl(var(--input));
+    color: hsl(var(--foreground));
+    transition: all 0.3s ease;
+}
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: hsl(var(--primary)); /* focus:border-primary */
+    box-shadow: 0 0 0 3px hsla(var(--primary), 0.25); /* Anillo de enfoque sutil */
+}
+/* Posicionamiento del icono para inputs con padding-left */
+.relative input.pl-10, .relative select.pl-10, .relative textarea.pl-10 {
+    padding-left: 2.8rem; /* Ajustado para mejor alineación: 1.5rem de icono + espacio */
+}
 
-                        <!-- Sucursal Lomas Verdes -->
-                        <div>
-                            <div class="flex items-center space-x-2 text-foreground mb-1">
-                                <i class="fas fa-building h-6 w-6 text-primary"></i>
-                                <p class="text-xl font-semibold">Cielo Esmeralda - Lomas Verdes</p>
-                            </div>
-                            <div class="flex items-center space-x-2 text-foreground mb-1">
-                                <i class="fas fa-phone h-5 w-5 text-muted-foreground"></i>
-                                <p>+52 55 1329 5638</p>
-                            </div>
-                            <div class="flex items-start space-x-2 text-foreground">
-                                <i class="fas fa-map-marker-alt h-5 w-5 text-muted-foreground flex-shrink-0 mt-1"></i>
-                                <p>Blvd. de la Sta. Cruz 142, Sta Cruz Acatlán, 53150 Naucalpan de Juárez, Méx.</p>
-                            </div>
-                        </div>
 
-                        <!-- Correo General -->
-                        <div>
-                            <h4 class="text-xl font-semibold text-primary mb-2">Correo General</h4>
-                            <div class="flex items-center space-x-2 text-foreground">
-                                <i class="fas fa-envelope h-5 w-5 text-muted-foreground"></i>
-                                <p>cieloesmeraldamx@gmail.com</p>
-                            </div>
-                        </div>
+/* --- Animaciones y Microinteracciones --- */
+/* Iconos: Escalar en hover */
+.icon-hover-effect {
+    transition: transform 0.2s ease-in-out;
+}
+.icon-hover-effect:hover {
+    transform: scale(1.1); /* hover:scale-110 */
+}
 
-                        <!-- Horario General -->
-                        <div>
-                            <h4 class="text-xl font-semibold text-primary mb-2">Horario General</h4>
-                            <div class="flex items-center space-x-2 text-foreground">
-                                <i class="fas fa-clock h-5 w-5 text-muted-foreground"></i>
-                                <p>Lunes a Domingo: 08:00 AM - 06:00 PM</p>
-                            </div>
-                            <p class="text-sm text-muted-foreground mt-1">(Sujeto a cambios por sucursal o días festivos)</p>
-                        </div>
-                    </div>
-                </div>
+/* Imágenes dentro de tarjetas: Zoom en hover */
+.img-hover-effect {
+    transition: transform 0.3s ease-in-out;
+}
+.img-hover-effect:hover {
+    transform: scale(1.05); /* hover:scale-105 */
+}
 
-                <!-- Contact Form Column -->
-                <div class="w-full md:w-1/2 bg-card p-6 md:p-8 rounded-xl shadow-xl border border-border text-left flex flex-col">
-                    <h3 class="text-2xl font-bold text-foreground mb-6">Envíanos un Mensaje</h3>
-                    <form id="contact-form" class="space-y-6 flex-grow flex flex-col">
-                        <div>
-                            <label for="contactFullName" class="block text-lg font-semibold text-foreground mb-2">Nombre Completo</label>
-                            <input
-                                type="text"
-                                id="contactFullName"
-                                name="contactFullName"
-                                placeholder="Ej: Carlos López"
-                                class="w-full px-4 py-3 border border-border rounded-md focus:ring-ring focus:border-primary transition-all bg-input text-foreground"
-                                required
-                            />
-                        </div>
-                        <div>
-                            <label for="contactEmail" class="block text-lg font-semibold text-foreground mb-2">Correo Electrónico</label>
-                            <input
-                                type="email"
-                                id="contactEmail"
-                                name="contactEmail"
-                                placeholder="Ej: carlos.lopez@correo.com"
-                                class="w-full px-4 py-3 border border-border rounded-md focus:ring-ring focus:border-primary transition-all bg-input text-foreground"
-                                required
-                            />
-                        </div>
-                        <div class="flex-grow">
-                            <label for="message" class="block text-lg font-semibold text-foreground mb-2">Mensaje</label>
-                            <textarea
-                                id="message"
-                                name="message"
-                                rows="6"
-                                placeholder="Escribe tu mensaje aquí..."
-                                class="w-full px-4 py-3 border border-border rounded-md focus:ring-ring focus:border-primary transition-all bg-input text-foreground resize-y"
-                            ></textarea>
-                        </div>
 
-                        <button
-                            type="submit"
-                            class="btn-primary w-full px-6 py-3 rounded-md flex items-center justify-center space-x-2 shadow-md hover:shadow-lg transition-all duration-300 text-lg font-semibold mt-auto"
-                        >
-                            <span>Enviar Mensaje</span>
-                            <i class="fas fa-paper-plane h-6 w-6 btn-icon-animate"></i>
-                        </button>
-                        <div id="contact-message" class="mt-4 text-center text-green-600 font-semibold hidden"></div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
+/* Mobile Menu */
+#mobile-menu.hidden {
+    display: none;
+    max-height: 0;
+    overflow: hidden;
+}
+#mobile-menu.active {
+    display: block;
+    max-height: 500px;
+}
 
-    <!-- Footer -->
-    <footer class="bg-card py-12 md:py-16 text-foreground">
-        <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
-            <!-- Logo and Description -->
-            <div class="flex flex-col items-center md:items-start text-center md:text-left">
-                <!-- Footer Logo -->
-                <img
-                    src="https://placehold.co/80x80/F2EFE8/4B3F38?text=LOGO"
-                    alt="Cielo Esmeralda Logo"
-                    class="w-20 h-20 mb-4 rounded-full shadow-md"
-                    onerror="this.onerror=null; this.src='https://placehold.co/80x80?text=Logo';"
-                />
-                <p class="text-lg">
-                    Experiencias culinarias inolvidables en un ambiente acogedor y elegante.
-                </p>
-            </div>
+/* Hero Slider */
+.slides-container {
+    display: flex;
+    width: 300%;
+}
+.slide-img {
+    width: calc(100% / 3);
+    flex-shrink: 0;
+}
+.slide-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+}
+.slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 0.5rem;
+    background-color: hsla(0, 0%, 100%, 0.7);
+    border-radius: 9999px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+.slider-arrow.left-4 { left: 1rem; }
+.slider-arrow.right-4 { right: 1rem; }
+.slider-arrow:hover { background-color: hsla(0, 0%, 100%, 0.9); }
 
-            <!-- Quick Links -->
-            <div class="text-center md:text-left">
-                <h4 class="text-xl font-bold mb-4">Enlaces Rápidos</h4>
-                <ul class="space-y-2">
-                    <li><a href="#nosotros" class="hover:underline transition-colors smooth-scroll">Nosotros</a></li>
-                    <li><a href="#menu" class="hover:underline transition-colors smooth-scroll">Menú</a></li>
-                    <li><a href="#sucursales" class="hover:underline transition-colors smooth-scroll">Sucursales</a></li>
-                    <li><a href="#reservaciones" class="hover:underline transition-colors smooth-colors">Reservaciones</a></li>
-                    <li><a href="#contacto" class="hover:underline transition-colors smooth-scroll">Contacto</a></li>
-                </ul>
-            </div>
+.slider-indicator {
+    cursor: pointer;
+    border: none;
+}
+.slider-indicator.active {
+    background-color: hsl(var(--primary));
+}
 
-            <!-- Business Hours -->
-            <div class="text-center md:text-left">
-                <h4 class="text-xl font-bold mb-4 flex items-center justify-center md:justify-start space-x-2">
-                    <i class="fas fa-clock h-6 w-6 text-primary"></i>
-                    <span>Horario de Atención</span>
-                </h4>
-                <p class="text-lg">Lunes a Domingo: 08:00 AM - 06:00 PM</p>
-                <p class="text-sm text-muted-foreground">(Sujeto a cambios por sucursal o días festivos)</p>
-            </div>
 
-            <!-- Social Media -->
-            <div class="text-center md:text-left">
-                <h4 class="text-xl font-bold mb-4">Síguenos</h4>
-                <div class="flex justify-center md:justify-start space-x-4">
-                    <a href="https://facebook.com/cieloesmeralda" target="_blank" rel="noopener noreferrer" class="text-muted-foreground hover:text-primary transition-colors">
-                        <i class="fab fa-facebook-f h-8 w-8"></i>
-                    </a>
-                    <a href="https://instagram.com/cieloesmeralda" target="_blank" rel="noopener noreferrer" class="text-muted-foreground hover:text-primary transition-colors">
-                        <i class="fab fa-instagram h-8 w-8"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </footer>
+/* Chatbot */
+#chatbot-window {
+    height: 24rem;
+    width: 20rem;
+    left: 2rem; /* Posición a la izquierda */
+    right: auto;
+}
+#chatbot-toggle {
+    left: 2rem; /* Posición a la izquierda */
+    right: auto;
+}
 
-    <!-- Chatbot Floating Icon -->
-    <button id="chatbot-toggle" class="fixed bottom-8 left-8 bg-primary text-primary-foreground p-4 rounded-full shadow-lg hover:scale-105 transition-transform duration-300 z-40" title="Abrir Chatbot">
-        <i class="fas fa-comments h-8 w-8"></i>
-    </button>
+#chat-messages {
+    max-height: calc(100% - 100px);
+}
 
-    <!-- Chatbot Window -->
-    <div id="chatbot-window" class="fixed bottom-24 left-8 w-80 h-96 bg-card rounded-lg shadow-xl flex flex-col z-50 border border-border hidden">
-        <div class="bg-primary text-primary-foreground p-3 rounded-t-lg flex justify-between items-center">
-            <h3 class="font-bold">Asistente de Cielo Esmeralda</h3>
-            <button id="chatbot-close" class="text-primary-foreground hover:text-gray-300">
-                <i class="fas fa-times h-6 w-6"></i>
-            </button>
-        </div>
-        <div id="chat-messages" class="flex-grow p-3 overflow-y-auto space-y-3" style="max-height: calc(100% - 100px);">
-            <!-- Chat messages will be appended here -->
-        </div>
-        <form id="chat-form" class="p-3 border-border border-t">
-            <input
-                type="text"
-                id="chat-input"
-                placeholder="Escribe tu mensaje..."
-                class="w-full p-2 border border-border rounded-lg focus:outline-none focus:ring-1 focus:ring-ring bg-input text-foreground"
-            />
-            <button type="submit" class="hidden">Enviar</button>
-        </form>
-    </div>
 
-    <!-- Firebase SDKs (place before your script.js) -->
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-        import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+/* Ajustes responsivos */
+@media (min-width: 640px) { /* sm breakpoint */
+    .sm\:flex-row { flex-direction: row; }
+    .sm\:w-64 { width: 16rem; }
+    .sm\:h-64 { height: 16rem; }
+    .sm\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
 
-        // IMPORTANT: In a real environment, you would get these from your Firebase project settings.
-        // If running outside Canvas, these __variables__ will be undefined.
-        // Replace with your actual Firebase config if not in Canvas.
-        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {
-            apiKey: "YOUR_API_KEY",
-            authDomain: "YOUR_AUTH_DOMAIN",
-            projectId: "YOUR_PROJECT_ID",
-            storageBucket: "YOUR_STORAGE_BUCKET",
-            messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-            appId: "YOUR_APP_ID"
-        };
+@media (min-width: 768px) { /* md breakpoint */
+    .md\:flex { display: flex; }
+    .md\:hidden { display: none; }
+    .md\:w-1\/2 { width: 50%; }
+    .md\:flex-row { flex-direction: row; }
+    .md\:text-left { text-align: left; }
+    .md\:gap-16 { gap: 4rem; }
+    .md\:gap-8 { gap: 2rem; }
+    .md\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .md\:items-start { align-items: flex-start; }
+    .md\:justify-start { justify-content: flex-start; }
+}
 
-        let app, db, auth;
-        let currentUserId = null;
-        let isAuthReady = false;
+@media (min-width: 1024px) { /* lg breakpoint */
+    .lg\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
 
-        try {
-            app = initializeApp(firebaseConfig);
-            db = getFirestore(app);
-            auth = getAuth(app);
-
-            onAuthStateChanged(auth, async (user) => {
-                if (user) {
-                    currentUserId = user.uid;
-                    isAuthReady = true;
-                    console.log("Firebase: User is authenticated. UID:", currentUserId);
-                     const userIdDisplay = document.getElementById('reservation-user-id');
-                     if (userIdDisplay) {
-                         userIdDisplay.textContent = `ID de usuario: ${currentUserId} (para fines de depuración/referencia)`;
-                         userIdDisplay.classList.remove('hidden');
-                     }
-                } else {
-                    try {
-                        const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
-                        if (initialAuthToken) {
-                            await signInWithCustomToken(auth, initialAuthToken);
-                        } else {
-                            await signInAnonymously(auth);
-                        }
-                    } catch (error) {
-                        console.error("Firebase Auth error:", error);
-                        // Fallback: If anonymous sign-in fails, use a random ID.
-                        currentUserId = crypto.randomUUID();
-                        isAuthReady = true; // Still ready to proceed, but with local ID
-                        console.log("Firebase: Signed in anonymously or failed, using random ID:", currentUserId);
-                         const userIdDisplay = document.getElementById('reservation-user-id');
-                         if (userIdDisplay) {
-                             userIdDisplay.textContent = `ID de usuario (generado localmente): ${currentUserId}`;
-                             userIdDisplay.classList.remove('hidden');
-                         }
-                    }
-                }
-            });
-        } catch (error) {
-            console.error("Failed to initialize Firebase:", error);
-            console.log("Firebase no se pudo inicializar. Los datos de los formularios no se persistirán.");
-        }
-
-        // Expose Firebase objects to the global scope for script.js if needed (careful with this)
-        // Or better, pass them to functions from script.js
-        window.firebaseApp = app;
-        window.firestoreDb = db;
-        window.firebaseAuth = auth;
-        window.getFirebaseUserId = () => currentUserId;
-        window.isFirebaseAuthReady = () => isAuthReady;
-        window.firebaseAddDoc = addDoc;
-        window.firebaseCollection = collection;
-    </script>
-    <script src="script.js"></script>
-</body>
-</html>
+/* Asegurar comportamiento de scroll suave */
+html {
+    scroll-behavior: smooth;
+}
