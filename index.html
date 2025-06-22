@@ -3,27 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cielo Esmeralda - Gastronomía Exquisita</title>
-    <link rel="stylesheet" href="style.css"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="images/favicon.png"> </head>
+    <title>Cielo Esmeralda - Cocina Tradicional con Toque Moderno</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
 <body>
+
     <header class="main-header">
         <div class="logo">
-            <a href="#inicio">Cielo Esmeralda</a>
+            <a href="#inicio"><img src="assets/logo.png" alt="Logo Cielo Esmeralda"></a>
         </div>
-        <nav>
-            <ul class="nav-links">
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#nuestra-historia">Nosotros</a></li>
-                <li><a href="#menu-digital">Menú</a></li>
-                <li><a href="#sucursales">Sucursales</a></li>
-                <li><a href="#reservaciones">Reservaciones</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-            </ul>
+        <nav class="nav-links">
+            <li><a href="#inicio" class="active">Inicio</a></li>
+            <li><a href="#nuestra-historia">Nosotros</a></li>
+            <li><a href="#menu-digital">Menú</a></li>
+            <li><a href="#sucursales">Sucursales</a></li>
+            <li><a href="#reservaciones">Reservaciones</a></li>
+            <li><a href="#contacto">Contacto</a></li>
         </nav>
         <div class="nav-actions">
-            <button id="voice-command-toggle" class="voice-command-button" title="Activar Comandos por Voz"><i class="fas fa-microphone"></i></button>
+            <button id="voice-command-toggle" class="voice-command-button" title="Comando por Voz">
+                <i class="fas fa-microphone"></i> </button>
             <a href="#reservaciones" class="reserve-button">Reservar Ahora <i class="fas fa-arrow-right"></i></a>
         </div>
         <div class="menu-toggle">
@@ -35,32 +36,31 @@
 
     <main>
         <section id="inicio" class="hero-section animated-section">
-            <div class="hero-content container">
+            <div class="container hero-content">
                 <div class="hero-text">
-                    <h1>Bienvenido a <span>Cielo Esmeralda</span></h1>
+                    <h1>Bienvenido a <br><span>Cielo Esmeralda</span></h1>
                     <p>Descubre una experiencia culinaria única donde la tradición se encuentra con la innovación. Sabores auténticos en un ambiente elegante y acogedor.</p>
                     <div class="hero-buttons">
                         <a href="#reservaciones" class="button button-primary">Reservar Mesa <i class="fas fa-arrow-right"></i></a>
-                        <a href="#menu-digital" class="button button-secondary">Ver Menú <i class="fas fa-bars"></i></a>
+                        <a href="#menu-digital" class="button button-secondary">Ver Menú <i class="fas fa-book-open"></i></a>
                     </div>
                 </div>
                 <div class="hero-image-carousel">
                     <div class="carousel-slide">
-                        <img src="images/hero-carousel-1.jpg" alt="Plato de comida 1">
-                        <img src="images/hero-carousel-2.jpg" alt="Plato de comida 2">
-                        <img src="images/hero-carousel-3.jpg" alt="Plato de comida 3">
-                        </div>
+                        <img src="https://via.placeholder.com/500x350/a0d9b4/2c3e50?text=Platillo+1" alt="Platillo 1">
+                        <img src="https://via.placeholder.com/500x350/a0d9b4/2c3e50?text=Platillo+2" alt="Platillo 2">
+                        <img src="https://via.placeholder.com/500x350/a0d9b4/2c3e50?text=Platillo+3" alt="Platillo 3">
+                    </div>
                     <button class="carousel-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
                     <button class="carousel-btn next-btn"><i class="fas fa-chevron-right"></i></button>
                 </div>
             </div>
         </section>
 
-        <section id="nuestra-historia" class="section-common animated-section">
+        <section id="nuestra-historia" class="section-common section-secondary-bg animated-section">
             <div class="container">
                 <div class="section-header center">
-                    <i class="fas fa-leaf section-icon"></i>
-                    <h2>Nuestra Historia</h2>
+                    <i class="fas fa-handshake-heart section-icon"></i> <h2>Nuestra Historia</h2>
                     <p>Conoce la pasión y dedicación que define a Cielo Esmeralda.</p>
                 </div>
                 <div class="content-two-columns">
@@ -70,136 +70,131 @@
                         <p>Cada visita es una oportunidad para crear recuerdos inolvidables, rodeado de un ambiente cálido y un servicio que te hace sentir en casa. Te invitamos a ser parte de nuestra familia.</p>
                     </div>
                     <div class="image-gallery">
-                        <img src="images/historia-1.jpg" alt="Interior del restaurante 1" class="rounded-image">
-                        <img src="images/historia-2.jpg" alt="Interior del restaurante 2" class="rounded-image">
-                        </div>
+                        <img src="https://via.placeholder.com/400x300/c7e7d6/2c3e50?text=Interior+Restaurante+1" alt="Interior Restaurante 1" class="rounded-image">
+                        <img src="https://via.placeholder.com/400x300/c7e7d6/2c3e50?text=Interior+Restaurante+2" alt="Interior Restaurante 2" class="rounded-image">
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="menu-digital" class="section-common section-secondary-bg animated-section">
-            <div class="container">
+        <section id="menu-digital" class="section-common animated-section">
+            <div class="container text-center">
                 <div class="section-header center">
-                    <i class="fas fa-book-open section-icon"></i>
-                    <h2 class="elegant-title">Nuestro Menú Digital</h2>
+                    <i class="fas fa-book-open section-icon"></i> <h2>Nuestro Menú Digital</h2>
                     <p>Escanea el código QR con tu dispositivo móvil para explorar nuestra exquisita selección.</p>
                 </div>
                 <div class="card-grid">
                     <div class="card qr-card">
                         <h3 class="elegant-title">Menú de Comida</h3>
-                        <img src="images/qr-food-menu.png" alt="Código QR Menú de Comida">
-                        </div>
+                        <img src="assets/qr-comida.png" alt="QR Menú de Comida">
+                    </div>
                     <div class="card qr-card">
                         <h3 class="elegant-title">Menú de Bebidas</h3>
-                        <img src="images/qr-drinks-menu.png" alt="Código QR Menú de Bebidas">
-                        </div>
+                        <img src="assets/qr-bebidas.png" alt="QR Menú de Bebidas">
+                    </div>
                 </div>
-                <div class="text-center mt-spacing-medium">
-                    <p class="text-secondary">¿Problemas con el QR? <a href="documents/menu-completo.pdf" class="text-link" target="_blank">Descarga el menú completo en PDF.</a></p>
-                    <a href="#reservaciones" class="button button-primary mt-spacing-small">Reservar Ahora <i class="fas fa-arrow-right"></i></a>
-                </div>
+                <p class="mt-spacing-small">¿Problemas con el QR? <a href="path/to/your/menu-completo.pdf" target="_blank" class="text-link">Descarga el menú completo en PDF.</a></p>
+                <a href="#reservaciones" class="button button-primary mt-spacing-medium">Reservar Ahora <i class="fas fa-arrow-right"></i></a>
             </div>
         </section>
 
-        <section id="sucursales" class="section-common animated-section">
-            <div class="container">
+        <section id="sucursales" class="section-common section-secondary-bg animated-section">
+            <div class="container text-center">
                 <div class="section-header center">
-                    <i class="fas fa-map-marker-alt section-icon"></i>
-                    <h2>Nuestras Sucursales</h2>
-                    <p>Encuentra tu Cielo Esmeralda más cercano y vive una experiencia inolvidable.</p>
+                    <i class="fas fa-map-pin section-icon"></i> <h2>Nuestras Sucursales</h2>
+                    <p>Encuentra tu Cielo Esmeralda más cercano. ¡Te esperamos!</p>
                 </div>
                 <div class="branches-grid">
                     <div class="branch-card">
                         <h3 class="elegant-title">Cielo Esmeralda - Aeropuerto</h3>
-                        <p><i class="fas fa-building"></i> Av. Aeropuerto Internacional #123, Col. Aviación, CDMX</p>
-                        <p><i class="fas fa-phone"></i> <a href="tel:+525512345678" class="text-primary">55 1234 5678</a></p>
-                        <a href="https://maps.app.goo.gl/TUH4X" target="_blank" class="map-link"><i class="fas fa-external-link-alt"></i> Ver en Google Maps</a>
+                        <p><i class="fas fa-map-pin"></i> Aeródromo Mexiquense, Valle Escondido y Club de Golf, 52930 Cd. López Mateos, Méx.</p>
+                        <p><i class="fas fa-phone"></i> +52 55 4879 2277</p>
+                        <a href="https://maps.app.goo.gl/YourMapLink1" target="_blank" class="map-link">Ver en Google Maps <i class="fas fa-external-link-alt"></i></a>
                     </div>
                     <div class="branch-card">
                         <h3 class="elegant-title">Cielo Esmeralda - Chiluca</h3>
-                        <p><i class="fas fa-building"></i> Blvrd. de la Luz #456, Chiluca, Edo. Méx.</p>
-                        <p><i class="fas fa-phone"></i> <a href="tel:+525598765432" class="text-primary">55 9876 5432</a></p>
-                        <a href="https://maps.app.goo.gl/TUH4X" target="_blank" class="map-link"><i class="fas fa-external-link-alt"></i> Ver en Google Maps</a>
+                        <p><i class="fas fa-map-pin"></i> Manzana 033, Residencial Chiluca, Chiluca y Club de Golf Chiluca, 52930 Cd. López Mateos, Méx.</p>
+                        <p><i class="fas fa-phone"></i> +52 55 3667 7175</p>
+                        <a href="https://maps.app.goo.gl/YourMapLink2" target="_blank" class="map-link">Ver en Google Maps <i class="fas fa-external-link-alt"></i></a>
                     </div>
                     <div class="branch-card">
                         <h3 class="elegant-title">Cielo Esmeralda - Lomas Verdes</h3>
-                        <p><i class="fas fa-building"></i> Paseo Lomas Verdes #789, Naucalpan, Edo. Méx.</p>
-                        <p><i class="fas fa-phone"></i> <a href="tel:+525511223344" class="text-primary">55 1122 3344</a></p>
-                        <a href="https://maps.app.goo.gl/TUH4X" target="_blank" class="map-link"><i class="fas fa-external-link-alt"></i> Ver en Google Maps</a>
+                        <p><i class="fas fa-map-pin"></i> Blvd. de la Sta. Cruz 142, Sta Cruz Acatlán, 53150 Naucalpan de Juárez, Méx.</p>
+                        <p><i class="fas fa-phone"></i> +52 55 1329 5638</p>
+                        <a href="https://maps.app.goo.gl/YourMapLink3" target="_blank" class="map-link">Ver en Google Maps <i class="fas fa-external-link-alt"></i></a>
                     </div>
-                    </div>
-            </div>
-        </section>
-
-        <section id="reservaciones" class="section-common section-secondary-bg animated-section">
-            <div class="container">
-                <div class="section-header center">
-                    <i class="fas fa-calendar-check section-icon"></i>
-                    <i class="fas fa-utensils section-icon"></i>
-                    <h2>Reserva tu Mesa</h2>
-                    <p>Asegura tu lugar en Cielo Esmeralda. Completa el formulario y prepárate para una velada inolvidable.</p>
                 </div>
-                <form id="contact-form" class="reservation-form-container">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="reservation-name"><i class="fas fa-user"></i> Nombre Completo</label>
-                            <input type="text" id="reservation-name" name="name" placeholder="Tu nombre" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="reservation-tel"><i class="fas fa-phone"></i> Teléfono</label>
-                            <input type="tel" id="reservation-tel" name="tel" placeholder="55 1234 5678" required>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="reservation-email"><i class="fas fa-envelope"></i> Correo Electrónico</label>
-                        <input type="email" id="reservation-email" name="email" placeholder="tu.correo@ejemplo.com" required>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="reservation-date"><i class="fas fa-calendar-alt"></i> Fecha</label>
-                            <input type="date" id="reservation-date" name="date" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="reservation-time"><i class="fas fa-clock"></i> Hora</label>
-                            <input type="time" id="reservation-time" name="time" required>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="reservation-branch"><i class="fas fa-map-marked-alt"></i> Sucursal</label>
-                        <select id="reservation-branch" name="branch" required>
-                            <option value="">Selecciona una sucursal</option>
-                            <option value="aeropuerto">Aeropuerto</option>
-                            <option value="chiluca">Chiluca</option>
-                            <option value="lomas-verdes">Lomas Verdes</option>
-                            </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="reservation-guests"><i class="fas fa-users"></i> Número de Comensales</label>
-                        <select id="reservation-guests" name="guests" required>
-                            <option value="">Selecciona el número</option>
-                            <option value="1">1 Persona</option>
-                            <option value="2">2 Personas</option>
-                            <option value="3">3 Personas</option>
-                            <option value="4">4 Personas</option>
-                            <option value="5+">5+ Personas</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="reservation-notes"><i class="fas fa-comment-dots"></i> Notas Adicionales (opcional)</label>
-                        <textarea id="reservation-notes" name="notes" rows="4" placeholder="Alguna petición especial, alergias, etc."></textarea>
-                    </div>
-                    <button type="submit" class="form-submit-button">Confirmar Reservación <i class="fas fa-check"></i></button>
-                    <p id="contact-message"></p>
-                </form>
             </div>
         </section>
 
-        <section id="contacto" class="section-common animated-section">
+        <section id="reservaciones" class="section-common animated-section">
+            <div class="container text-center">
+                <div class="section-header center">
+                    <i class="fas fa-utensils section-icon"></i> <h2>Reserva tu Mesa</h2>
+                    <p>Asegura tu lugar en Cielo Esmeralda y prepárate para una experiencia gastronómica inolvidable.</p>
+                </div>
+                <div class="reservation-form-container">
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label for="branch"><i class="fas fa-building"></i> Sucursal</label>
+                            <select id="branch" name="branch" required>
+                                <option value="">Selecciona una sucursal</option>
+                                <option value="aeropuerto">Aeropuerto</option>
+                                <option value="chiluca">Chiluca</option>
+                                <option value="lomas-verdes">Lomas Verdes</option>
+                            </select>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name"><i class="fas fa-user"></i> Nombre Completo</label>
+                                <input type="text" id="name" name="name" placeholder="Ej: Ana Pérez" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone"><i class="fas fa-phone"></i> Teléfono</label>
+                                <input type="tel" id="phone" name="phone" placeholder="Ej: 55 1234 5678" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email"><i class="fas fa-envelope"></i> Correo Electrónico</label>
+                            <input type="email" id="email" name="email" placeholder="Ej: ana.perez@correo.com" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="date"><i class="fas fa-calendar-days"></i> Fecha</label>
+                                <input type="date" id="date" name="date" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="time"><i class="fas fa-clock"></i> Hora</label>
+                                <input type="time" id="time" name="time" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="guests"><i class="fas fa-users"></i> Número de Comensales</label>
+                            <select id="guests" name="guests" required>
+                                <option value="">Selecciona comensales</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5+</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="notes"><i class="fas fa-message-square"></i> Notas Adicionales (opcional)</label>
+                            <textarea id="notes" name="notes" rows="4" placeholder="Ej: Alergia al gluten, mesa cerca de la ventana, celebración de cumpleaños..."></textarea>
+                        </div>
+                        <button type="submit" class="form-submit-button">Confirmar Reservación <i class="fas fa-check"></i></button>
+                        <p id="contact-message"></p>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section id="contacto" class="section-common section-secondary-bg animated-section">
             <div class="container">
                 <div class="section-header center">
-                    <i class="fas fa-comments section-icon"></i>
-                    <h2>Contáctanos</h2>
-                    <p>¿Tienes preguntas o necesitas asistencia? Estamos aquí para ayudarte.</p>
+                    <i class="fas fa-comment-dots section-icon"></i> <h2>Contáctanos</h2>
+                    <p>¿Tienes preguntas o comentarios? Estamos aquí para ayudarte.</p>
                 </div>
                 <div class="contact-content">
                     <div class="contact-info">
@@ -209,121 +204,124 @@
                                 <i class="fas fa-building"></i>
                                 <div>
                                     <strong>Cielo Esmeralda - Aeropuerto</strong>
-                                    Av. Aeropuerto Internacional #123, Col. Aviación, CDMX<br>
-                                    Tel: <a href="tel:+525512345678">55 1234 5678</a>
+                                    <p><i class="fas fa-phone"></i> +52 55 4879 2277</p>
+                                    <p><i class="fas fa-map-pin"></i> Aeródromo Mexiquense, Valle Escondido y Club de Golf, 52930 Cd. López Mateos, Méx.</p>
                                 </div>
                             </li>
                             <li>
                                 <i class="fas fa-building"></i>
                                 <div>
                                     <strong>Cielo Esmeralda - Chiluca</strong>
-                                    Blvrd. de la Luz #456, Chiluca, Edo. Méx.<br>
-                                    Tel: <a href="tel:+525598765432">55 9876 5432</a>
+                                    <p><i class="fas fa-phone"></i> +52 55 3667 7175</p>
+                                    <p><i class="fas fa-map-pin"></i> Manzana 033, Residencial Chiluca, Chiluca y Club de Golf, 52930 Cd. López Mateos, Méx.</p>
                                 </div>
                             </li>
                             <li>
                                 <i class="fas fa-building"></i>
                                 <div>
                                     <strong>Cielo Esmeralda - Lomas Verdes</strong>
-                                    Paseo Lomas Verdes #789, Naucalpan, Edo. Méx.<br>
-                                    Tel: <a href="tel:+525511223344">55 1122 3344</a>
+                                    <p><i class="fas fa-phone"></i> +52 55 1329 5638</p>
+                                    <p><i class="fas fa-map-pin"></i> Blvd. de la Sta. Cruz 142, Sta Cruz Acatlán, 53150 Naucalpan de Juárez, Méx.</p>
                                 </div>
                             </li>
+                        </ul>
+
+                        <h3 class="elegant-title mt-spacing-medium">Correo General</h3>
+                        <ul>
                             <li>
                                 <i class="fas fa-envelope"></i>
                                 <div>
-                                    <strong>Correo General</strong>
-                                    <a href="mailto:info@cieloesmeralda.com">info@cieloesmeralda.com</a>
+                                    <p>cieloesmeraldamx@gmail.com</p>
                                 </div>
                             </li>
+                        </ul>
+
+                        <h3 class="elegant-title mt-spacing-medium">Horario General</h3>
+                        <ul>
                             <li>
                                 <i class="fas fa-clock"></i>
                                 <div>
-                                    <strong>Horario General</strong>
-                                    Lunes a Viernes: 10:00 AM - 10:00 PM<br>
-                                    Sábados y Domingos: 12:00 PM - 11:00 PM
+                                    <p>Lunes a Domingo: 08:00 AM - 06:00 PM</p>
+                                    <p>(Sujeto a cambios por sucursal o días festivos)</p>
                                 </div>
                             </li>
                         </ul>
                     </div>
+
                     <div class="contact-form-area">
                         <h3 class="elegant-title">Envíanos un Mensaje</h3>
-                        <form id="contact-form-general"> <div class="form-group">
+                        <form id="contact-form-general">
+                            <div class="form-group">
                                 <label for="contact-name"><i class="fas fa-user"></i> Nombre Completo</label>
-                                <input type="text" id="contact-name" name="name" placeholder="Tu nombre" required>
+                                <input type="text" id="contact-name" name="contact-name" placeholder="Ej: Carlos López" required>
                             </div>
                             <div class="form-group">
                                 <label for="contact-email"><i class="fas fa-envelope"></i> Correo Electrónico</label>
-                                <input type="email" id="contact-email" name="email" placeholder="tu.correo@ejemplo.com" required>
+                                <input type="email" id="contact-email" name="contact-email" placeholder="Ej: carlos.lopez@correo.com" required>
                             </div>
                             <div class="form-group">
-                                <label for="contact-subject"><i class="fas fa-tag"></i> Asunto</label>
-                                <input type="text" id="contact-subject" name="subject" placeholder="Consulta, sugerencia, etc." required>
-                            </div>
-                            <div class="form-group">
-                                <label for="contact-message-text"><i class="fas fa-comment-alt"></i> Mensaje</label>
-                                <textarea id="contact-message-text" name="message" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
+                                <label for="contact-message-text"><i class="fas fa-message-square"></i> Mensaje</label>
+                                <textarea id="contact-message-text" name="contact-message-text" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
                             </div>
                             <button type="submit" class="form-submit-button">Enviar Mensaje <i class="fas fa-paper-plane"></i></button>
-                            <p id="contact-message-general"></p> </form>
+                            <p id="contact-message-general"></p>
+                        </form>
                     </div>
                 </div>
             </div>
         </section>
-
     </main>
 
     <footer class="main-footer">
         <div class="container footer-content">
             <div class="footer-column about-us">
-                <a href="#inicio" class="logo-footer">Cielo Esmeralda</a>
-                <p>Descubre el arte de la gastronomía en Cielo Esmeralda. Un lugar donde cada plato es una obra maestra y cada visita, un recuerdo imborrable.</p>
+                <a href="#inicio" class="logo-footer"><img src="assets/logo-white.png" alt="Logo Cielo Esmeralda Footer"></a>
+                <p>Experiencias culinarias inolvidables en un ambiente acogedor y elegante.</p>
             </div>
             <div class="footer-column">
                 <h3>Enlaces Rápidos</h3>
                 <ul>
-                    <li><a href="#inicio">Inicio</a></li>
                     <li><a href="#nuestra-historia">Nosotros</a></li>
-                    <li><a href="#menu-digital">Menú Digital</a></li>
-                    <li><a href="#sucursales">Nuestras Sucursales</a></li>
+                    <li><a href="#menu-digital">Menú</a></li>
+                    <li><a href="#sucursales">Sucursales</a></li>
                     <li><a href="#reservaciones">Reservaciones</a></li>
                     <li><a href="#contacto">Contacto</a></li>
-                    <li><a href="#privacidad">Aviso de Privacidad</a></li> </ul>
+                </ul>
             </div>
             <div class="footer-column">
                 <h3>Horario de Atención</h3>
-                <p>Lunes a Viernes: 10:00 AM - 10:00 PM</p>
-                <p>Sábados y Domingos: 12:00 PM - 11:00 PM</p>
-                
-                <h3 class="mt-spacing-medium">Síguenos</h3>
+                <ul>
+                    <li><i class="fas fa-clock"></i> Lunes a Domingo: 08:00 AM - 06:00 PM</li>
+                    <li>(Sujeto a cambios por sucursal o días festivos)</li>
+                </ul>
                 <div class="social-icons">
-                    <a href="https://facebook.com/cieloesmeralda" target="_blank" aria-label="Facebook de Cielo Esmeralda"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://instagram.com/cieloesmeralda" target="_blank" aria-label="Instagram de Cielo Esmeralda"><i class="fab fa-instagram"></i></a>
-                    </div>
+                    <a href="https://facebook.com/cieloesmeralda" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://instagram.com/cieloesmeralda" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
             </div>
         </div>
         <div class="footer-bottom container">
-            <p>© 2025 Cielo Esmeralda. Todos los derechos reservados.</p>
+            <p>&copy; 2025 Cielo Esmeralda. Todos los derechos reservados.</p>
         </div>
     </footer>
 
     <button id="chatbot-button" title="Abrir Chatbot">
-        <i class="fas fa-comment-dots"></i>
-    </button>
+        <i class="fas fa-comment-dots"></i> </button>
 
     <div id="chatbot-container">
         <div class="chatbot-header">
             <h3>Asistente Cielo Esmeralda</h3>
             <button id="close-chatbot-btn" class="close-btn"><i class="fas fa-times"></i></button>
         </div>
-        <div id="chat-messages" class="chat-messages">
-            <p class="bot-message">¡Hola! Soy tu asistente virtual de Cielo Esmeralda. ¿En qué puedo ayudarte hoy?</p>
+        <div class="chat-messages" id="chat-messages">
+            <p class="bot-message">¡Hola! Soy tu asistente de Cielo Esmeralda. ¿Cómo puedo ayudarte hoy?</p>
         </div>
         <div class="chat-input-area">
             <input type="text" id="chat-input" placeholder="Escribe tu mensaje...">
             <button id="send-chat-btn"><i class="fas fa-paper-plane"></i></button>
         </div>
     </div>
-    
-    <script src="script.js"></script> </body>
+
+    <script src="script.js"></script>
+</body>
 </html>
