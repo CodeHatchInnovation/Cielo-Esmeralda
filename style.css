@@ -1,6 +1,6 @@
 /* Definición de las nuevas variables de color */
 :root {
-    /* Colores base */
+    /* Colores base (Actualizados para coincidir con las imágenes) */
     --primary-background: #F3F0EC;          /* Fondo principal (crema muy claro y cálido) */
     --text-primary: #524D4A;                 /* Gris oscuro para todo el texto general */
     --card-form-background: #EEEBE5;         /* Crema ligeramente más oscuro que el fondo (para tarjetas y formularios) */
@@ -9,7 +9,7 @@
     --text-on-button-primary: #F7F5F2;       /* Un crema muy claro, casi blanco (Texto sobre el Color Primario) */
     --section-secondary-background: #E6F2EB; /* Verde muy pálido (Fondo de secciones como Menú y Contacto) */
     --text-on-section-secondary: #265940;    /* Verde oscuro (Texto sobre el Color Secundario) */
-    --header-footer-background: #014B43;     /* Verde azulado muy oscuro y saturado (Fondo del encabezado/barra de navegación y footer) */
+    --header-footer-background: #005C51;     /* Verde azulado muy oscuro y saturado (Fondo del encabezado/barra de navegación y footer) - AJUSTADO */
     --text-on-header-footer: #F7F5F2;        /* Un crema muy claro, casi blanco (Texto sobre el Color de Acento) */
     --subtle-elements-background: #E7E3DE;   /* Crema desaturado (Elementos Apagados / fondos sutiles) */
     --text-secondary: #8A8582;               /* Gris medio (Texto Apagado / texto secundario, descripciones) */
@@ -28,26 +28,29 @@
     --border-radius-default: 10px;
     --box-shadow-default: 0 4px 15px rgba(0, 0, 0, 0.08); /* Sombra suave */
 
-    /* Tipografías (ya incrustadas con Google Fonts en el HTML) */
-    --font-serif: 'Playfair Display', serif;
-    --font-sans-serif: 'Montserrat', sans-serif;
+    /* Tipografías (Actualizadas según tu especificación) */
+    --font-serif: 'Lora', serif; /* Cambiado de Playfair Display a Lora */
+    --font-sans-serif: 'Montserrat', sans-serif; /* Mantenido Montserrat como alternativa a Geist Sans */
 }
 
 /* Estilos generales para el body */
 body {
-    font-family: var(--font-sans-serif);
+    font-family: var(--font-sans-serif); /* Montserrat */
     margin: 0;
     padding: 0;
     background-color: var(--primary-background);
     color: var(--text-primary);
     line-height: 1.6;
     overflow-x: hidden; /* Evitar scroll horizontal por animaciones */
+    font-size: 16px; /* text-base */
+    font-weight: 400; /* Normal */
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-serif);
+    font-family: var(--font-serif); /* Aplicado Lora */
     color: var(--text-primary); /* Por defecto, el marrón oscuro */
     margin-bottom: 0.5em;
+    font-weight: 700; /* font-bold por defecto para títulos */
 }
 
 /* Estilos generales para secciones con animación de aparición */
@@ -93,22 +96,25 @@ h1, h2, h3, h4, h5, h6 {
     display: block;
 }
 .section-header h2 {
-    font-size: 2.5em;
+    font-size: 30px; /* text-3xl */
+    font-weight: 700; /* font-bold */
     color: var(--text-primary); /* Marrón oscuro */
     margin-bottom: 10px;
 }
 .section-header p {
-    font-size: 1.1em;
+    font-size: 18px; /* text-lg */
+    font-weight: 400; /* Normal */
     color: var(--text-primary);
     max-width: 800px;
     margin: 0 auto;
 }
 .elegant-title {
-    font-family: var(--font-serif);
+    font-family: var(--font-serif); /* Lora */
     color: var(--button-primary); /* Verde azulado para títulos elegantes */
+    font-weight: 600; /* Semi-grueso para subtítulos */
 }
 h3.elegant-title {
-    font-size: 1.8em;
+    font-size: 24px; /* text-2xl */
     margin-bottom: 15px;
 }
 
@@ -128,11 +134,16 @@ h3.elegant-title {
 }
 
 .logo a {
-    color: var(--text-on-header-footer);
-    font-family: var(--font-serif);
-    font-size: 1.8em;
-    text-decoration: none;
-    font-weight: bold;
+    display: flex; /* Para centrar la imagen dentro del enlace */
+    align-items: center;
+    height: 100%;
+    text-decoration: none; /* Asegura que no haya subrayado en el enlace del logo */
+}
+
+.logo img {
+    max-height: 40px; /* Ajusta la altura máxima para tu logo */
+    width: auto; /* Mantiene la proporción */
+    display: block; /* Elimina espacio extra debajo de la imagen */
 }
 
 .nav-links {
@@ -146,7 +157,8 @@ h3.elegant-title {
 .nav-links a {
     color: var(--text-on-header-footer);
     text-decoration: none;
-    font-weight: 500;
+    font-size: 14px; /* text-sm */
+    font-weight: 500; /* font-medium */
     transition: color 0.3s ease;
     padding: 5px 0;
     position: relative;
@@ -181,7 +193,7 @@ h3.elegant-title {
     border: none;
     padding: 10px;
     cursor: pointer;
-    font-size: 1.2em;
+    font-size: 1.2em; /* Tamaño del icono */
     display: flex;
     align-items: center;
     gap: 5px;
@@ -198,9 +210,9 @@ h3.elegant-title {
     color: var(--text-on-button-primary);
     padding: 10px 20px;
     border-radius: var(--border-radius-default);
-    font-weight: bold;
+    font-weight: 700; /* font-bold */
     text-decoration: none;
-    font-size: 1em;
+    font-size: 14px; /* text-sm */
     transition: background-color 0.3s ease;
 }
 
@@ -249,7 +261,8 @@ h3.elegant-title {
 }
 
 .hero-text h1 {
-    font-size: 3.5em;
+    font-size: 36px; /* text-4xl */
+    font-weight: 700; /* font-bold */
     margin-bottom: 15px;
     line-height: 1.1;
     color: var(--text-primary);
@@ -260,7 +273,8 @@ h3.elegant-title {
 }
 
 .hero-text p {
-    font-size: 1.15em;
+    font-size: 18px; /* text-lg */
+    font-weight: 400; /* Normal */
     color: var(--text-primary);
     margin-bottom: var(--spacing-medium);
 }
@@ -274,9 +288,9 @@ h3.elegant-title {
 .hero-buttons .button {
     padding: 12px 25px;
     border-radius: var(--border-radius-default);
-    font-weight: bold;
+    font-weight: 700; /* font-bold */
     text-decoration: none;
-    font-size: 1em;
+    font-size: 16px; /* text-base */
     display: flex;
     align-items: center;
     gap: 8px;
@@ -373,6 +387,11 @@ h3.elegant-title {
     flex: 2; /* Ocupa más espacio */
     min-width: 300px;
 }
+.text-content p {
+    font-size: 16px; /* text-base */
+    font-weight: 400; /* Normal */
+}
+
 
 .image-gallery {
     flex: 1; /* Ocupa menos espacio */
@@ -406,6 +425,10 @@ h3.elegant-title {
     box-shadow: var(--box-shadow-default);
     text-align: center;
 }
+.card h3.elegant-title {
+    font-size: 20px; /* text-xl */
+    font-weight: 700; /* font-bold */
+}
 
 .qr-card img {
     max-width: 180px;
@@ -417,7 +440,8 @@ h3.elegant-title {
 .text-link {
     color: var(--button-primary);
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 500; /* font-medium */
+    font-size: 16px; /* text-base */
     transition: color 0.3s ease;
 }
 .text-link:hover {
@@ -438,6 +462,10 @@ h3.elegant-title {
     border-radius: var(--border-radius-default);
     box-shadow: var(--box-shadow-default);
 }
+.branch-card h3.elegant-title {
+    font-size: 20px; /* text-xl */
+    font-weight: 700; /* font-bold */
+}
 
 .branch-card p {
     color: var(--text-primary);
@@ -445,6 +473,8 @@ h3.elegant-title {
     display: flex;
     align-items: center;
     gap: 10px;
+    font-size: 16px; /* text-base */
+    font-weight: 400; /* Normal */
 }
 .branch-card p i {
     color: var(--button-primary); /* Íconos en color primario */
@@ -457,7 +487,8 @@ h3.elegant-title {
     margin-top: 10px;
     color: var(--text-primary); /* Gris oscuro para el enlace del mapa */
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 500; /* font-medium */
+    font-size: 14px; /* text-sm */
     transition: color 0.3s ease;
 }
 .branch-card .map-link:hover {
@@ -483,7 +514,8 @@ h3.elegant-title {
     display: block;
     margin-bottom: 8px;
     color: var(--text-primary);
-    font-weight: 500;
+    font-weight: 600; /* font-semibold */
+    font-size: 14px; /* text-sm */
     display: flex;
     align-items: center;
     gap: 8px;
@@ -505,8 +537,9 @@ h3.elegant-title {
     border-radius: var(--border-radius-default);
     background-color: #fff; /* Fondo blanco para inputs */
     color: var(--text-primary);
-    font-family: var(--font-sans-serif);
-    font-size: 1em;
+    font-family: var(--font-sans-serif); /* Montserrat */
+    font-size: 16px; /* text-base */
+    font-weight: 400; /* Normal */
     box-sizing: border-box; /* Incluir padding y borde en el ancho total */
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
@@ -543,8 +576,8 @@ h3.elegant-title {
     padding: 15px 25px;
     border: none;
     border-radius: var(--border-radius-default);
-    font-size: 1.1em;
-    font-weight: bold;
+    font-size: 16px; /* text-base */
+    font-weight: 700; /* font-bold */
     cursor: pointer;
     transition: background-color 0.3s ease;
     display: flex;
@@ -557,10 +590,11 @@ h3.elegant-title {
     background-color: #1F7C70;
 }
 
-#contact-message {
+#contact-message, #contact-message-general {
     margin-top: 15px;
-    font-weight: bold;
+    font-weight: 700; /* font-bold */
     text-align: center;
+    font-size: 16px; /* text-base */
 }
 
 /* --- Contacto --- */
@@ -578,8 +612,9 @@ h3.elegant-title {
 
 .contact-info h3 {
     color: var(--button-primary); /* Títulos de subsección en verde azulado */
-    font-family: var(--font-serif);
-    font-size: 1.8em;
+    font-family: var(--font-serif); /* Lora */
+    font-size: 24px; /* text-2xl */
+    font-weight: 600; /* Semi-grueso */
     margin-bottom: 25px;
 }
 
@@ -595,6 +630,8 @@ h3.elegant-title {
     align-items: flex-start;
     gap: 15px;
     color: var(--text-primary);
+    font-size: 16px; /* text-base */
+    font-weight: 400; /* Normal */
 }
 
 .contact-info ul li i {
@@ -604,9 +641,18 @@ h3.elegant-title {
 }
 
 .contact-info ul li strong {
-    font-weight: 700;
+    font-weight: 700; /* font-bold */
     display: block;
     margin-bottom: 5px;
+}
+.contact-info ul li a {
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.contact-info ul li a:hover {
+    color: var(--button-primary);
+    text-decoration: underline;
 }
 
 .contact-form-area {
@@ -621,6 +667,9 @@ h3.elegant-title {
 .contact-form-area h3 {
     margin-top: 0;
     color: var(--button-primary);
+    font-family: var(--font-serif);
+    font-size: 24px; /* text-2xl */
+    font-weight: 600; /* Semi-grueso */
 }
 
 
@@ -652,24 +701,31 @@ h3.elegant-title {
 
 .footer-column h3 {
     color: var(--text-on-header-footer);
-    font-size: 1.3em;
+    font-size: 1.3em; /* Ajuste para que se vea bien en el footer */
     margin-bottom: 20px;
     font-family: var(--font-serif);
+    font-weight: 700; /* font-bold */
 }
 
 .footer-column .logo-footer {
-    color: var(--text-on-header-footer);
-    font-family: var(--font-serif);
-    font-size: 1.8em;
-    text-decoration: none;
-    font-weight: bold;
     display: block;
     margin-bottom: 15px;
+    /* Asegura que el logo del footer no tenga estilos de texto */
+    text-decoration: none;
+    color: inherit; /* Hereda color del padre, si no se especifica */
 }
+.logo-footer img {
+    max-height: 50px; /* Ajusta la altura del logo del footer */
+    width: auto;
+    display: block;
+    margin: 0 auto; /* Centrar la imagen en el footer column */
+}
+
 
 .footer-column p {
     color: var(--text-on-header-footer); /* Texto en blanco/crema */
-    font-size: 0.95em;
+    font-size: 14px; /* text-sm */
+    font-weight: 400; /* Normal */
     line-height: 1.7;
 }
 
@@ -681,16 +737,28 @@ h3.elegant-title {
 
 .footer-column ul li {
     margin-bottom: 10px;
+    color: var(--text-on-header-footer); /* Asegura el color del texto de la lista */
+    font-size: 14px; /* text-sm */
+    font-weight: 400; /* Normal */
+    display: flex; /* Para alinear ícono y texto */
+    align-items: center;
+    gap: 8px; /* Espacio entre ícono y texto */
 }
 
 .footer-column ul li a {
     color: var(--text-on-header-footer);
     text-decoration: none;
+    font-size: 14px; /* text-sm */
+    font-weight: 400; /* Normal */
     transition: color 0.3s ease;
 }
 
 .footer-column ul li a:hover {
     color: var(--button-primary); /* Verde azulado al pasar el ratón */
+}
+.footer-column ul li i {
+    color: var(--text-on-header-footer); /* Color de los íconos en el footer */
+    font-size: 1.1em;
 }
 
 .social-icons {
@@ -713,7 +781,7 @@ h3.elegant-title {
     margin-top: var(--spacing-medium);
     padding-top: var(--spacing-medium);
     border-top: 1px solid rgba(255, 255, 255, 0.1);
-    font-size: 0.9em;
+    font-size: 14px; /* text-sm */
     color: rgba(255, 255, 255, 0.7);
 }
 
@@ -769,9 +837,10 @@ h3.elegant-title {
 
 .chatbot-header h3 {
     margin: 0;
-    font-size: 1.1em;
+    font-size: 16px; /* text-base */
+    font-weight: 500; /* font-medium */
     color: var(--text-on-button-primary);
-    font-family: var(--font-sans-serif);
+    font-family: var(--font-sans-serif); /* Montserrat */
 }
 
 .chatbot-header .close-btn {
@@ -801,6 +870,8 @@ h3.elegant-title {
     max-width: 80%;
     line-height: 1.4;
     word-wrap: break-word;
+    font-size: 14px; /* text-sm */
+    font-weight: 400; /* Normal */
 }
 
 .user-message {
@@ -835,7 +906,9 @@ h3.elegant-title {
     border: 1px solid var(--border-elements);
     border-radius: var(--border-radius-default);
     margin-right: 10px;
-    font-family: var(--font-sans-serif);
+    font-family: var(--font-sans-serif); /* Montserrat */
+    font-size: 16px; /* text-base */
+    font-weight: 400; /* Normal */
     color: var(--text-primary);
     background-color: var(--input-background); /* Color de fondo para el input del chat */
 }
@@ -874,11 +947,34 @@ h3.elegant-title {
     }
 
     .hero-text h1 {
-        font-size: 2.8em;
+        font-size: 48px; /* sm:text-5xl */
+    }
+
+    .hero-text p {
+        font-size: 20px; /* sm:text-xl */
     }
 
     .hero-buttons {
         justify-content: center;
+    }
+
+    .section-header h2 {
+        font-size: 36px; /* sm:text-4xl */
+    }
+    h3.elegant-title, .contact-info h3, .contact-form-area h3 {
+        font-size: 30px; /* sm:text-3xl */
+    }
+    .card h3.elegant-title, .branch-card h3.elegant-title {
+        font-size: 24px; /* text-2xl */
+    }
+
+    .text-content p {
+        font-size: 18px; /* sm:text-lg */
+    }
+
+    .contact-info ul li,
+    .contact-info ul li p {
+        font-size: 16px; /* sm:text-base */
     }
 
     .content-two-columns,
@@ -910,7 +1006,27 @@ h3.elegant-title {
         align-items: center;
         justify-content: center;
     }
+    .logo-footer img {
+        margin: 0 auto 15px auto; /* Centrar la imagen en el footer column y darle espacio abajo */
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group input[type="tel"],
+    .form-group input[type="date"],
+    .form-group input[type="time"],
+    .form-group select,
+    .form-group textarea {
+        font-size: 14px; /* md:text-sm - aplicado a este breakpoint */
+    }
 }
+
+@media (min-width: 1024px) { /* lg breakpoint */
+    .hero-text h1 {
+        font-size: 60px; /* lg:text-6xl */
+    }
+}
+
 
 @media (max-width: 768px) {
     .main-header {
@@ -964,11 +1080,23 @@ h3.elegant-title {
     }
 
     .hero-text h1 {
-        font-size: 2.2em;
+        font-size: 36px; /* text-4xl */
+    }
+    .hero-text p {
+        font-size: 18px; /* text-lg */
     }
 
     .section-header h2 {
-        font-size: 2em;
+        font-size: 30px; /* text-3xl */
+    }
+    h3.elegant-title, .contact-info h3, .contact-form-area h3 {
+        font-size: 24px; /* text-2xl */
+    }
+    .card h3.elegant-title, .branch-card h3.elegant-title {
+        font-size: 20px; /* text-xl */
+    }
+    .text-content p {
+        font-size: 16px; /* text-base */
     }
 
     .form-row {
@@ -977,5 +1105,10 @@ h3.elegant-title {
     }
     .form-row .form-group {
         min-width: unset; /* Permitir que ocupe todo el ancho */
+    }
+
+    .contact-info ul li,
+    .contact-info ul li p {
+        font-size: 16px; /* text-base */
     }
 }
