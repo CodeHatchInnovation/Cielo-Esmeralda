@@ -1,503 +1,328 @@
-/* Definición de las nuevas variables de color */
-:root {
-    /* Colores base */
-    --primary-background: #F3F0EC;          /* Fondo principal (crema muy claro y cálido) */
-    --text-primary: #524D4A;                 /* Gris oscuro para todo el texto general */
-    --card-form-background: #EEEBE5;         /* Crema ligeramente más oscuro que el fondo (para tarjetas y formularios) */
-    --popover-background: #EAE5DD;           /* Fondo de Elementos Emergentes (Popovers) */
-    --button-primary: #248F83;               /* Verde azulado oscuro (Botones principales, enlaces importantes) */
-    --text-on-button-primary: #F7F5F2;       /* Un crema muy claro, casi blanco (Texto sobre el Color Primario) */
-    --section-secondary-background: #E6F2EB; /* Verde muy pálido (Fondo de secciones como Menú y Contacto) */
-    --text-on-section-secondary: #265940;    /* Verde oscuro (Texto sobre el Color Secundario) */
-    --header-footer-background: #014B43;     /* Verde azulado muy oscuro y saturado (Fondo del encabezado/barra de navegación y footer) */
-    --text-on-header-footer: #F7F5F2;        /* Un crema muy claro, casi blanco (Texto sobre el Color de Acento) */
-    --subtle-elements-background: #E7E3DE;   /* Crema desaturado (Elementos Apagados / fondos sutiles) */
-    --text-secondary: #8A8582;               /* Gris medio (Texto Apagado / texto secundario, descripciones) */
-    --error-color: #D92828;                  /* Rojo estándar (Color para Errores) */
-    --text-on-error: #FAFAFA;                /* Blanco (Texto sobre el Color para Errores) */
-    --border-elements: #DBD8D3;              /* Un gris/crema muy sutil (Bordes de elementos) */
-    --input-background: #EAE5DD;             /* Fondo de campos de formulario (Inputs) */
-    --focus-ring-color: #2EAD9D;             /* Verde azulado brillante (Anillo de Foco al seleccionar un input) */
+document.addEventListener('DOMContentLoaded', () => {
+    // --- Mobile Navigation Toggle ---
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
 
-    /* Variables de espaciado y tamaño */
-    --spacing-large: 60px;
-    --spacing-medium: 40px;
-    --spacing-small: 25px;
-    --padding-section: 80px;
-    --padding-card: 40px;
-    --border-radius-default: 10px;
-    --box-shadow-default: 0 4px 15px rgba(0, 0, 0, 0.08); /* Sombra suave */
+    if (menuToggle && navLinks) {
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+        });
 
-    /* Tipografías (ya incrustadas con Google Fonts en el HTML) */
-    --font-serif: 'Playfair Display', serif;
-    --font-sans-serif: 'Montserrat', sans-serif;
-}
+        // Close nav menu when a link is clicked (for mobile)
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                    menuToggle.classList.remove('active');
+                }
+            });
+        });
+    }
 
-/* Estilos generales para el body */
-body {
-    font-family: var(--font-sans-serif);
-    margin: 0;
-    padding: 0;
-    background-color: var(--primary-background);
-    color: var(--text-primary);
-    line-height: 1.6;
-    overflow-x: hidden; /* Evitar scroll horizontal por animaciones */
-}
+    // --- Hero Image Carousel ---
+    const carouselSlide = document.querySelector('.carousel-slide');
+    const carouselImages = document.querySelectorAll('.carousel-slide img');
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
 
-h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-serif);
-    color: var(--text-primary); /* Por defecto, el marrón oscuro */
-    margin-bottom: 0.5em;
-}
+    if (carouselSlide && carouselImages.length > 0) {
+        let counter = 0;
+        // Ensure images are loaded before getting clientWidth
+        const checkImagesLoaded = setInterval(() => {
+            if (carouselImages[0].complete) {
+                clearInterval(checkImagesLoaded);
+                const size = carouselImages[0].clientWidth;
 
-/* Estilos generales para secciones con animación de aparición */
-.animated-section {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
+                // Set initial position
+                carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
 
-.animated-section.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-}
+                nextBtn.addEventListener('click', () => {
+                    if (counter >= carouselImages.length - 1) {
+                        counter = -1; // Reset to loop
+                    }
+                    counter++;
+                    carouselSlide.style.transition = 'transform 0.5s ease-in-out';
+                    carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
+                });
 
-/* Contenedor general para centrar contenido */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
+                prevBtn.addEventListener('click', () => {
+                    if (counter <= 0) {
+                        counter = carouselImages.length; // Reset to loop
+                    }
+                    counter--;
+                    carouselSlide.style.transition = 'transform 0.5s ease-in-out';
+                    carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
+                });
 
-/* Utilidades */
-.text-center { text-align: center; }
-.mt-spacing-small { margin-top: var(--spacing-small); }
-.mt-spacing-medium { margin-top: var(--spacing-medium); }
-.mb-spacing-small { margin-bottom: var(--spacing-small); }
-.mb-spacing-medium { margin-bottom: var(--spacing-medium); }
-.flex-center { display: flex; justify-content: center; align-items: center; }
-.section-common { padding: var(--padding-section) 0; background-color: var(--primary-background); }
-.section-secondary-bg { background-color: var(--section-secondary-background); }
-
-/* Estilos de títulos de sección */
-.section-header {
-    margin-bottom: var(--spacing-large);
-}
-.section-header.center {
-    text-align: center;
-}
-.section-header .section-icon {
-    font-size: 3em;
-    color: var(--text-on-section-secondary); /* Verde oscuro para íconos de sección */
-    margin-bottom: 10px;
-    display: block;
-}
-.section-header h2 {
-    font-size: 2.5em;
-    color: var(--text-primary); /* Marrón oscuro */
-    margin-bottom: 10px;
-}
-.section-header p {
-    font-size: 1.1em;
-    color: var(--text-primary);
-    max-width: 800px;
-    margin: 0 auto;
-}
-.elegant-title {
-    font-family: var(--font-serif);
-    color: var(--button-primary); /* Verde azulado para títulos elegantes */
-}
-h3.elegant-title {
-    font-size: 1.8em;
-    margin-bottom: 15px;
-}
+                // Optional: Loop continuously (e.g., every 5 seconds)
+                // setInterval(() => {
+                //     nextBtn.click();
+                // }, 5000);
+            }
+        }, 100); // Check every 100ms
+    }
 
 
-/* --- Header / Navbar --- */
-.main-header {
-    background-color: var(--header-footer-background);
-    color: var(--text-on-header-footer);
-    padding: 15px var(--spacing-medium);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
+    // --- Smooth Scrolling for Navigation Links ---
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
 
-.logo a {
-    color: var(--text-on-header-footer);
-    font-family: var(--font-serif);
-    font-size: 1.8em;
-    text-decoration: none;
-    font-weight: bold;
-}
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
 
-.nav-links {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    gap: var(--spacing-medium);
-}
+            if (targetElement) {
+                // Adjust for sticky header height if needed
+                const header = document.querySelector('.main-header');
+                const headerOffset = header ? header.offsetHeight : 0; // Get header height, default to 0 if not found
+                const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+                const offsetPosition = elementPosition - headerOffset - 20; // -20px extra padding
 
-.nav-links a {
-    color: var(--text-on-header-footer);
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s ease;
-    padding: 5px 0;
-    position: relative;
-}
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth"
+                });
 
-.nav-links a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: var(--text-on-header-footer);
-    transition: width 0.3s ease;
-}
+                // Update active class in navigation (optional)
+                document.querySelectorAll('.nav-links a').forEach(link => link.classList.remove('active'));
+                this.classList.add('active');
+            }
+        });
+    });
 
-.nav-links a:hover::after,
-.nav-links a.active::after {
-    width: 100%;
-}
 
-.nav-actions {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
+    // --- Scroll Animations (Intersection Observer) ---
+    const animatedSections = document.querySelectorAll('.animated-section');
 
-.voice-command-button,
-.reserve-button {
-    background-color: transparent;
-    color: var(--text-on-header-footer);
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    font-size: 1.2em;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    transition: color 0.3s ease;
-}
+    const observerOptions = {
+        root: null, // viewport as root
+        rootMargin: '0px',
+        threshold: 0.2 // Trigger when 20% of the section is visible
+    };
 
-.voice-command-button:hover,
-.voice-command-button.listening {
-    color: var(--button-primary); /* Cambia de color cuando escucha */
-}
+    const sectionObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target); // Stop observing once animated
+            }
+        });
+    }, observerOptions);
 
-.reserve-button {
-    background-color: var(--button-primary);
-    color: var(--text-on-button-primary);
-    padding: 10px 20px;
-    border-radius: var(--border-radius-default);
-    font-weight: bold;
-    text-decoration: none;
-    font-size: 1em;
-    transition: background-color 0.3s ease;
-}
+    animatedSections.forEach(section => {
+        sectionObserver.observe(section);
+    });
 
-.reserve-button:hover {
-    background-color: #1F7C70; /* Un tono ligeramente más oscuro del primary-color */
-}
 
-.menu-toggle {
-    display: none; /* Oculto en desktop */
-    flex-direction: column;
-    cursor: pointer;
-    gap: 5px;
-}
+    // --- Voice Command Functionality ---
+    const voiceCommandButton = document.getElementById('voice-command-toggle');
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    let recognition;
+    let isListening = false;
 
-.menu-toggle span {
-    width: 25px;
-    height: 3px;
-    background-color: var(--text-on-header-footer);
-    transition: all 0.3s ease;
-}
+    if (SpeechRecognition) {
+        recognition = new SpeechRecognition();
+        recognition.continuous = false; // Listen for a single utterance
+        recognition.lang = 'es-ES'; // Spanish language
 
-/* --- Hero Section --- */
-.hero-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: var(--padding-section) 0;
-    background-color: var(--primary-background);
-    text-align: center;
-}
+        voiceCommandButton.addEventListener('click', () => {
+            if (isListening) {
+                recognition.stop();
+            } else {
+                recognition.start();
+            }
+        });
 
-.hero-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: var(--spacing-large);
-    text-align: left;
-    padding: 0 var(--spacing-medium);
-}
+        recognition.onstart = () => {
+            console.log('Voice recognition started. Speak now.');
+            isListening = true;
+            voiceCommandButton.classList.add('listening');
+            voiceCommandButton.innerHTML = '<i class="fas fa-microphone-alt"></i>'; // Icono de micrófono activo
+        };
 
-.hero-text {
-    flex: 1;
-    padding-right: var(--spacing-medium);
-}
+        recognition.onresult = (event) => {
+            const transcript = event.results[0][0].transcript.toLowerCase();
+            console.log('You said:', transcript);
+            processVoiceCommand(transcript);
+        };
 
-.hero-text h1 {
-    font-size: 3.5em;
-    margin-bottom: 15px;
-    line-height: 1.1;
-    color: var(--text-primary);
-}
+        recognition.onend = () => {
+            console.log('Voice recognition ended.');
+            isListening = false;
+            voiceCommandButton.classList.remove('listening');
+            voiceCommandButton.innerHTML = '<i class="fas fa-microphone"></i>'; // Icono de micrófono normal
+        };
 
-.hero-text h1 span {
-    color: var(--button-primary); /* Color de acento para "Cielo Esmeralda" */
-}
+        recognition.onerror = (event) => {
+            console.error('Speech recognition error:', event.error);
+            isListening = false;
+            voiceCommandButton.classList.remove('listening');
+            voiceCommandButton.innerHTML = '<i class="fas fa-microphone"></i>';
+            alert('Error en el reconocimiento de voz: ' + event.error + '. Asegúrate de permitir el acceso al micrófono.');
+        };
 
-.hero-text p {
-    font-size: 1.15em;
-    color: var(--text-primary);
-    margin-bottom: var(--spacing-medium);
-}
+    } else {
+        if (voiceCommandButton) {
+            voiceCommandButton.style.display = 'none'; // Hide button if API not supported
+        }
+        console.warn('Web Speech API is not supported in this browser.');
+    }
 
-.hero-buttons {
-    display: flex;
-    gap: var(--spacing-medium);
-    flex-wrap: wrap;
-}
+    function processVoiceCommand(command) {
+        let targetSectionId = '';
 
-.hero-buttons .button {
-    padding: 12px 25px;
-    border-radius: var(--border-radius-default);
-    font-weight: bold;
-    text-decoration: none;
-    font-size: 1em;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    transition: all 0.3s ease;
-}
+        if (command.includes('inicio') || command.includes('principal')) {
+            targetSectionId = 'inicio';
+        } else if (command.includes('nosotros') || command.includes('historia') || command.includes('filosofía')) {
+            targetSectionId = 'nuestra-historia';
+        } else if (command.includes('menú') || command.includes('digital')) {
+            targetSectionId = 'menu-digital';
+        } else if (command.includes('sucursales') || command.includes('dónde estamos')) {
+            targetSectionId = 'sucursales';
+        } else if (command.includes('reservar') || command.includes('reservaciones') || command.includes('mesa')) {
+            targetSectionId = 'reservaciones';
+        } else if (command.includes('contacto') || command.includes('contáctanos') || command.includes('ayuda')) {
+            targetSectionId = 'contacto';
+        } else if (command.includes('chatbot') || command.includes('abrir chat')) {
+            toggleChatbot();
+            return; // Don't scroll, just open chatbot
+        } else {
+            alert('Comando no reconocido. Intenta decir "inicio", "menú", "reservar", etc.');
+            return;
+        }
 
-.hero-buttons .button-primary {
-    background-color: var(--button-primary);
-    color: var(--text-on-button-primary);
-    border: 2px solid var(--button-primary);
-}
+        if (targetSectionId) {
+            const targetElement = document.getElementById(targetSectionId);
+            if (targetElement) {
+                const header = document.querySelector('.main-header');
+                const headerOffset = header ? header.offsetHeight : 0;
+                const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+                const offsetPosition = elementPosition - headerOffset - 20;
 
-.hero-buttons .button-primary:hover {
-    background-color: #1F7C70; /* Tono más oscuro */
-    border-color: #1F7C70;
-}
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth"
+                });
+            }
+        }
+    }
 
-.hero-buttons .button-secondary {
-    background-color: transparent;
-    color: var(--text-primary);
-    border: 2px solid var(--border-elements);
-}
 
-.hero-buttons .button-secondary:hover {
-    background-color: var(--subtle-elements-background);
-    border-color: var(--subtle-elements-background);
-}
+    // --- Chatbot Functionality ---
+    const chatbotButton = document.getElementById('chatbot-button');
+    const chatbotContainer = document.getElementById('chatbot-container');
+    const closeChatbotBtn = document.getElementById('close-chatbot-btn');
+    const chatMessages = document.getElementById('chat-messages');
+    const chatInput = document.getElementById('chat-input');
+    const sendChatBtn = document.getElementById('send-chat-btn');
 
-.hero-image-carousel {
-    flex: 1;
-    min-width: 300px; /* Asegura un tamaño mínimo */
-    max-width: 500px; /* Limita el tamaño máximo */
-    position: relative;
-    box-shadow: var(--box-shadow-default);
-    border-radius: var(--border-radius-default);
-    overflow: hidden;
-    background-color: #fff; /* Fondo blanco para las imágenes del carrusel */
-}
+    function toggleChatbot() {
+        if (chatbotContainer.style.display === 'flex') {
+            chatbotContainer.style.display = 'none';
+        } else {
+            chatbotContainer.style.display = 'flex';
+            chatInput.focus();
+            chatMessages.scrollTop = chatMessages.scrollHeight; // Scroll to bottom
+        }
+    }
 
-.carousel-slide {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-    border-radius: var(--border-radius-default);
-}
+    if (chatbotButton && chatbotContainer) {
+        chatbotButton.addEventListener('click', toggleChatbot);
+        closeChatbotBtn.addEventListener('click', toggleChatbot);
 
-.carousel-slide img {
-    width: 100%;
-    display: block;
-    border-radius: var(--border-radius-default); /* Las imágenes dentro también redondeadas */
-    object-fit: cover;
-}
+        sendChatBtn.addEventListener('click', sendMessage);
+        chatInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+    }
 
-.carousel-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.4);
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    font-size: 1.5em;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: background-color 0.3s ease;
-    z-index: 5;
-}
+    function sendMessage() {
+        const userMessage = chatInput.value.trim();
+        if (userMessage === '') return;
 
-.carousel-btn:hover {
-    background-color: rgba(0, 0, 0, 0.6);
-}
+        appendMessage(userMessage, 'user-message');
+        chatInput.value = '';
 
-.prev-btn {
-    left: 10px;
-}
+        // Get bot response
+        setTimeout(() => {
+            const botResponse = getBotResponse(userMessage);
+            appendMessage(botResponse, 'bot-message');
+        }, 500);
+    }
 
-.next-btn {
-    right: 10px;
-}
+    function appendMessage(message, className) {
+        const messageElement = document.createElement('p');
+        messageElement.classList.add(className);
+        messageElement.innerHTML = message; // Use innerHTML to allow HTML tags for links
+        chatMessages.appendChild(messageElement);
+        chatMessages.scrollTop = chatMessages.scrollHeight; // Scroll to bottom
+    }
 
-/* --- Nuestra Historia / Filosofía --- */
-.content-two-columns {
-    display: flex;
-    gap: var(--spacing-large);
-    align-items: flex-start; /* Alinea el inicio del contenido */
-    flex-wrap: wrap; /* Permite que las columnas se envuelvan en pantallas pequeñas */
-}
+    function getBotResponse(userMessage) {
+        const msg = userMessage.toLowerCase();
 
-.text-content {
-    flex: 2; /* Ocupa más espacio */
-    min-width: 300px;
-}
+        if (msg.includes('hola') || msg.includes('saludos')) {
+            return '¡Hola! ¿En qué puedo ayudarte? Puedes preguntar sobre nuestro menú, sucursales, reservaciones, o nuestra historia.';
+        } else if (msg.includes('menú') || msg.includes('carta')) {
+            return 'Nuestro menú digital está disponible para tu comodidad. Puedes escanear el QR en la sección de <a href="#menu-digital" onclick="document.getElementById(\'close-chatbot-btn\').click(); return true;">"Nuestro Menú Digital"</a> o descargarlo en PDF desde allí.';
+        } else if (msg.includes('sucursales') || msg.includes('dónde están')) {
+            return 'Tenemos varias sucursales para servirte. Visita nuestra sección de <a href="#sucursales" onclick="document.getElementById(\'close-chatbot-btn\').click(); return true;">"Nuestras Sucursales"</a> para ver direcciones y teléfonos.';
+        } else if (msg.includes('reservar') || msg.includes('reservación') || msg.includes('mesa')) {
+            return '¡Claro! Puedes reservar una mesa fácilmente en nuestra sección de <a href="#reservaciones" onclick="document.getElementById(\'close-chatbot-btn\').click(); return true;">"Reservaciones"</a>. Solo llena el formulario.';
+        } else if (msg.includes('historia') || msg.includes('nosotros') || msg.includes('filosofía')) {
+            return 'Conoce más sobre Cielo Esmeralda y nuestra filosofía culinaria en la sección <a href="#nuestra-historia" onclick="document.getElementById(\'close-chatbot-btn\').click(); return true;">"Nuestra Historia"</a>.';
+        } else if (msg.includes('contacto') || msg.includes('ayuda') || msg.includes('preguntas')) {
+            return 'Si tienes más preguntas, puedes contactarnos directamente a través del formulario o ver nuestros datos en la sección <a href="#contacto" onclick="document.getElementById(\'close-chatbot-btn\').click(); return true;">"Contáctanos"</a>.';
+        } else if (msg.includes('horario') || msg.includes('abren')) {
+            return 'Nuestro horario general es: Lunes a Viernes: 10:00 AM - 10:00 PM; Sábados y Domingos: 12:00 PM - 11:00 PM. Puedes encontrar esto y más en la sección de <a href="#contacto" onclick="document.getElementById(\'close-chatbot-btn\').click(); return true;">"Contáctanos"</a>.';
+        } else if (msg.includes('gracias')) {
+            return 'De nada. ¡Espero verte pronto en Cielo Esmeralda!';
+        } else {
+            return 'Lo siento, no entendí tu pregunta. ¿Puedes reformularla o preguntar sobre "menú", "sucursales", "reservar", etc.?';
+        }
+    }
 
-.image-gallery {
-    flex: 1; /* Ocupa menos espacio */
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-medium);
-    min-width: 250px;
-}
 
-.image-gallery .rounded-image {
-    width: 100%;
-    height: auto;
-    border-radius: var(--border-radius-default);
-    box-shadow: var(--box-shadow-default);
-    object-fit: cover;
-}
+    // --- Form Submission Handling (Basic Example) ---
+    const reservationForm = document.getElementById('contact-form'); // ID para el form de Reservaciones
+    const contactMessageRes = document.getElementById('contact-message');
 
-/* --- Menú Digital / QR --- */
-.card-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: var(--spacing-medium);
-    justify-content: center;
-    margin-top: var(--spacing-large);
-}
+    if (reservationForm) {
+        reservationForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
 
-.card {
-    background-color: var(--card-form-background); /* Crema ligeramente oscuro */
-    padding: var(--padding-card);
-    border-radius: var(--border-radius-default);
-    box-shadow: var(--box-shadow-default);
-    text-align: center;
-}
+            // Here you would typically send data to a server
+            // For now, we'll just show a success message
+            console.log('Reservation Form Submitted!');
+            contactMessageRes.textContent = '¡Reservación enviada con éxito! Nos pondremos en contacto pronto.';
+            contactMessageRes.style.color = 'var(--button-primary)'; // Green color for success
+            reservationForm.reset(); // Clear the form
 
-.qr-card img {
-    max-width: 180px;
-    height: auto;
-    margin: 20px auto;
-    display: block;
-}
+            setTimeout(() => {
+                contactMessageRes.textContent = '';
+            }, 5000); // Clear message after 5 seconds
+        });
+    }
 
-.text-link {
-    color: var(--button-primary);
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s ease;
-}
-.text-link:hover {
-    text-decoration: underline;
-}
+    const generalContactForm = document.getElementById('contact-form-general'); // ID para el form de Contacto General
+    const contactMessageGeneral = document.getElementById('contact-message-general');
 
-/* --- Nuestras Sucursales --- */
-.branches-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--spacing-medium);
-    margin-top: var(--spacing-large);
-}
+    if (generalContactForm) {
+        generalContactForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
 
-.branch-card {
-    background-color: var(--card-form-background);
-    padding: var(--padding-card);
-    border-radius: var(--border-radius-default);
-    box-shadow: var(--box-shadow-default);
-}
+            console.log('General Contact Form Submitted!');
+            contactMessageGeneral.textContent = '¡Mensaje enviado con éxito! Agradecemos tu comunicación.';
+            contactMessageGeneral.style.color = 'var(--button-primary)'; // Green color for success
+            generalContactForm.reset(); // Clear the form
 
-.branch-card p {
-    color: var(--text-primary);
-    margin-bottom: 8px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-.branch-card p i {
-    color: var(--button-primary); /* Íconos en color primario */
-    font-size: 1.1em;
-}
-.branch-card .map-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    margin-top: 10px;
-    color: var(--text-primary); /* Gris oscuro para el enlace del mapa */
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s ease;
-}
-.branch-card .map-link:hover {
-    color: var(--button-primary);
-    text-decoration: underline;
-}
+            setTimeout(() => {
+                contactMessageGeneral.textContent = '';
+            }, 5000); // Clear message after 5 seconds
+        });
+    }
 
-/* --- Reservaciones / Formulario --- */
-.reservation-form-container {
-    background-color: var(--card-form-background);
-    padding: var(--padding-card);
-    border-radius: var(--border-radius-default);
-    box-shadow: var(--box-shadow-default);
-    max-width: 700px;
-    margin: var(--spacing-large) auto 0;
-}
-
-.form-group {
-    margin-bottom: 20px;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 8px;
-    color: var(--text-primary);
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-.form-group label i {
-    color: var(--button-primary);
-}
-
-.form-group input[type="text"],
-.form-group input[type="email"],
-.form-group input[type="tel"],
-.form-group input[type="date"],
-.form-group input[type="time"],
-.form-group select,
-.form-group textarea {
-    width: 100%;
-    padding: 1
+});
