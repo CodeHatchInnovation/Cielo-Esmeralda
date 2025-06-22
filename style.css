@@ -9,7 +9,7 @@
     --text-on-button-primary: #F7F5F2;       /* Un crema muy claro, casi blanco (Texto sobre el Color Primario) */
     --section-secondary-background: #E6F2EB; /* Verde muy pálido (Fondo de secciones como Menú y Contacto) */
     --text-on-section-secondary: #265940;    /* Verde oscuro (Texto sobre el Color Secundario) */
-    --header-footer-background: #005C51;     /* Verde azulado muy oscuro y saturado (Fondo del encabezado/barra de navegación y footer) - AJUSTADO */
+    --header-footer-background: #005C51;     /* Verde azulado muy oscuro y saturado (Fondo del encabezado/barra de navegación) */
     --text-on-header-footer: #F7F5F2;        /* Un crema muy claro, casi blanco (Texto sobre el Color de Acento) */
     --subtle-elements-background: #E7E3DE;   /* Crema desaturado (Elementos Apagados / fondos sutiles) */
     --text-secondary: #8A8582;               /* Gris medio (Texto Apagado / texto secundario, descripciones) */
@@ -26,11 +26,12 @@
     --padding-section: 80px;
     --padding-card: 40px;
     --border-radius-default: 10px;
-    --box-shadow-default: 0 4px 15px rgba(0, 0, 0, 0.08); /* Sombra suave */
+    /* Sombra de tarjetas ajustada para más contraste */
+    --box-shadow-default: 0 6px 20px rgba(0, 0, 0, 0.12); /* Sombra más pronunciada */
 
     /* Tipografías (Actualizadas según tu especificación) */
-    --font-serif: 'Lora', serif; /* Cambiado de Playfair Display a Lora */
-    --font-sans-serif: 'Montserrat', sans-serif; /* Mantenido Montserrat como alternativa a Geist Sans */
+    --font-serif: 'Lora', serif;
+    --font-sans-serif: 'Montserrat', sans-serif;
 }
 
 /* Estilos generales para el body */
@@ -422,8 +423,9 @@ h3.elegant-title {
     background-color: var(--card-form-background); /* Crema ligeramente oscuro */
     padding: var(--padding-card);
     border-radius: var(--border-radius-default);
-    box-shadow: var(--box-shadow-default);
+    box-shadow: var(--box-shadow-default); /* Usar la nueva sombra para más contraste */
     text-align: center;
+    border: 1px solid var(--border-elements); /* Borde sutil para resaltar */
 }
 .card h3.elegant-title {
     font-size: 20px; /* text-xl */
@@ -460,7 +462,13 @@ h3.elegant-title {
     background-color: var(--card-form-background);
     padding: var(--padding-card);
     border-radius: var(--border-radius-default);
-    box-shadow: var(--box-shadow-default);
+    box-shadow: var(--box-shadow-default); /* Usar la nueva sombra */
+    border: 1px solid var(--border-elements); /* Borde sutil */
+    /* Alineación de contenido al centro */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 .branch-card h3.elegant-title {
     font-size: 20px; /* text-xl */
@@ -475,10 +483,14 @@ h3.elegant-title {
     gap: 10px;
     font-size: 16px; /* text-base */
     font-weight: 400; /* Normal */
+    /* Para que el texto se centre con el icono en pantallas grandes, sin que el icono se mueva demasiado */
+    justify-content: center;
+    width: 100%; /* Asegura que ocupe el ancho para el centrado */
 }
 .branch-card p i {
     color: var(--button-primary); /* Íconos en color primario */
     font-size: 1.1em;
+    flex-shrink: 0; /* Evita que el icono se encoja */
 }
 .branch-card .map-link {
     display: inline-flex;
@@ -501,7 +513,8 @@ h3.elegant-title {
     background-color: var(--card-form-background);
     padding: var(--padding-card);
     border-radius: var(--border-radius-default);
-    box-shadow: var(--box-shadow-default);
+    box-shadow: var(--box-shadow-default); /* Usar la nueva sombra */
+    border: 1px solid var(--border-elements); /* Borde sutil */
     max-width: 700px;
     margin: var(--spacing-large) auto 0;
 }
@@ -661,7 +674,8 @@ h3.elegant-title {
     background-color: var(--card-form-background);
     padding: var(--padding-card);
     border-radius: var(--border-radius-default);
-    box-shadow: var(--box-shadow-default);
+    box-shadow: var(--box-shadow-default); /* Usar la nueva sombra */
+    border: 1px solid var(--border-elements); /* Borde sutil */
 }
 
 .contact-form-area h3 {
@@ -675,9 +689,9 @@ h3.elegant-title {
 
 /* --- Footer --- */
 .main-footer {
-    background-color: var(--header-footer-background); /* Mismo fondo que el header */
-    color: var(--text-on-header-footer);
-    padding: var(--padding-section) 0 var(--spacing-medium) 0; /* Más padding arriba */
+    background-color: var(--primary-background); /* Cambiado a color crema */
+    color: var(--text-primary); /* Texto principal para el fondo crema */
+    padding: var(--padding-section) 0 var(--spacing-medium) 0;
     text-align: center;
 }
 
@@ -700,8 +714,8 @@ h3.elegant-title {
 }
 
 .footer-column h3 {
-    color: var(--text-on-header-footer);
-    font-size: 1.3em; /* Ajuste para que se vea bien en el footer */
+    color: var(--text-primary); /* Títulos en color primario de texto */
+    font-size: 1.3em;
     margin-bottom: 20px;
     font-family: var(--font-serif);
     font-weight: 700; /* font-bold */
@@ -710,9 +724,8 @@ h3.elegant-title {
 .footer-column .logo-footer {
     display: block;
     margin-bottom: 15px;
-    /* Asegura que el logo del footer no tenga estilos de texto */
     text-decoration: none;
-    color: inherit; /* Hereda color del padre, si no se especifica */
+    color: inherit;
 }
 .logo-footer img {
     max-height: 50px; /* Ajusta la altura del logo del footer */
@@ -723,7 +736,7 @@ h3.elegant-title {
 
 
 .footer-column p {
-    color: var(--text-on-header-footer); /* Texto en blanco/crema */
+    color: var(--text-primary); /* Texto principal para el fondo crema */
     font-size: 14px; /* text-sm */
     font-weight: 400; /* Normal */
     line-height: 1.7;
@@ -737,16 +750,16 @@ h3.elegant-title {
 
 .footer-column ul li {
     margin-bottom: 10px;
-    color: var(--text-on-header-footer); /* Asegura el color del texto de la lista */
+    color: var(--text-primary); /* Texto principal */
     font-size: 14px; /* text-sm */
     font-weight: 400; /* Normal */
-    display: flex; /* Para alinear ícono y texto */
+    display: flex;
     align-items: center;
-    gap: 8px; /* Espacio entre ícono y texto */
+    gap: 8px;
 }
 
 .footer-column ul li a {
-    color: var(--text-on-header-footer);
+    color: var(--text-primary); /* Enlaces en color principal */
     text-decoration: none;
     font-size: 14px; /* text-sm */
     font-weight: 400; /* Normal */
@@ -757,18 +770,20 @@ h3.elegant-title {
     color: var(--button-primary); /* Verde azulado al pasar el ratón */
 }
 .footer-column ul li i {
-    color: var(--text-on-header-footer); /* Color de los íconos en el footer */
+    color: var(--button-primary); /* Color de los íconos en el footer */
     font-size: 1.1em;
 }
 
 .social-icons {
     display: flex;
+    flex-wrap: wrap; /* Permitir que los íconos se envuelvan */
     gap: 15px;
     margin-top: 20px;
+    justify-content: center; /* Centrar los íconos en el footer */
 }
 
 .social-icons a {
-    color: var(--text-on-header-footer);
+    color: var(--text-primary); /* Color principal para íconos sociales */
     font-size: 1.5em;
     transition: color 0.3s ease;
 }
@@ -780,9 +795,9 @@ h3.elegant-title {
 .footer-bottom {
     margin-top: var(--spacing-medium);
     padding-top: var(--spacing-medium);
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid var(--border-elements); /* Borde crema sutil */
     font-size: 14px; /* text-sm */
-    color: rgba(255, 255, 255, 0.7);
+    color: var(--text-secondary); /* Texto secundario para derechos de autor */
 }
 
 /* --- Chatbot Styles --- */
@@ -967,7 +982,6 @@ h3.elegant-title {
     .card h3.elegant-title, .branch-card h3.elegant-title {
         font-size: 24px; /* text-2xl */
     }
-
     .text-content p {
         font-size: 18px; /* sm:text-lg */
     }
@@ -1009,6 +1023,12 @@ h3.elegant-title {
     .logo-footer img {
         margin: 0 auto 15px auto; /* Centrar la imagen en el footer column y darle espacio abajo */
     }
+    .branch-card p {
+        /* En pantallas pequeñas, alinear a la izquierda para que el texto no sea demasiado largo */
+        justify-content: flex-start;
+        text-align: left;
+    }
+
 
     .form-group input[type="text"],
     .form-group input[type="email"],
