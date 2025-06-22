@@ -1,430 +1,981 @@
-@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap');
-/* Google Fonts: Inter para texto de cuerpo (como fallback si Geist Sans no está integrado con un cargador personalizado) */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-
-
-/* Global resets de los detalles proporcionados */
-*, :before, :after {
-    box-sizing: border-box;
-    border-width: 0;
-    border-style: solid;
-    --tw-border-spacing-x: 0;
-    --tw-border-spacing-y: 0;
-    --tw-translate-x: 0;
-    --tw-translate-y: 0;
-    --tw-rotate: 0;
-    --tw-skew-x: 0;
-    --tw-skew-y: 0;
-    --tw-scale-x: 1;
-    --tw-scale-y: 1;
-    --tw-pan-x: ;
-    --tw-pan-y: ;
-    --tw-pinch-zoom: ;
-    --tw-scroll-snap-strictness: proximity;
-    --tw-gradient-from-position: ;
-    --tw-gradient-via-position: ;
-    --tw-gradient-to-position: ;
-    --tw-ordinal: ;
-    --tw-slashed-zero: ;
-    --tw-numeric-figure: ;
-    --tw-numeric-spacing: ;
-    --tw-numeric-fraction: ;
-    --tw-ring-inset: ;
-    --tw-ring-offset-width: 0px;
-    --tw-ring-offset-color: #fff;
-    --tw-ring-color: #3b82f680;
-    --tw-ring-offset-shadow: 0 0 #0000;
-    --tw-ring-shadow: 0 0 #0000;
-    --tw-shadow: 0 0 #0000;
-    --tw-shadow-colored: 0 0 #0000;
-    --tw-blur: ;
-    --tw-brightness: ;
-    --tw-contrast: ;
-    --tw-grayscale: ;
-    --tw-hue-rotate: ;
-    --tw-invert: ;
-    --tw-saturate: ;
-    --tw-sepia: ;
-    --tw-drop-shadow: ;
-    --tw-backdrop-blur: ;
-    --tw-backdrop-brightness: ;
-    --tw-backdrop-contrast: ;
-    --tw-backdrop-grayscale: ;
-    --tw-backdrop-hue-rotate: ;
-    --tw-backdrop-invert: ;
-    --tw-backdrop-opacity: ;
-    --tw-backdrop-saturate: ;
-    --tw-backdrop-sepia: ;
-    --tw-contain-size: ;
-    --tw-contain-layout: ;
-    --tw-contain-paint: ;
-}
-
-:before, :after {
-    --tw-content: "";
-}
-
-html, :host {
-    line-height: 1.5;
-    -webkit-text-size-adjust: 100%;
-    -moz-tab-size: 4;
-    tab-size: 4;
-    /* Geist Sans Fallback: Inter, luego la pila de fuentes del sistema */
-    font-family: 'Inter', ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    font-feature-settings: normal;
-    font-variation-settings: normal;
-    -webkit-tap-highlight-color: transparent;
-}
-
-body {
-    margin: 0;
-    line-height: inherit;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
-/* Paleta de Colores HSL */
+/* Definición de las nuevas variables de color */
 :root {
-    /* Modo Claro (Predeterminado) */
-    --background: 39 33% 94%;       /* Tono crema muy claro (#F5F1EA) */
-    --foreground: 20 10% 30%;       /* Gris oscuro neutro (#4B3F38) */
-    --primary: 172 60% 35%;         /* Verde azulado oscuro medio (~#33807B) */
-    --primary-foreground: 39 33% 96%; /* Texto claro para primario (~#F9F7F4) */
-    --accent: 172 97% 15%;          /* Verde azulado muy oscuro y saturado (#014D43) */
-    --accent-foreground: 39 33% 96%;  /* Texto claro para acento (~#F9F7F4) */
-    --secondary: 150 40% 92%;       /* Verde muy claro y suave (~#E6F0EB) */
-    --secondary-foreground: 150 40% 25%; /* Verde más oscuro para texto secundario (~#2C5B49) */
-    --card: 39 33% 92%;             /* Tono crema para tarjetas y popovers (~#F2EFE8) */
-    --card-foreground: 20 10% 30%;  /* Texto para tarjetas/popovers (igual que foreground) */
-    --popover: 39 33% 90%;          /* Tono crema ligeramente más oscuro que el fondo principal (~#EEEAE2) */
-    --popover-foreground: 20 10% 30%; /* Texto para popovers (igual que foreground) */
-    --muted: 39 30% 88%;            /* Gris/beige tenue (~#CFC8BB) */
-    --muted-foreground: 20 10% 50%; /* Gris medio para texto secundario e iconos (~#84766E) */
-    --border: 39 20% 85%;           /* Borde sutil basado en la paleta crema (~#D1CEC6) */
-    --input: 39 33% 90%;            /* Fondo para inputs (igual que popover) */
-    --ring: 172 60% 45%;            /* Color de anillo/enfoque (~#44AA9E) */
-    --destructive: 0 70% 50%;       /* Rojo para errores (~#BF2424) */
-    --destructive-foreground: 0 0% 98%; /* Texto blanco para destructivo */
+    /* Colores base */
+    --primary-background: #F3F0EC;          /* Fondo principal (crema muy claro y cálido) */
+    --text-primary: #524D4A;                 /* Gris oscuro para todo el texto general */
+    --card-form-background: #EEEBE5;         /* Crema ligeramente más oscuro que el fondo (para tarjetas y formularios) */
+    --popover-background: #EAE5DD;           /* Fondo de Elementos Emergentes (Popovers) */
+    --button-primary: #248F83;               /* Verde azulado oscuro (Botones principales, enlaces importantes) */
+    --text-on-button-primary: #F7F5F2;       /* Un crema muy claro, casi blanco (Texto sobre el Color Primario) */
+    --section-secondary-background: #E6F2EB; /* Verde muy pálido (Fondo de secciones como Menú y Contacto) */
+    --text-on-section-secondary: #265940;    /* Verde oscuro (Texto sobre el Color Secundario) */
+    --header-footer-background: #014B43;     /* Verde azulado muy oscuro y saturado (Fondo del encabezado/barra de navegación y footer) */
+    --text-on-header-footer: #F7F5F2;        /* Un crema muy claro, casi blanco (Texto sobre el Color de Acento) */
+    --subtle-elements-background: #E7E3DE;   /* Crema desaturado (Elementos Apagados / fondos sutiles) */
+    --text-secondary: #8A8582;               /* Gris medio (Texto Apagado / texto secundario, descripciones) */
+    --error-color: #D92828;                  /* Rojo estándar (Color para Errores) */
+    --text-on-error: #FAFAFA;                /* Blanco (Texto sobre el Color para Errores) */
+    --border-elements: #DBD8D3;              /* Un gris/crema muy sutil (Bordes de elementos) */
+    --input-background: #EAE5DD;             /* Fondo de campos de formulario (Inputs) */
+    --focus-ring-color: #2EAD9D;             /* Verde azulado brillante (Anillo de Foco al seleccionar un input) */
 
-    --radius: .5rem; /* radio de borde para rounded-md */
+    /* Variables de espaciado y tamaño */
+    --spacing-large: 60px;
+    --spacing-medium: 40px;
+    --spacing-small: 25px;
+    --padding-section: 80px;
+    --padding-card: 40px;
+    --border-radius-default: 10px;
+    --box-shadow-default: 0 4px 15px rgba(0, 0, 0, 0.08); /* Sombra suave */
+
+    /* Tipografías (ya incrustadas con Google Fonts en el HTML) */
+    --font-serif: 'Playfair Display', serif;
+    --font-sans-serif: 'Montserrat', sans-serif;
 }
 
-/* Aplicar colores basados en HSL */
+/* Estilos generales para el body */
 body {
-    color: hsl(var(--foreground));
-    background-color: hsl(var(--background));
+    font-family: var(--font-sans-serif);
+    margin: 0;
+    padding: 0;
+    background-color: var(--primary-background);
+    color: var(--text-primary);
+    line-height: 1.6;
+    overflow-x: hidden; /* Evitar scroll horizontal por animaciones */
 }
 
-.bg-background { background-color: hsl(var(--background)); }
-.text-foreground { color: hsl(var(--foreground)); }
-
-.bg-primary { background-color: hsl(var(--primary)); }
-.text-primary { color: hsl(var(--primary)); }
-.text-primary-foreground { color: hsl(var(--primary-foreground)); }
-
-.bg-accent { background-color: hsl(var(--accent)); }
-.text-accent-foreground { color: hsl(var(--accent-foreground)); }
-
-.bg-secondary { background-color: hsl(var(--secondary)); }
-.text-secondary-foreground { color: hsl(var(--secondary-foreground)); }
-
-.bg-card { background-color: hsl(var(--card)); }
-.text-card-foreground { color: hsl(var(--card-foreground)); }
-
-.bg-popover { background-color: hsl(var(--popover)); }
-.text-popover-foreground { color: hsl(var(--popover-foreground)); }
-
-.text-muted-foreground { color: hsl(var(--muted-foreground)); }
-.border-border { border-color: hsl(var(--border)); }
-.bg-input { background-color: hsl(var(--input)); }
-.text-input-foreground { color: hsl(var(--input-foreground, var(--foreground))); }
-
-/* Para el pie de página, usa el color de la tarjeta */
-footer {
-    background-color: hsl(var(--card));
-}
-
-/* --- Tipografía --- */
-/* Encabezados (h1, h2, h3, etc.): Fuente Lora (Serif) */
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Lora', serif;
-    text-shadow: 0 1px 2px rgba(0,0,0,0.05); /* Sombra de texto sutil */
+    font-family: var(--font-serif);
+    color: var(--text-primary); /* Por defecto, el marrón oscuro */
+    margin-bottom: 0.5em;
 }
 
-/* Cuerpo de Texto (párrafos, botones): Geist Sans (Sans-serif) - manejado por el selector html/body */
-
-
-/* --- Estructura, Espaciado y Sombras --- */
-/* Relleno vertical generoso para secciones */
-section {
-    padding-top: 5rem; /* 80px */
-    padding-bottom: 5rem;
-}
-@media (min-width: 768px) { /* md breakpoint */
-    section {
-        padding-top: 7rem; /* 112px */
-        padding-bottom: 7rem;
-    }
+/* Estilos generales para secciones con animación de aparición */
+.animated-section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
-/* Ancho máximo del contenedor de contenido */
+.animated-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Contenedor general para centrar contenido */
 .container {
-    width: 100%; /* Asegura que ocupe todo el ancho disponible */
-    max-width: 1280px; /* max-w-screen-xl */
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-/* Sombras */
-.shadow-md { box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); }
-.shadow-lg { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); }
-.shadow-xl { box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); }
-.shadow-2xl { box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); }
+/* Utilidades */
+.text-center { text-align: center; }
+.mt-spacing-small { margin-top: var(--spacing-small); }
+.mt-spacing-medium { margin-top: var(--spacing-medium); }
+.mb-spacing-small { margin-bottom: var(--spacing-small); }
+.mb-spacing-medium { margin-bottom: var(--spacing-medium); }
+.flex-center { display: flex; justify-content: center; align-items: center; }
+.section-common { padding: var(--padding-section) 0; background-color: var(--primary-background); }
+.section-secondary-bg { background-color: var(--section-secondary-background); }
 
-
-/* --- Estilo de Componentes Específicos --- */
-
-/* Header */
-header {
-    z-index: 100;
+/* Estilos de títulos de sección */
+.section-header {
+    margin-bottom: var(--spacing-large);
 }
-/* Efecto de desenfoque de fondo */
-.backdrop-blur {
-    -webkit-backdrop-filter: blur(8px);
-    backdrop-filter: blur(8px);
+.section-header.center {
+    text-align: center;
 }
-/* Asegurar que los enlaces de navegación del header usen accent-foreground */
-header nav ul li a, header nav button {
-    color: hsl(var(--accent-foreground));
-}
-/* Elementos del menú móvil */
-#mobile-menu ul li a {
-    color: hsl(var(--accent-foreground));
-}
-
-/* Botones */
-.btn-primary {
-    background-color: hsl(var(--primary));
-    color: hsl(var(--primary-foreground));
-    padding: 0.75rem 1.5rem; /* px-6 py-3 para ser más cortos */
-    border-radius: var(--radius); /* rounded-md */
-    box-shadow: var(--tw-shadow); /* Sombra inicial */
-    transition: all 0.3s ease;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    font-size: 1.125rem;
-    font-weight: 600;
-    text-decoration: none;
-    border: none;
-    /* Definición de la sombra para el estado normal del botón */
-    --tw-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -1px var(--tw-shadow-color);
-}
-.btn-primary:hover {
-    background-color: hsla(var(--primary), 0.9);
-    transform: translateY(-2px); /* Ligero levantamiento */
-    /* Definición de la sombra para el estado hover del botón */
-    --tw-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -2px var(--tw-shadow-color);
-    box-shadow: var(--tw-shadow);
-}
-
-.btn-secondary {
-    border: 1px solid hsla(var(--primary), 0.2); /* border-primary/20 */
-    color: hsl(var(--foreground));
-    background-color: transparent;
-    padding: 0.75rem 1.5rem; /* px-6 py-3 para ser más cortos */
-    border-radius: var(--radius); /* rounded-md */
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    font-size: 1.125rem;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    text-decoration: none;
-}
-.btn-secondary:hover {
-    background-color: hsl(var(--accent)); /* Se rellena con el color de acento al pasar el ratón */
-    color: hsl(var(--accent-foreground)); /* El texto cambia a foreground del acento */
-    border-color: hsl(var(--accent)); /* El borde también se vuelve color de acento */
-}
-/* Animación de la flecha en los botones */
-.btn-icon-animate {
-    transition: transform 0.3s ease-out;
-}
-.btn-primary:hover .btn-icon-animate,
-.btn-secondary:hover .btn-icon-animate {
-    transform: translateX(4px); /* Desplaza la flecha a la derecha */
-}
-
-
-/* Tarjetas (Card) */
-.bg-card {
-    border-radius: 0.75rem; /* rounded-xl */
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); /* shadow-xl */
-    border: 1px solid hsla(var(--primary), 0.1); /* border-primary/20 */
-    transition: all 0.3s ease;
-}
-.card-hover-effect:hover { /* Aplicar a un div con bg-card */
-    transform: translateY(-4px); /* Se eleva */
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); /* Sombra más grande (shadow-2xl) */
-}
-
-
-/* Formularios (Inputs, Selects, Calendario) */
-input[type="text"],
-input[type="tel"],
-input[type="email"],
-input[type="date"],
-select,
-textarea {
-    box-sizing: border-box;
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    font-size: 1rem;
-    border-radius: var(--radius); /* rounded-md */
-    border: 1px solid hsl(var(--border));
-    padding: 0.75rem 1rem; /* Relleno consistente */
-    background-color: hsl(var(--input));
-    color: hsl(var(--foreground));
-    transition: all 0.3s ease;
-}
-input:focus,
-select:focus,
-textarea:focus {
-    outline: none;
-    border-color: hsl(var(--primary)); /* focus:border-primary */
-    box-shadow: 0 0 0 3px hsla(var(--primary), 0.25); /* Anillo de enfoque sutil */
-}
-/* Posicionamiento del icono para inputs con padding-left */
-.relative input.pl-10, .relative select.pl-10, .relative textarea.pl-10 {
-    padding-left: 2.8rem; /* Ajustado para mejor alineación: 1.5rem de icono + espacio */
-}
-
-
-/* --- Animaciones y Microinteracciones --- */
-/* Iconos: Escalar en hover */
-.icon-hover-effect {
-    transition: transform 0.2s ease-in-out;
-}
-.icon-hover-effect:hover {
-    transform: scale(1.1); /* hover:scale-110 */
-}
-
-/* Imágenes dentro de tarjetas: Zoom en hover */
-.img-hover-effect {
-    transition: transform 0.3s ease-in-out;
-}
-.img-hover-effect:hover {
-    transform: scale(1.05); /* hover:scale-105 */
-}
-
-
-/* Mobile Menu */
-#mobile-menu.hidden {
-    display: none;
-    max-height: 0;
-    overflow: hidden;
-}
-#mobile-menu.active {
+.section-header .section-icon {
+    font-size: 3em;
+    color: var(--text-on-section-secondary); /* Verde oscuro para íconos de sección */
+    margin-bottom: 10px;
     display: block;
-    max-height: 500px;
+}
+.section-header h2 {
+    font-size: 2.5em;
+    color: var(--text-primary); /* Marrón oscuro */
+    margin-bottom: 10px;
+}
+.section-header p {
+    font-size: 1.1em;
+    color: var(--text-primary);
+    max-width: 800px;
+    margin: 0 auto;
+}
+.elegant-title {
+    font-family: var(--font-serif);
+    color: var(--button-primary); /* Verde azulado para títulos elegantes */
+}
+h3.elegant-title {
+    font-size: 1.8em;
+    margin-bottom: 15px;
 }
 
-/* Hero Slider */
-.slides-container {
+
+/* --- Header / Navbar --- */
+.main-header {
+    background-color: var(--header-footer-background);
+    color: var(--text-on-header-footer);
+    padding: 15px var(--spacing-medium);
     display: flex;
-    width: 300%;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
-.slide-img {
-    width: calc(100% / 3);
-    flex-shrink: 0;
+
+.logo a {
+    color: var(--text-on-header-footer);
+    font-family: var(--font-serif);
+    font-size: 1.8em;
+    text-decoration: none;
+    font-weight: bold;
 }
-.slide-text {
+
+.nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: var(--spacing-medium);
+}
+
+.nav-links a {
+    color: var(--text-on-header-footer);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    padding: 5px 0;
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 80%;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--text-on-header-footer);
+    transition: width 0.3s ease;
 }
-.slider-arrow {
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 100%;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.voice-command-button,
+.reserve-button {
+    background-color: transparent;
+    color: var(--text-on-header-footer);
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 1.2em;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: color 0.3s ease;
+}
+
+.voice-command-button:hover,
+.voice-command-button.listening {
+    color: var(--button-primary); /* Cambia de color cuando escucha */
+}
+
+.reserve-button {
+    background-color: var(--button-primary);
+    color: var(--text-on-button-primary);
+    padding: 10px 20px;
+    border-radius: var(--border-radius-default);
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.reserve-button:hover {
+    background-color: #1F7C70; /* Un tono ligeramente más oscuro del primary-color */
+}
+
+.menu-toggle {
+    display: none; /* Oculto en desktop */
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-on-header-footer);
+    transition: all 0.3s ease;
+}
+
+/* --- Hero Section --- */
+.hero-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--padding-section) 0;
+    background-color: var(--primary-background);
+    text-align: center;
+}
+
+.hero-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--spacing-large);
+    text-align: left;
+    padding: 0 var(--spacing-medium);
+}
+
+.hero-text {
+    flex: 1;
+    padding-right: var(--spacing-medium);
+}
+
+.hero-text h1 {
+    font-size: 3.5em;
+    margin-bottom: 15px;
+    line-height: 1.1;
+    color: var(--text-primary);
+}
+
+.hero-text h1 span {
+    color: var(--button-primary); /* Color de acento para "Cielo Esmeralda" */
+}
+
+.hero-text p {
+    font-size: 1.15em;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-medium);
+}
+
+.hero-buttons {
+    display: flex;
+    gap: var(--spacing-medium);
+    flex-wrap: wrap;
+}
+
+.hero-buttons .button {
+    padding: 12px 25px;
+    border-radius: var(--border-radius-default);
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 1em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.hero-buttons .button-primary {
+    background-color: var(--button-primary);
+    color: var(--text-on-button-primary);
+    border: 2px solid var(--button-primary);
+}
+
+.hero-buttons .button-primary:hover {
+    background-color: #1F7C70; /* Tono más oscuro */
+    border-color: #1F7C70;
+}
+
+.hero-buttons .button-secondary {
+    background-color: transparent;
+    color: var(--text-primary);
+    border: 2px solid var(--border-elements);
+}
+
+.hero-buttons .button-secondary:hover {
+    background-color: var(--subtle-elements-background);
+    border-color: var(--subtle-elements-background);
+}
+
+.hero-image-carousel {
+    flex: 1;
+    min-width: 300px; /* Asegura un tamaño mínimo */
+    max-width: 500px; /* Limita el tamaño máximo */
+    position: relative;
+    box-shadow: var(--box-shadow-default);
+    border-radius: var(--border-radius-default);
+    overflow: hidden;
+    background-color: #fff; /* Fondo blanco para las imágenes del carrusel */
+}
+
+.carousel-slide {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    border-radius: var(--border-radius-default);
+}
+
+.carousel-slide img {
+    width: 100%;
+    display: block;
+    border-radius: var(--border-radius-default); /* Las imágenes dentro también redondeadas */
+    object-fit: cover;
+}
+
+.carousel-btn {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    padding: 0.5rem;
-    background-color: hsla(0, 0%, 100%, 0.7);
-    border-radius: 9999px;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    transition: background-color 0.3s ease;
-    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: white;
     border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 1.5em;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease;
+    z-index: 5;
+}
+
+.carousel-btn:hover {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.prev-btn {
+    left: 10px;
+}
+
+.next-btn {
+    right: 10px;
+}
+
+/* --- Nuestra Historia / Filosofía --- */
+.content-two-columns {
+    display: flex;
+    gap: var(--spacing-large);
+    align-items: flex-start; /* Alinea el inicio del contenido */
+    flex-wrap: wrap; /* Permite que las columnas se envuelvan en pantallas pequeñas */
+}
+
+.text-content {
+    flex: 2; /* Ocupa más espacio */
+    min-width: 300px;
+}
+
+.image-gallery {
+    flex: 1; /* Ocupa menos espacio */
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-medium);
+    min-width: 250px;
+}
+
+.image-gallery .rounded-image {
+    width: 100%;
+    height: auto;
+    border-radius: var(--border-radius-default);
+    box-shadow: var(--box-shadow-default);
+    object-fit: cover;
+}
+
+/* --- Menú Digital / QR --- */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-medium);
+    justify-content: center;
+    margin-top: var(--spacing-large);
+}
+
+.card {
+    background-color: var(--card-form-background); /* Crema ligeramente oscuro */
+    padding: var(--padding-card);
+    border-radius: var(--border-radius-default);
+    box-shadow: var(--box-shadow-default);
+    text-align: center;
+}
+
+.qr-card img {
+    max-width: 180px;
+    height: auto;
+    margin: 20px auto;
+    display: block;
+}
+
+.text-link {
+    color: var(--button-primary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+.text-link:hover {
+    text-decoration: underline;
+}
+
+/* --- Nuestras Sucursales --- */
+.branches-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-medium);
+    margin-top: var(--spacing-large);
+}
+
+.branch-card {
+    background-color: var(--card-form-background);
+    padding: var(--padding-card);
+    border-radius: var(--border-radius-default);
+    box-shadow: var(--box-shadow-default);
+}
+
+.branch-card p {
+    color: var(--text-primary);
+    margin-bottom: 8px;
     display: flex;
     align-items: center;
-    justify-content: center;
-    z-index: 10;
+    gap: 10px;
 }
-.slider-arrow.left-4 { left: 1rem; }
-.slider-arrow.right-4 { right: 1rem; }
-.slider-arrow:hover { background-color: hsla(0, 0%, 100%, 0.9); }
+.branch-card p i {
+    color: var(--button-primary); /* Íconos en color primario */
+    font-size: 1.1em;
+}
+.branch-card .map-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 10px;
+    color: var(--text-primary); /* Gris oscuro para el enlace del mapa */
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+.branch-card .map-link:hover {
+    color: var(--button-primary);
+    text-decoration: underline;
+}
 
-.slider-indicator {
-    cursor: pointer;
+/* --- Reservaciones / Formulario --- */
+.reservation-form-container {
+    background-color: var(--card-form-background);
+    padding: var(--padding-card);
+    border-radius: var(--border-radius-default);
+    box-shadow: var(--box-shadow-default);
+    max-width: 700px;
+    margin: var(--spacing-large) auto 0;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.form-group label i {
+    color: var(--button-primary);
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="date"],
+.form-group input[type="time"],
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--border-elements);
+    border-radius: var(--border-radius-default);
+    background-color: #fff; /* Fondo blanco para inputs */
+    color: var(--text-primary);
+    font-family: var(--font-sans-serif);
+    font-size: 1em;
+    box-sizing: border-box; /* Incluir padding y borde en el ancho total */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: var(--text-secondary); /* Gris medio para placeholders */
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--focus-ring-color);
+    box-shadow: 0 0 0 3px rgba(46, 173, 157, 0.2); /* Sombra de foco */
+}
+
+.form-row {
+    display: flex;
+    gap: var(--spacing-medium);
+    margin-bottom: 20px;
+    flex-wrap: wrap; /* Para responsividad */
+}
+.form-row .form-group {
+    flex: 1;
+    margin-bottom: 0; /* Eliminar el margen inferior si está en una fila */
+    min-width: 250px; /* Asegurar que no se hagan demasiado pequeños */
+}
+
+.form-submit-button {
+    width: 100%;
+    background-color: var(--button-primary);
+    color: var(--text-on-button-primary);
+    padding: 15px 25px;
     border: none;
+    border-radius: var(--border-radius-default);
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 }
-.slider-indicator.active {
-    background-color: hsl(var(--primary));
+
+.form-submit-button:hover {
+    background-color: #1F7C70;
+}
+
+#contact-message {
+    margin-top: 15px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* --- Contacto --- */
+.contact-content {
+    display: flex;
+    gap: var(--spacing-large);
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.contact-info {
+    flex: 1;
+    min-width: 300px;
+}
+
+.contact-info h3 {
+    color: var(--button-primary); /* Títulos de subsección en verde azulado */
+    font-family: var(--font-serif);
+    font-size: 1.8em;
+    margin-bottom: 25px;
+}
+
+.contact-info ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.contact-info ul li {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    color: var(--text-primary);
+}
+
+.contact-info ul li i {
+    color: var(--button-primary);
+    font-size: 1.3em;
+    margin-top: 3px; /* Pequeño ajuste visual */
+}
+
+.contact-info ul li strong {
+    font-weight: 700;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.contact-form-area {
+    flex: 1.5; /* Ocupa más espacio que la info */
+    min-width: 300px;
+    background-color: var(--card-form-background);
+    padding: var(--padding-card);
+    border-radius: var(--border-radius-default);
+    box-shadow: var(--box-shadow-default);
+}
+
+.contact-form-area h3 {
+    margin-top: 0;
+    color: var(--button-primary);
 }
 
 
-/* Chatbot */
-#chatbot-window {
-    height: 24rem;
-    width: 20rem;
-    left: 2rem; /* Posición a la izquierda */
-    right: auto;
-}
-#chatbot-toggle {
-    left: 2rem; /* Posición a la izquierda */
-    right: auto;
+/* --- Footer --- */
+.main-footer {
+    background-color: var(--header-footer-background); /* Mismo fondo que el header */
+    color: var(--text-on-header-footer);
+    padding: var(--padding-section) 0 var(--spacing-medium) 0; /* Más padding arriba */
+    text-align: center;
 }
 
-#chat-messages {
-    max-height: calc(100% - 100px);
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--spacing-large);
+    flex-wrap: wrap;
+    text-align: left;
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 200px;
+    margin-bottom: var(--spacing-medium);
+}
+
+.footer-column.about-us {
+    flex: 1.5; /* Más ancho para el logo y descripción */
+}
+
+.footer-column h3 {
+    color: var(--text-on-header-footer);
+    font-size: 1.3em;
+    margin-bottom: 20px;
+    font-family: var(--font-serif);
+}
+
+.footer-column .logo-footer {
+    color: var(--text-on-header-footer);
+    font-family: var(--font-serif);
+    font-size: 1.8em;
+    text-decoration: none;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.footer-column p {
+    color: var(--text-on-header-footer); /* Texto en blanco/crema */
+    font-size: 0.95em;
+    line-height: 1.7;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 10px;
+}
+
+.footer-column ul li a {
+    color: var(--text-on-header-footer);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-column ul li a:hover {
+    color: var(--button-primary); /* Verde azulado al pasar el ratón */
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.social-icons a {
+    color: var(--text-on-header-footer);
+    font-size: 1.5em;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: var(--button-primary);
+}
+
+.footer-bottom {
+    margin-top: var(--spacing-medium);
+    padding-top: var(--spacing-medium);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.9em;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* --- Chatbot Styles --- */
+#chatbot-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--button-primary); /* Color primario */
+    color: var(--text-on-button-primary);
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    font-size: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: var(--box-shadow-default);
+    z-index: 1001;
+    transition: transform 0.3s ease;
+}
+#chatbot-button:hover {
+    transform: scale(1.05);
+}
+
+#chatbot-container {
+    position: fixed;
+    bottom: 90px; /* Ajusta la posición para que esté encima del botón */
+    right: 20px;
+    width: 320px;
+    height: 400px;
+    background-color: #fff; /* El chatbot en las imágenes parece blanco o muy claro */
+    border-radius: var(--border-radius-default);
+    box-shadow: var(--box-shadow-default);
+    display: none; /* Oculto por defecto, JS lo muestra */
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+.chatbot-header {
+    background-color: var(--button-primary); /* Verde azulado oscuro */
+    color: var(--text-on-button-primary);
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top-left-radius: var(--border-radius-default);
+    border-top-right-radius: var(--border-radius-default);
+}
+
+.chatbot-header h3 {
+    margin: 0;
+    font-size: 1.1em;
+    color: var(--text-on-button-primary);
+    font-family: var(--font-sans-serif);
+}
+
+.chatbot-header .close-btn {
+    background: none;
+    border: none;
+    color: var(--text-on-button-primary);
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+.chatbot-header .close-btn:hover {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.chat-messages {
+    flex-grow: 1;
+    padding: 15px;
+    overflow-y: auto;
+    background-color: var(--popover-background); /* Fondo del chat un poco más claro */
+    border-bottom: 1px solid var(--border-elements);
+}
+
+.chat-messages p {
+    margin-bottom: 10px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    max-width: 80%;
+    line-height: 1.4;
+    word-wrap: break-word;
+}
+
+.user-message {
+    background-color: var(--button-primary);
+    color: var(--text-on-button-primary);
+    align-self: flex-end; /* Alinea a la derecha */
+    margin-left: auto; /* Empuja a la derecha */
+}
+
+.bot-message {
+    background-color: var(--section-secondary-background); /* Verde pálido */
+    color: var(--text-on-section-secondary);
+    align-self: flex-start; /* Alinea a la izquierda */
+    margin-right: auto; /* Empuja a la izquierda */
+}
+
+.bot-message a {
+    color: var(--text-on-section-secondary);
+    text-decoration: underline;
+}
+
+.chat-input-area {
+    display: flex;
+    padding: 10px;
+    background-color: #fff; /* Fondo blanco para el área de input */
+    border-top: 1px solid var(--border-elements);
+}
+
+.chat-input-area input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid var(--border-elements);
+    border-radius: var(--border-radius-default);
+    margin-right: 10px;
+    font-family: var(--font-sans-serif);
+    color: var(--text-primary);
+    background-color: var(--input-background); /* Color de fondo para el input del chat */
+}
+
+.chat-input-area input:focus {
+    outline: none;
+    border-color: var(--focus-ring-color);
+    box-shadow: 0 0 0 3px rgba(46, 173, 157, 0.2);
+}
+
+.chat-input-area button {
+    background-color: var(--button-primary);
+    color: var(--text-on-button-primary);
+    border: none;
+    border-radius: var(--border-radius-default);
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease;
+}
+
+.chat-input-area button:hover {
+    background-color: #1F7C70;
 }
 
 
-/* Ajustes responsivos */
-@media (min-width: 640px) { /* sm breakpoint */
-    .sm\:flex-row { flex-direction: row; }
-    .sm\:w-64 { width: 16rem; }
-    .sm\:h-64 { height: 16rem; }
-    .sm\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+/* Media Queries para Responsividad */
+@media (max-width: 900px) {
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-text {
+        padding-right: 0;
+    }
+
+    .hero-text h1 {
+        font-size: 2.8em;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .content-two-columns,
+    .contact-content {
+        flex-direction: column;
+    }
+
+    .image-gallery,
+    .contact-form-area,
+    .contact-info,
+    .text-content {
+        width: 100%;
+        min-width: unset; /* Eliminar min-width para que ocupen todo el ancho */
+    }
+    .image-gallery {
+        margin-top: var(--spacing-medium); /* Espacio entre texto e imágenes en móvil */
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    .footer-column {
+        min-width: unset;
+        margin-bottom: var(--spacing-large);
+    }
+    .footer-column.about-us,
+    .social-icons {
+        align-items: center;
+        justify-content: center;
+    }
 }
 
-@media (min-width: 768px) { /* md breakpoint */
-    .md\:flex { display: flex; }
-    .md\:hidden { display: none; }
-    .md\:w-1\/2 { width: 50%; }
-    .md\:flex-row { flex-direction: row; }
-    .md\:text-left { text-align: left; }
-    .md\:gap-16 { gap: 4rem; }
-    .md\:gap-8 { gap: 2rem; }
-    .md\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .md\:items-start { align-items: flex-start; }
-    .md\:justify-start { justify-content: flex-start; }
-}
+@media (max-width: 768px) {
+    .main-header {
+        padding: 15px 20px;
+    }
 
-@media (min-width: 1024px) { /* lg breakpoint */
-    .lg\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-}
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: var(--header-footer-background);
+        width: 100%;
+        position: absolute;
+        top: 70px; /* Ajustar según la altura real del header */
+        left: 0;
+        padding: 20px 0;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    }
 
-/* Asegurar comportamiento de scroll suave */
-html {
-    scroll-behavior: smooth;
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        text-align: center;
+        margin: 10px 0;
+    }
+
+    .nav-links a {
+        padding: 10px 20px;
+        display: block;
+    }
+
+    .nav-actions {
+        display: none; /* Ocultar en móviles */
+    }
+
+    .menu-toggle {
+        display: flex; /* Mostrar en móviles */
+        order: 2; /* Para moverlo a la derecha del logo si es necesario */
+    }
+    .menu-toggle.active span:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+
+    .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle.active span:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+
+    .hero-text h1 {
+        font-size: 2.2em;
+    }
+
+    .section-header h2 {
+        font-size: 2em;
+    }
+
+    .form-row {
+        flex-direction: column;
+        gap: 0; /* Eliminar gap cuando se apilan */
+    }
+    .form-row .form-group {
+        min-width: unset; /* Permitir que ocupe todo el ancho */
+    }
 }
