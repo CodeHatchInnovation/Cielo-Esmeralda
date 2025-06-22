@@ -1,0 +1,255 @@
+/* events.css */
+
+/* Estilos específicos para la página de Eventos y Promociones */
+
+.events-page-hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://via.placeholder.com/1920x400/2C3E50/ECF0F1?text=Eventos+Cielo+Esmeralda') no-repeat center center/cover;
+    color: var(--text-on-dark);
+    padding: 120px 0 80px 0; /* Más padding para que se vea como un hero */
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.events-page-hero h1 {
+    font-size: 3.8em;
+    margin-bottom: var(--spacing-medium);
+    color: var(--text-on-dark);
+    position: relative;
+    display: inline-block;
+}
+
+.events-page-hero h1::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: var(--button-primary);
+    border-radius: 2px;
+}
+
+.events-page-hero p {
+    font-size: 1.3em;
+    max-width: 800px;
+    margin: 0 auto;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.events-container {
+    padding: var(--padding-section) 0;
+    background-color: var(--section-bg-light); /* Fondo blanco */
+}
+
+.month-section {
+    margin-bottom: var(--spacing-extra-large);
+    text-align: center;
+    opacity: 0; /* Para animación */
+    transform: translateY(50px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.month-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.month-section h2 {
+    font-size: 3em;
+    color: var(--button-primary); /* Color de acento para el mes */
+    margin-bottom: var(--spacing-large);
+    position: relative;
+    display: inline-block;
+    padding: 0 var(--spacing-medium); /* Espacio alrededor del texto */
+}
+
+.month-section h2::before,
+.month-section h2::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 80px; /* Longitud de la línea decorativa */
+    height: 2px;
+    background-color: var(--border-elements); /* Color de la línea */
+}
+
+.month-section h2::before {
+    left: -100px; /* Posición a la izquierda del texto */
+}
+
+.month-section h2::after {
+    right: -100px; /* Posición a la derecha del texto */
+}
+
+
+.promo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--spacing-medium);
+    margin-top: var(--spacing-medium);
+    justify-content: center; /* Centra las tarjetas si no llenan la fila */
+}
+
+.promo-card {
+    background-color: var(--card-form-background);
+    border-radius: var(--border-radius-default);
+    box-shadow: var(--box-shadow-default);
+    border: 1px solid var(--border-elements);
+    padding: var(--padding-card); /* Usar padding-card para más espacio */
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Alinea el contenido arriba */
+}
+
+.promo-card .promo-icon {
+    font-size: 2.5em;
+    color: var(--icon-color);
+    margin-bottom: var(--spacing-small);
+}
+
+.promo-card h3 {
+    font-size: 1.8em;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-small);
+}
+
+.promo-card .promo-date {
+    font-weight: 600;
+    color: var(--button-primary);
+    margin-bottom: var(--spacing-small);
+    display: block; /* Para que ocupe su propia línea */
+}
+
+.promo-card p {
+    font-size: 1em;
+    color: var(--text-secondary);
+    margin-bottom: 0; /* No hay margen inferior si no hay botón */
+    flex-grow: 1; /* Permite que el texto ocupe espacio variable */
+}
+
+/* Sección de Suscripción */
+.newsletter-section {
+    background-color: var(--section-bg-secondary);
+    padding: var(--padding-section) 0;
+    text-align: center;
+}
+
+.newsletter-section h2 {
+    color: var(--heading-color);
+    font-size: 2.5em;
+    margin-bottom: var(--spacing-medium);
+}
+
+.newsletter-section p {
+    max-width: 700px;
+    margin: 0 auto var(--spacing-large) auto;
+    font-size: 1.1em;
+    color: var(--text-secondary);
+}
+
+.newsletter-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-small);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.newsletter-form input[type="email"] {
+    flex-grow: 1;
+    padding: 15px 20px;
+    border: 1px solid var(--border-elements);
+    border-radius: var(--border-radius-default);
+    font-size: 1.1em;
+    color: var(--text-primary);
+    background-color: var(--card-form-background);
+    transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.newsletter-form input[type="email"]:focus {
+    border-color: var(--button-primary);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(26, 188, 156, 0.2);
+}
+
+.newsletter-form button {
+    padding: 15px 30px;
+    font-size: 1.1em;
+    font-weight: 700;
+    white-space: nowrap; /* Evita que el texto del botón se rompa */
+}
+
+#newsletter-message {
+    margin-top: var(--spacing-medium);
+    padding: 10px;
+    border-radius: var(--border-radius-default);
+    font-weight: 600;
+    display: none;
+}
+
+#newsletter-message.success {
+    background-color: rgba(39, 174, 96, 0.1);
+    color: var(--color-success);
+    border: 1px solid var(--color-success);
+}
+
+#newsletter-message.error {
+    background-color: rgba(231, 76, 60, 0.1);
+    color: var(--color-error);
+    border: 1px solid var(--color-error);
+}
+
+
+/* Media Queries para responsividad */
+@media (max-width: 768px) {
+    .events-page-hero h1 {
+        font-size: 2.8em;
+    }
+    .events-page-hero p {
+        font-size: 1em;
+    }
+    .month-section h2 {
+        font-size: 2.5em;
+    }
+    .month-section h2::before,
+    .month-section h2::after {
+        width: 40px; /* Líneas más cortas en móvil */
+        left: -50px;
+        right: -50px;
+    }
+    .promo-grid {
+        grid-template-columns: 1fr; /* Una columna en móvil */
+    }
+    .newsletter-form {
+        flex-direction: column;
+        gap: var(--spacing-medium);
+    }
+    .newsletter-form input,
+    .newsletter-form button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .events-page-hero h1 {
+        font-size: 2.2em;
+    }
+    .month-section h2 {
+        font-size: 2em;
+    }
+    .month-section h2::before,
+    .month-section h2::after {
+        width: 20px;
+        left: -30px;
+        right: -30px;
+    }
+    .promo-card {
+        padding: var(--spacing-medium);
+    }
+}
