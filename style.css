@@ -1,7 +1,3 @@
-/* Base Styles */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-/* Base Styles */
-/* Google Fonts: Lora para encabezados */
 @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap');
 /* Google Fonts: Inter para texto de cuerpo (como fallback si Geist Sans no está integrado con un cargador personalizado) */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
