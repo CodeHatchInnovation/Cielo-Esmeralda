@@ -35,13 +35,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Ajustar los enlaces del header y footer para que apunten a index.html cuando sea necesario
     document.querySelectorAll('.main-header .nav-links a, .main-footer .footer-column ul li a, .main-footer .logo-footer a').forEach(link => {
-        if (link.getAttribute('href').startsWith('#') && !link.getAttribute('href').includes('eventos-promociones')) {
+        // Si el enlace tiene un "#" y NO es la página actual de eventos-promociones, le añade "index.html"
+        if (link.getAttribute('href').startsWith('#') && !window.location.pathname.includes('eventos-promociones.html')) {
             link.setAttribute('href', 'index.html' + link.getAttribute('href'));
         }
+        // Si es un logo, siempre apunta a index.html#inicio
         if (link.classList.contains('logo-footer') || link.parentElement.classList.contains('logo')) {
             link.setAttribute('href', 'index.html#inicio');
         }
     });
+
 
     // --- LÓGICA DEL POP-UP DE NEWSLETTER ---
     const newsletterPopupOverlay = document.getElementById('newsletter-popup-overlay');
@@ -105,6 +108,4 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 5000);
     });
 
-    // *** LÓGICA DE CHATBOT Y COMANDOS DE VOZ ELIMINADA DE AQUÍ ***
-    // (Ya no se inicializa ni se maneja el chatbot/voz en esta página)
 });
