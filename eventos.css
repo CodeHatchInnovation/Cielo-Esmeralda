@@ -132,24 +132,84 @@
     flex-grow: 1; /* Permite que el texto ocupe espacio variable */
 }
 
-/* Sección de Suscripción */
-.newsletter-section {
-    background-color: var(--section-bg-secondary);
-    padding: var(--padding-section) 0;
-    text-align: center;
+/* --- ESTILOS PARA EL POP-UP DE NEWSLETTER --- */
+
+.newsletter-popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro semitransparente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Asegura que esté por encima de todo */
+    opacity: 0; /* Inicialmente oculto */
+    visibility: hidden; /* Oculto completamente */
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
 }
 
-.newsletter-section h2 {
+.newsletter-popup-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.newsletter-popup-content {
+    background-color: var(--card-form-background); /* Usa el color de fondo de las tarjetas/formularios */
+    padding: var(--padding-section); /* Padding generoso */
+    border-radius: var(--border-radius-large); /* Bordes más redondeados para pop-up */
+    box-shadow: var(--box-shadow-elevated); /* Sombra más pronunciada */
+    max-width: 600px;
+    width: 90%; /* Ajuste para responsividad */
+    text-align: center;
+    position: relative; /* Para posicionar el botón de cerrar */
+    transform: translateY(20px); /* Para animación de entrada */
+    transition: transform 0.3s ease-out;
+}
+
+.newsletter-popup-overlay.active .newsletter-popup-content {
+    transform: translateY(0);
+}
+
+.newsletter-popup-content .section-header {
+    margin-bottom: var(--spacing-large);
+}
+
+.newsletter-popup-content .section-header .section-icon {
+    font-size: 3.5em; /* Icono más grande */
+    margin-bottom: var(--spacing-small);
+    color: var(--icon-color);
+}
+
+.newsletter-popup-content h2 {
     color: var(--heading-color);
     font-size: 2.5em;
+    margin-bottom: var(--spacing-small);
+}
+
+.newsletter-popup-content p {
+    font-size: 1.1em;
+    color: var(--text-secondary);
     margin-bottom: var(--spacing-medium);
 }
 
-.newsletter-section p {
-    max-width: 700px;
-    margin: 0 auto var(--spacing-large) auto;
-    font-size: 1.1em;
+.close-popup-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 2.5em;
     color: var(--text-secondary);
+    cursor: pointer;
+    line-height: 1;
+    padding: 0;
+    transition: color 0.2s ease;
+}
+
+.close-popup-btn:hover {
+    color: var(--button-primary);
 }
 
 .newsletter-form {
@@ -157,7 +217,8 @@
     justify-content: center;
     align-items: center;
     gap: var(--spacing-small);
-    max-width: 600px;
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan en pantallas pequeñas */
+    max-width: 500px; /* Limita el ancho del formulario */
     margin: 0 auto;
 }
 
@@ -168,8 +229,9 @@
     border-radius: var(--border-radius-default);
     font-size: 1.1em;
     color: var(--text-primary);
-    background-color: var(--card-form-background);
+    background-color: var(--background-body); /* Para que el input sea visible sobre el pop-up */
     transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
+    min-width: 200px; /* Asegura que el input no sea demasiado pequeño */
 }
 
 .newsletter-form input[type="email"]:focus {
@@ -182,7 +244,8 @@
     padding: 15px 30px;
     font-size: 1.1em;
     font-weight: 700;
-    white-space: nowrap; /* Evita que el texto del botón se rompa */
+    white-space: nowrap;
+    border-radius: var(--border-radius-default); /* Asegura que el botón también tenga radio */
 }
 
 #newsletter-message {
@@ -191,6 +254,7 @@
     border-radius: var(--border-radius-default);
     font-weight: 600;
     display: none;
+    text-align: center;
 }
 
 #newsletter-message.success {
@@ -234,6 +298,20 @@
     .newsletter-form button {
         width: 100%;
     }
+    .newsletter-popup-content {
+        padding: var(--spacing-large);
+    }
+    .newsletter-popup-content h2 {
+        font-size: 2em;
+    }
+    .newsletter-popup-content p {
+        font-size: 1em;
+    }
+    .close-popup-btn {
+        font-size: 2em;
+        top: 10px;
+        right: 15px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -251,5 +329,8 @@
     }
     .promo-card {
         padding: var(--spacing-medium);
+    }
+    .newsletter-popup-content h2 {
+        font-size: 1.8em;
     }
 }
