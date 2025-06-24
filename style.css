@@ -41,7 +41,7 @@ body {
     background-color: var(--primary-background);
     color: var(--text-primary);
     line-height: 1.6;
-    overflow-x: hidden; /* Evitar scroll horizontal por animaciones */
+    overflow-x: hidden; /* **Asegura que no haya scroll horizontal** */
     font-size: 16px; /* text-base */
     font-weight: 400; /* Normal */
 }
@@ -339,8 +339,8 @@ h3.elegant-title {
 
 .hero-image-carousel {
     /* AJUSTADO: El width principal para el carrusel en desktop */
-    width: 320px; /* Reducido de 350px a 320px para hacerlo "menos ancho" */
-    height: 380px; /* Aumentado de 280px a 380px para hacerlo "más largo (alto)" */
+    width: 320px;
+    height: 380px;
     position: relative;
     box-shadow: var(--box-shadow-default);
     border-radius: var(--border-radius-default);
@@ -353,7 +353,6 @@ h3.elegant-title {
     display: flex;
     transition: transform 0.5s ease-in-out;
     border-radius: var(--border-radius-default);
-    /* No es necesario definir un width aquí, las imágenes lo harán */
     height: 100%; /* Asegura que ocupe la altura del contenedor del carrusel */
 }
 
@@ -785,11 +784,7 @@ h3.elegant-title {
 }
 
 .footer-column ul li a:hover {
-    color: var(--button-primary); /* Verde azulado al pasar el ratón */
-}
-.footer-column ul li i {
-    color: var(--text-on-header-footer); /* Color de los íconos en el footer */
-    font-size: 1.1em;
+    color: var(--button-primary);
 }
 
 .social-icons {
@@ -1053,9 +1048,9 @@ h3.elegant-title {
 
     /* AJUSTES PARA EL SLIDER EN MÓVIL */
     .hero-image-carousel {
-        width: 100%; /* En móviles, queremos que ocupe todo el ancho disponible */
-        max-width: unset; /* Elimina la limitación de max-width en móvil */
-        height: 300px; /* Ajuste la altura para móvil para que sea más largo */
+        width: 80%; /* Menos ancho */
+        max-width: 320px; /* No crezca demasiado en tablets pequeñas */
+        height: 320px; /* Más largo */
     }
     .carousel-slide img {
         height: 100%; /* Ajusta la altura de la imagen al contenedor en móvil */
@@ -1116,11 +1111,6 @@ h3.elegant-title {
 
     .reserve-button {
         display: none; /* OCULTAR EL BOTÓN DE RESERVAR EN MÓVIL, como se había sugerido */
-        /* Si quieres mantenerlo, puedes ajustarle el padding y font-size aquí para que sea más pequeño:
-        padding: 8px 12px;
-        font-size: 12px;
-        border-radius: 5px;
-        */
     }
 
     .voice-command-button {
@@ -1232,7 +1222,7 @@ h3.elegant-title {
 
     /* AJUSTE PARA EL SLIDER EN MÓVILES MUY PEQUEÑOS */
     .hero-image-carousel {
-        height: 200px; /* Aún más pequeño si es necesario para pantallas muy compactas */
+        height: 280px; /* Aún más pequeño si es necesario para pantallas muy compactas */
     }
 }
 
