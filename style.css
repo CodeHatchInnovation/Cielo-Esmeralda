@@ -338,29 +338,32 @@ h3.elegant-title {
 }
 
 .hero-image-carousel {
-    flex: 1;
-    min-width: 280px; /* Asegura un tamaño mínimo en móviles */
-    max-width: 350px; /* AJUSTADO: Reducido para que se vea solo una imagen y no se pixelee */
+    /* AJUSTADO: El width principal para el carrusel en desktop */
+    width: 350px; /* Define el ancho exacto del carrusel para mostrar solo una imagen */
+    height: 280px; /* Define una altura fija para evitar saltos y mantener la proporción */
     position: relative;
     box-shadow: var(--box-shadow-default);
     border-radius: var(--border-radius-default);
-    overflow: hidden; /* IMPORTANTE para el slider */
+    overflow: hidden; /* IMPORANTE: Para ocultar las imágenes que se salen del ancho */
     background-color: #fff; /* Fondo blanco para las imágenes del carrusel */
+    flex-shrink: 0; /* Evita que el carrusel se encoja en diseños flexbox */
 }
 
 .carousel-slide {
     display: flex;
     transition: transform 0.5s ease-in-out;
     border-radius: var(--border-radius-default);
-    width: 100%; /* Asegura que el contenedor de slides ocupe todo el ancho disponible */
+    /* No es necesario definir un width aquí, las imágenes lo harán */
+    height: 100%; /* Asegura que ocupe la altura del contenedor del carrusel */
 }
 
 .carousel-slide img {
-    width: 100%; /* Asegúrate de que la imagen ocupe el 100% del ancho del slide */
-    height: 280px; /* AJUSTADO: Altura adaptada al nuevo max-width para mantener la proporción y evitar pixelado */
+    width: 100%; /* Cada imagen ocupa el 100% del ancho del slide */
+    height: 100%; /* Cada imagen ocupa el 100% de la altura del slide */
     display: block;
     border-radius: var(--border-radius-default); /* Las imágenes dentro también redondeadas */
     object-fit: cover; /* Esto asegura que la imagen cubra el área sin distorsionarse */
+    flex-shrink: 0; /* Importante para que las imágenes no se encojan y mantengan su ancho */
 }
 
 .carousel-btn {
@@ -1048,12 +1051,14 @@ h3.elegant-title {
         font-size: 14px; /* md:text-sm - aplicado a este breakpoint */
     }
 
+    /* AJUSTES PARA EL SLIDER EN MÓVIL */
     .hero-image-carousel {
-        width: 100%; /* Asegura que ocupe todo el ancho disponible en móvil */
+        width: 100%; /* En móviles, queremos que ocupe todo el ancho disponible */
         max-width: unset; /* Elimina la limitación de max-width en móvil */
+        height: 250px; /* Altura específica para móviles */
     }
     .carousel-slide img {
-        height: 250px; /* Un poco más pequeño en móvil para evitar pixelado excesivo */
+        height: 100%; /* Ajusta la altura de la imagen al contenedor en móvil */
     }
 }
 
@@ -1061,12 +1066,10 @@ h3.elegant-title {
     .hero-text h1 {
         font-size: 60px; /* lg:text-6xl */
     }
-    /* Ajuste adicional para el carrusel en pantallas grandes si se aumentó el max-width */
+    /* AJUSTE PARA EL SLIDER EN PANTALLAS GRANDES */
     .hero-image-carousel {
-        max-width: 400px; /* Puedes aumentarlo un poco si las imágenes originales son de buena calidad */
-    }
-    .carousel-slide img {
-        height: 320px; /* Ajusta la altura si aumentas el max-width */
+        width: 350px; /* Mantenemos el ancho fijo para escritorio para una sola imagen */
+        height: 280px; /* Mantener la altura fija para escritorio */
     }
 }
 
