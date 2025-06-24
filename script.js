@@ -28,41 +28,51 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (carouselSlide && carouselImages.length > 0) {
         let counter = 0;
-        // Ensure images are loaded before getting clientWidth
+        let size = carouselImages[0].clientWidth; // Initial size
+
+        // Update size on window resize
+        window.addEventListener('resize', () => {
+            size = carouselImages[0].clientWidth;
+            carouselSlide.style.transition = 'none'; // Temporarily disable transition during resize
+            carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
+        });
+
+        // Function to move to the next slide
+        const goToNextSlide = () => {
+            if (counter >= carouselImages.length - 1) {
+                counter = -1; // Reset to loop to the first image
+            }
+            counter++;
+            carouselSlide.style.transition = 'transform 0.5s ease-in-out';
+            carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
+        };
+
+        // Function to move to the previous slide
+        const goToPrevSlide = () => {
+            if (counter <= 0) {
+                counter = carouselImages.length; // Reset to loop to the last image
+            }
+            counter--;
+            carouselSlide.style.transition = 'transform 0.5s ease-in-out';
+            carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
+        };
+
+        // Initial position after images load
         const checkImagesLoaded = setInterval(() => {
             if (carouselImages[0].complete) {
                 clearInterval(checkImagesLoaded);
-                const size = carouselImages[0].clientWidth;
-
-                // Set initial position
+                size = carouselImages[0].clientWidth; // Get actual size after loading
                 carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
+                
+                // Add event listeners for buttons
+                nextBtn.addEventListener('click', goToNextSlide);
+                prevBtn.addEventListener('click', goToPrevSlide);
 
-                nextBtn.addEventListener('click', () => {
-                    if (counter >= carouselImages.length - 1) {
-                        counter = -1; // Reset to loop
-                    }
-                    counter++;
-                    carouselSlide.style.transition = 'transform 0.5s ease-in-out';
-                    carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
-                });
-
-                prevBtn.addEventListener('click', () => {
-                    if (counter <= 0) {
-                        counter = carouselImages.length; // Reset to loop
-                    }
-                    counter--;
-                    carouselSlide.style.transition = 'transform 0.5s ease-in-out';
-                    carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
-                });
-
-                // Optional: Loop continuously (e.g., every 5 seconds)
-                // setInterval(() => {
-                //     nextBtn.click();
-                // }, 5000);
+                // Auto-scroll every 3 seconds
+                setInterval(goToNextSlide, 3000);
             }
         }, 100); // Check every 100ms
     }
-
 
     // --- Smooth Scrolling for Navigation Links ---
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -116,6 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // --- Voice Command Functionality ---
+    // Make sure to add id="voice-command-toggle" to your voice command button in HTML
     const voiceCommandButton = document.getElementById('voice-command-toggle');
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
     let recognition;
@@ -126,19 +137,23 @@ document.addEventListener('DOMContentLoaded', () => {
         recognition.continuous = false; // Listen for a single utterance
         recognition.lang = 'es-ES'; // Spanish language
 
-        voiceCommandButton.addEventListener('click', () => {
-            if (isListening) {
-                recognition.stop();
-            } else {
-                recognition.start();
-            }
-        });
+        if (voiceCommandButton) { // Ensure button exists before adding listener
+            voiceCommandButton.addEventListener('click', () => {
+                if (isListening) {
+                    recognition.stop();
+                } else {
+                    recognition.start();
+                }
+            });
+        }
 
         recognition.onstart = () => {
             console.log('Voice recognition started. Speak now.');
             isListening = true;
-            voiceCommandButton.classList.add('listening');
-            voiceCommandButton.innerHTML = '<i class="fas fa-microphone-alt"></i>'; // Icono de micrófono activo
+            if (voiceCommandButton) {
+                voiceCommandButton.classList.add('listening');
+                voiceCommandButton.innerHTML = '<i class="fas fa-microphone-alt"></i>'; // Icono de micrófono activo
+            }
         };
 
         recognition.onresult = (event) => {
@@ -150,15 +165,19 @@ document.addEventListener('DOMContentLoaded', () => {
         recognition.onend = () => {
             console.log('Voice recognition ended.');
             isListening = false;
-            voiceCommandButton.classList.remove('listening');
-            voiceCommandButton.innerHTML = '<i class="fas fa-microphone"></i>'; // Icono de micrófono normal
+            if (voiceCommandButton) {
+                voiceCommandButton.classList.remove('listening');
+                voiceCommandButton.innerHTML = '<i class="fas fa-microphone"></i>'; // Icono de micrófono normal
+            }
         };
 
         recognition.onerror = (event) => {
             console.error('Speech recognition error:', event.error);
             isListening = false;
-            voiceCommandButton.classList.remove('listening');
-            voiceCommandButton.innerHTML = '<i class="fas fa-microphone"></i>';
+            if (voiceCommandButton) {
+                voiceCommandButton.classList.remove('listening');
+                voiceCommandButton.innerHTML = '<i class="fas fa-microphone"></i>';
+            }
             alert('Error en el reconocimiento de voz: ' + event.error + '. Asegúrate de permitir el acceso al micrófono.');
         };
 
