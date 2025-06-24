@@ -278,6 +278,8 @@ document.addEventListener('DOMContentLoaded', () => {
             return 'Si tienes más preguntas, puedes contactarnos directamente a través del formulario o ver nuestros datos en la sección <a href="#contacto" onclick="document.getElementById(\'close-chatbot-btn\').click(); return true;">"Contáctanos"</a>.';
         } else if (msg.includes('horario') || msg.includes('abren')) {
             return 'Nuestro horario general es: Lunes a Viernes: 10:00 AM - 10:00 PM; Sábados y Domingos: 12:00 PM - 11:00 PM. Puedes encontrar esto y más en la sección de <a href="#contacto" onclick="document.getElementById(\'close-chatbot-btn\').click(); return true;">"Contáctanos"</a>.';
+        } else if (msg.includes('eventos') || msg.includes('promociones')) {
+            return 'Tenemos eventos y promociones especiales dependiendo de la época del año y la fecha. Puedes encontrar toda la información detallada en nuestra sección de <a href="eventos-promociones.html" onclick="document.getElementById(\'close-chatbot-btn\').click(); return true;">"Eventos y Promociones"</a>.';
         } else if (msg.includes('gracias')) {
             return 'De nada. ¡Espero verte pronto en Cielo Esmeralda!';
         } else {
