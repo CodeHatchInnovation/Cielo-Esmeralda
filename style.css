@@ -1,3 +1,4 @@
+/* Definición de las nuevas variables de color */
 :root {
     /* Colores base (Actualizados para coincidir con las imágenes) */
     --primary-background: #F3F0EC;          /* Fondo principal (crema muy claro y cálido) */
@@ -338,8 +339,8 @@ h3.elegant-title {
 
 .hero-image-carousel {
     flex: 1;
-    min-width: 300px; /* Asegura un tamaño mínimo */
-    max-width: 500px; /* Limita el tamaño máximo */
+    min-width: 280px; /* Mantener un mínimo para móviles */
+    max-width: 400px; /* AJUSTADO: Reducido para evitar pixelado en imágenes más pequeñas */
     position: relative;
     box-shadow: var(--box-shadow-default);
     border-radius: var(--border-radius-default);
@@ -356,7 +357,7 @@ h3.elegant-title {
 
 .carousel-slide img {
     width: 100%; /* Asegúrate de que la imagen ocupe el 100% del ancho del slide */
-    height: 400px; /* AJUSTADO: Puedes ajustar esta altura según tu diseño */
+    height: 300px; /* AJUSTADO: Reducida la altura para adaptarse al nuevo max-width del contenedor */
     display: block;
     border-radius: var(--border-radius-default); /* Las imágenes dentro también redondeadas */
     object-fit: cover; /* Esto asegura que la imagen cubra el área sin distorsionarse */
@@ -1046,11 +1047,26 @@ h3.elegant-title {
     .form-group textarea {
         font-size: 14px; /* md:text-sm - aplicado a este breakpoint */
     }
+
+    .hero-image-carousel {
+        width: 100%; /* Asegura que ocupe todo el ancho disponible en móvil */
+        max-width: unset; /* Elimina la limitación de max-width en móvil */
+    }
+    .carousel-slide img {
+        height: 250px; /* Un poco más pequeño en móvil para evitar pixelado excesivo */
+    }
 }
 
 @media (min-width: 1024px) { /* lg breakpoint */
     .hero-text h1 {
         font-size: 60px; /* lg:text-6xl */
+    }
+    /* Ajuste adicional para el carrusel en pantallas grandes si se aumentó el max-width */
+    .hero-image-carousel {
+        max-width: 450px; /* Puedes aumentarlo un poco para pantallas grandes si las imágenes originales son de buena calidad */
+    }
+    .carousel-slide img {
+        height: 350px; /* Ajusta la altura si aumentas el max-width */
     }
 }
 
@@ -1209,6 +1225,10 @@ h3.elegant-title {
 
     .footer-column {
         padding: 0 15px; /* Padding para columnas del footer en móviles muy pequeños */
+    }
+
+    .carousel-slide img {
+        height: 200px; /* Aún más pequeño si es necesario para pantallas muy compactas */
     }
 }
 
