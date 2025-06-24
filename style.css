@@ -1,23 +1,23 @@
 /* Definición de las nuevas variables de color */
 :root {
     /* Colores base (Actualizados para coincidir con las imágenes) */
-    --primary-background: #F3F0EC;          /* Fondo principal (crema muy claro y cálido) */
-    --text-primary: #524D4A;                 /* Gris oscuro para todo el texto general */
-    --card-form-background: #EEEBE5;         /* Crema ligeramente más oscuro que el fondo (para tarjetas y formularios) */
-    --popover-background: #EAE5DD;           /* Fondo de Elementos Emergentes (Popovers) */
-    --button-primary: #248F83;               /* Verde azulado oscuro (Botones principales, enlaces importantes) */
-    --text-on-button-primary: #F7F5F2;       /* Un crema muy claro, casi blanco (Texto sobre el Color Primario) */
+    --primary-background: #F3F0EC;             /* Fondo principal (crema muy claro y cálido) */
+    --text-primary: #524D4A;                    /* Gris oscuro para todo el texto general */
+    --card-form-background: #EEEBE5;            /* Crema ligeramente más oscuro que el fondo (para tarjetas y formularios) */
+    --popover-background: #EAE5DD;              /* Fondo de Elementos Emergentes (Popovers) */
+    --button-primary: #248F83;                  /* Verde azulado oscuro (Botones principales, enlaces importantes) */
+    --text-on-button-primary: #F7F5F2;          /* Un crema muy claro, casi blanco (Texto sobre el Color Primario) */
     --section-secondary-background: #E6F2EB; /* Verde muy pálido (Fondo de secciones como Menú y Contacto) */
-    --text-on-section-secondary: #265940;    /* Verde oscuro (Texto sobre el Color Secundario) */
-    --header-footer-background: #005C51;     /* Verde azulado muy oscuro y saturado (Fondo del encabezado/barra de navegación y footer) - AJUSTADO */
-    --text-on-header-footer: #F7F5F2;        /* Un crema muy claro, casi blanco (Texto sobre el Color de Acento) */
-    --subtle-elements-background: #E7E3DE;   /* Crema desaturado (Elementos Apagados / fondos sutiles) */
-    --text-secondary: #8A8582;               /* Gris medio (Texto Apagado / texto secundario, descripciones) */
-    --error-color: #D92828;                  /* Rojo estándar (Color para Errores) */
-    --text-on-error: #FAFAFA;                /* Blanco (Texto sobre el Color para Errores) */
-    --border-elements: #DBD8D3;              /* Un gris/crema muy sutil (Bordes de elementos) */
-    --input-background: #EAE5DD;             /* Fondo de campos de formulario (Inputs) */
-    --focus-ring-color: #2EAD9D;             /* Verde azulado brillante (Anillo de Foco al seleccionar un input) */
+    --text-on-section-secondary: #265940;      /* Verde oscuro (Texto sobre el Color Secundario) */
+    --header-footer-background: #005C51;        /* Verde azulado muy oscuro y saturado (Fondo del encabezado/barra de navegación y footer) - AJUSTADO */
+    --text-on-header-footer: #F7F5F2;          /* Un crema muy claro, casi blanco (Texto sobre el Color de Acento) */
+    --subtle-elements-background: #E7E3DE;    /* Crema desaturado (Elementos Apagados / fondos sutiles) */
+    --text-secondary: #8A8582;                 /* Gris medio (Texto Apagado / texto secundario, descripciones) */
+    --error-color: #D92828;                     /* Rojo estándar (Color para Errores) */
+    --text-on-error: #FAFAFA;                   /* Blanco (Texto sobre el Color para Errores) */
+    --border-elements: #DBD8D3;                 /* Un gris/crema muy sutil (Bordes de elementos) */
+    --input-background: #EAE5DD;                /* Fondo de campos de formulario (Inputs) */
+    --focus-ring-color: #2EAD9D;                /* Verde azulado brillante (Anillo de Foco al seleccionar un input) */
 
     /* Variables de espaciado y tamaño */
     --spacing-large: 60px;
@@ -127,7 +127,7 @@ h3.elegant-title {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: sticky;
+    position: sticky; /* Sticky, no fixed, para seguir el scroll si es deseado */
     top: 0;
     z-index: 1000;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -186,24 +186,41 @@ h3.elegant-title {
     gap: 15px;
 }
 
-.voice-command-button,
-.reserve-button {
-    background-color: transparent;
-    color: var(--text-on-header-footer);
+/* Voice Command Button - MODIFICACIONES AQUÍ */
+.voice-command-button {
+    background-color: transparent; /* No tiene un fondo sólido */
+    color: var(--text-on-header-footer); /* Color del icono */
     border: none;
-    padding: 10px;
+    padding: 0; /* Sin padding interno, el tamaño se define con width/height */
     cursor: pointer;
-    font-size: 1.2em; /* Tamaño del icono */
-    display: flex;
+    font-size: 1.5em; /* Tamaño del icono */
+    display: flex; /* Para centrar el icono */
+    justify-content: center;
     align-items: center;
-    gap: 5px;
-    transition: color 0.3s ease;
+    width: 40px; /* Tamaño del botón */
+    height: 40px;
+    border-radius: 50%; /* Hacerlo redondo */
+    transition: color 0.3s ease, background-color 0.3s ease;
+    flex-shrink: 0; /* Evita que se encoja en diseños flexbox */
 }
 
-.voice-command-button:hover,
-.voice-command-button.listening {
-    color: var(--button-primary); /* Cambia de color cuando escucha */
+.voice-command-button:hover {
+    color: var(--button-primary); /* Cambia de color al pasar el ratón */
+    background-color: rgba(255, 255, 255, 0.1); /* Fondo sutil al pasar el ratón */
 }
+
+.voice-command-button.listening {
+    color: var(--button-primary); /* Verde azulado cuando escucha */
+    background-color: rgba(255, 255, 255, 0.2); /* Fondo más visible cuando escucha */
+    animation: pulseMic 1.5s infinite; /* Animación de pulsación */
+}
+
+@keyframes pulseMic {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.1); opacity: 0.8; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
 
 .reserve-button {
     background-color: var(--button-primary);
@@ -214,6 +231,7 @@ h3.elegant-title {
     text-decoration: none;
     font-size: 14px; /* text-sm */
     transition: background-color 0.3s ease;
+    white-space: nowrap; /* Evita que el texto del botón se rompa */
 }
 
 .reserve-button:hover {
@@ -1034,6 +1052,7 @@ h3.elegant-title {
     }
 
     .nav-links {
+        /* Se mantiene oculto en móvil y se controla por JS */
         display: none;
         flex-direction: column;
         background-color: var(--header-footer-background);
@@ -1043,6 +1062,7 @@ h3.elegant-title {
         left: 0;
         padding: 20px 0;
         box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        z-index: 999; /* Asegura que esté debajo de los botones del header si se solapan */
     }
 
     .nav-links.active {
@@ -1059,13 +1079,34 @@ h3.elegant-title {
         display: block;
     }
 
+    /* MODIFICACIONES CLAVE AQUÍ PARA EL MICRÓFONO EN MÓVIL */
     .nav-actions {
-        display: none; /* Ocultar en móviles */
+        display: flex; /* Asegurarse de que el contenedor de acciones sea visible */
+        order: 1; /* Para que aparezca antes del menu-toggle si ambos están en el mismo nivel */
+        gap: 10px; /* Espacio entre los elementos de acción */
+    }
+
+    .reserve-button {
+        display: none; /* OCULTAR EL BOTÓN DE RESERVAR EN MÓVIL, como se había sugerido */
+        /* Si quieres mantenerlo, puedes ajustarle el padding y font-size aquí para que sea más pequeño:
+        padding: 8px 12px;
+        font-size: 12px;
+        border-radius: 5px;
+        */
+    }
+
+    .voice-command-button {
+        display: flex; /* ASEGURAR QUE EL BOTÓN DE VOZ SIEMPRE SEA VISIBLE */
+        width: 35px; /* Un poco más pequeño para móviles muy pequeños */
+        height: 35px;
+        font-size: 1.1em; /* Icono más pequeño */
+        order: 1; /* Asegura que esté en la izquierda de las acciones si hay varios elementos */
     }
 
     .menu-toggle {
         display: flex; /* Mostrar en móviles */
-        order: 2; /* Para moverlo a la derecha del logo si es necesario */
+        order: 2; /* Para que esté a la derecha del botón de voz */
+        margin-left: 10px; /* Espacio entre el micrófono y la hamburguesa */
     }
     .menu-toggle.active span:nth-child(1) {
         transform: rotate(-45deg) translate(-5px, 6px);
@@ -1112,3 +1153,72 @@ h3.elegant-title {
         font-size: 16px; /* text-base */
     }
 }
+
+/* Small Mobile Devices (max-width 480px) - Ajustes más finos */
+@media (max-width: 480px) {
+    .main-header {
+        padding: 10px 15px; /* Más compacto */
+    }
+    .logo img {
+        max-height: 35px; /* Logo más pequeño */
+    }
+
+    .voice-command-button {
+        width: 30px; /* Aún más pequeño */
+        height: 30px;
+        font-size: 1em; /* Icono más pequeño */
+    }
+
+    .menu-toggle {
+        width: 25px; /* Hamburguesa más pequeña */
+        height: 18px;
+        gap: 4px;
+    }
+    .menu-toggle span {
+        height: 2px;
+    }
+    .menu-toggle.active span:nth-child(1) {
+        transform: rotate(-45deg) translate(-4px, 5px);
+    }
+    .menu-toggle.active span:nth-child(3) {
+        transform: rotate(45deg) translate(-4px, -5px);
+    }
+
+    .hero-text h1 {
+        font-size: 30px; /* Aún más pequeño */
+    }
+    .hero-text p {
+        font-size: 16px;
+    }
+
+    .section-header h2 {
+        font-size: 24px;
+    }
+    .section-header p {
+        font-size: 16px;
+    }
+
+    .footer-column {
+        padding: 0 15px; /* Padding para columnas del footer en móviles muy pequeños */
+    }
+}
+
+/* --- VOICE COMMAND POP-UP (OVERLAY) STYLES --- */
+/* Añadido o ajustado para el nuevo tema de color */
+.voice-command-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro semi-transparente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000; /* Asegurar que esté por encima de todo */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+.voice-command-overlay.active {
