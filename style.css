@@ -339,8 +339,8 @@ h3.elegant-title {
 
 .hero-image-carousel {
     flex: 1;
-    min-width: 280px; /* Mantener un mínimo para móviles */
-    max-width: 400px; /* AJUSTADO: Reducido para evitar pixelado en imágenes más pequeñas */
+    min-width: 280px; /* Asegura un tamaño mínimo en móviles */
+    max-width: 350px; /* AJUSTADO: Reducido para que se vea solo una imagen y no se pixelee */
     position: relative;
     box-shadow: var(--box-shadow-default);
     border-radius: var(--border-radius-default);
@@ -357,7 +357,7 @@ h3.elegant-title {
 
 .carousel-slide img {
     width: 100%; /* Asegúrate de que la imagen ocupe el 100% del ancho del slide */
-    height: 300px; /* AJUSTADO: Reducida la altura para adaptarse al nuevo max-width del contenedor */
+    height: 280px; /* AJUSTADO: Altura adaptada al nuevo max-width para mantener la proporción y evitar pixelado */
     display: block;
     border-radius: var(--border-radius-default); /* Las imágenes dentro también redondeadas */
     object-fit: cover; /* Esto asegura que la imagen cubra el área sin distorsionarse */
@@ -1063,10 +1063,10 @@ h3.elegant-title {
     }
     /* Ajuste adicional para el carrusel en pantallas grandes si se aumentó el max-width */
     .hero-image-carousel {
-        max-width: 450px; /* Puedes aumentarlo un poco para pantallas grandes si las imágenes originales son de buena calidad */
+        max-width: 400px; /* Puedes aumentarlo un poco si las imágenes originales son de buena calidad */
     }
     .carousel-slide img {
-        height: 350px; /* Ajusta la altura si aumentas el max-width */
+        height: 320px; /* Ajusta la altura si aumentas el max-width */
     }
 }
 
