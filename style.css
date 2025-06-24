@@ -705,9 +705,10 @@ h3.elegant-title {
     flex: 1.5; /* Ocupa más espacio que la info */
     min-width: 300px;
     background-color: var(--card-form-background);
-    padding: var(--padding-card);
+    padding: var(--padding-card); /* Mantenemos el padding por defecto para desktop */
     border-radius: var(--border-radius-default);
     box-shadow: var(--box-shadow-default);
+    box-sizing: border-box; /* **Asegura que el padding se incluya en el ancho total** */
 }
 
 .contact-form-area h3 {
@@ -1189,6 +1190,11 @@ h3.elegant-title {
     .contact-info ul li p {
         font-size: 16px; /* text-base */
     }
+
+    /* AJUSTE CLAVE AQUÍ PARA EL PADDING DEL FORMULARIO DE CONTACTO EN MÓVILES */
+    .contact-form-area {
+        padding: var(--spacing-medium); /* Reduce el padding interno del formulario en móviles */
+    }
 }
 
 /* Small Mobile Devices (max-width 480px) - Ajustes más finos */
@@ -1244,6 +1250,13 @@ h3.elegant-title {
         width: 90%; /* Menos ancho */
         max-width: 300px; /* Para pantallas aún más pequeñas */
         height: 280px; /* Más largo */
+    }
+
+    /* Asegurar que los inputs del formulario no desborden en móviles muy pequeños */
+    .form-group input,
+    .form-group textarea {
+        font-size: 14px; /* Ajusta el tamaño de la fuente para que quepa mejor */
+        padding: 10px 12px; /* Reduce el padding interno de los inputs */
     }
 }
 
