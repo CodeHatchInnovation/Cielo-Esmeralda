@@ -1,23 +1,29 @@
+Perfecto. Aquí tienes el código CSS completo, incluyendo los ajustes que te sugerí para el slider, las imágenes de la sección "Nuestra Historia / Filosofía", los códigos QR y los logos.
+
+CSS
+
+style.css
+
 /* Definición de las nuevas variables de color */
 :root {
     /* Colores base (Actualizados para coincidir con las imágenes) */
-    --primary-background: #F3F0EC;             /* Fondo principal (crema muy claro y cálido) */
-    --text-primary: #524D4A;                    /* Gris oscuro para todo el texto general */
-    --card-form-background: #EEEBE5;            /* Crema ligeramente más oscuro que el fondo (para tarjetas y formularios) */
-    --popover-background: #EAE5DD;              /* Fondo de Elementos Emergentes (Popovers) */
-    --button-primary: #248F83;                  /* Verde azulado oscuro (Botones principales, enlaces importantes) */
-    --text-on-button-primary: #F7F5F2;          /* Un crema muy claro, casi blanco (Texto sobre el Color Primario) */
+    --primary-background: #F3F0EC;          /* Fondo principal (crema muy claro y cálido) */
+    --text-primary: #524D4A;                 /* Gris oscuro para todo el texto general */
+    --card-form-background: #EEEBE5;         /* Crema ligeramente más oscuro que el fondo (para tarjetas y formularios) */
+    --popover-background: #EAE5DD;           /* Fondo de Elementos Emergentes (Popovers) */
+    --button-primary: #248F83;               /* Verde azulado oscuro (Botones principales, enlaces importantes) */
+    --text-on-button-primary: #F7F5F2;       /* Un crema muy claro, casi blanco (Texto sobre el Color Primario) */
     --section-secondary-background: #E6F2EB; /* Verde muy pálido (Fondo de secciones como Menú y Contacto) */
-    --text-on-section-secondary: #265940;      /* Verde oscuro (Texto sobre el Color Secundario) */
-    --header-footer-background: #005C51;        /* Verde azulado muy oscuro y saturado (Fondo del encabezado/barra de navegación y footer) - AJUSTADO */
-    --text-on-header-footer: #F7F5F2;          /* Un crema muy claro, casi blanco (Texto sobre el Color de Acento) */
-    --subtle-elements-background: #E7E3DE;    /* Crema desaturado (Elementos Apagados / fondos sutiles) */
-    --text-secondary: #8A8582;                 /* Gris medio (Texto Apagado / texto secundario, descripciones) */
-    --error-color: #D92828;                     /* Rojo estándar (Color para Errores) */
-    --text-on-error: #FAFAFA;                   /* Blanco (Texto sobre el Color para Errores) */
-    --border-elements: #DBD8D3;                 /* Un gris/crema muy sutil (Bordes de elementos) */
-    --input-background: #EAE5DD;                /* Fondo de campos de formulario (Inputs) */
-    --focus-ring-color: #2EAD9D;                /* Verde azulado brillante (Anillo de Foco al seleccionar un input) */
+    --text-on-section-secondary: #265940;    /* Verde oscuro (Texto sobre el Color Secundario) */
+    --header-footer-background: #005C51;     /* Verde azulado muy oscuro y saturado (Fondo del encabezado/barra de navegación y footer) - AJUSTADO */
+    --text-on-header-footer: #F7F5F2;        /* Un crema muy claro, casi blanco (Texto sobre el Color de Acento) */
+    --subtle-elements-background: #E7E3DE;   /* Crema desaturado (Elementos Apagados / fondos sutiles) */
+    --text-secondary: #8A8582;               /* Gris medio (Texto Apagado / texto secundario, descripciones) */
+    --error-color: #D92828;                   /* Rojo estándar (Color para Errores) */
+    --text-on-error: #FAFAFA;                 /* Blanco (Texto sobre el Color para Errores) */
+    --border-elements: #DBD8D3;               /* Un gris/crema muy sutil (Bordes de elementos) */
+    --input-background: #EAE5DD;             /* Fondo de campos de formulario (Inputs) */
+    --focus-ring-color: #2EAD9D;             /* Verde azulado brillante (Anillo de Foco al seleccionar un input) */
 
     /* Variables de espaciado y tamaño */
     --spacing-large: 60px;
@@ -141,7 +147,7 @@ h3.elegant-title {
 }
 
 .logo img {
-    max-height: 40px; /* Ajusta la altura máxima para tu logo */
+    max-height: 55px; /* AJUSTADO: Ajusta la altura máxima para tu logo */
     width: auto; /* Mantiene la proporción */
     display: block; /* Elimina espacio extra debajo de la imagen */
 }
@@ -344,7 +350,7 @@ h3.elegant-title {
     position: relative;
     box-shadow: var(--box-shadow-default);
     border-radius: var(--border-radius-default);
-    overflow: hidden;
+    overflow: hidden; /* IMPORTANTE para el slider */
     background-color: #fff; /* Fondo blanco para las imágenes del carrusel */
 }
 
@@ -352,13 +358,15 @@ h3.elegant-title {
     display: flex;
     transition: transform 0.5s ease-in-out;
     border-radius: var(--border-radius-default);
+    width: 100%; /* Asegura que el contenedor de slides ocupe todo el ancho disponible */
 }
 
 .carousel-slide img {
-    width: 100%;
+    width: 100%; /* Asegúrate de que la imagen ocupe el 100% del ancho del slide */
+    height: 400px; /* AJUSTADO: Puedes ajustar esta altura según tu diseño */
     display: block;
     border-radius: var(--border-radius-default); /* Las imágenes dentro también redondeadas */
-    object-fit: cover;
+    object-fit: cover; /* Esto asegura que la imagen cubra el área sin distorsionarse */
 }
 
 .carousel-btn {
@@ -422,10 +430,18 @@ h3.elegant-title {
 .image-gallery .rounded-image {
     width: 100%;
     height: auto;
+    max-height: 350px; /* AJUSTADO: Limita la altura máxima de las imágenes de la galería */
     border-radius: var(--border-radius-default);
     box-shadow: var(--box-shadow-default);
     object-fit: cover;
 }
+/* Opcional: Para el contenedor de la galería, puedes limitar su ancho en desktop */
+@media (min-width: 901px) { /* Para pantallas más grandes que 900px */
+    .image-gallery {
+        max-width: 400px; /* AJUSTADO: Limita el ancho máximo del contenedor de la galería */
+    }
+}
+
 
 /* --- Menú Digital / QR --- */
 .card-grid {
@@ -449,7 +465,7 @@ h3.elegant-title {
 }
 
 .qr-card img {
-    max-width: 180px;
+    max-width: 250px; /* AJUSTADO: Aumenta el tamaño para el QR */
     height: auto;
     margin: 20px auto;
     display: block;
@@ -733,7 +749,7 @@ h3.elegant-title {
     color: inherit; /* Hereda color del padre, si no se especifica */
 }
 .logo-footer img {
-    max-height: 50px; /* Ajusta la altura del logo del footer */
+    max-height: 65px; /* AJUSTADO: Ajusta la altura del logo del footer */
     width: auto;
     display: block;
     margin: 0 auto; /* Centrar la imagen en el footer column */
@@ -1222,3 +1238,6 @@ h3.elegant-title {
 }
 
 .voice-command-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
