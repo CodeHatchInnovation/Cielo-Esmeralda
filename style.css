@@ -339,12 +339,12 @@ h3.elegant-title {
 
 .hero-image-carousel {
     /* AJUSTADO: El width principal para el carrusel en desktop */
-    width: 350px; /* Define el ancho exacto del carrusel para mostrar solo una imagen */
-    height: 280px; /* Define una altura fija para evitar saltos y mantener la proporción */
+    width: 320px; /* Reducido de 350px a 320px para hacerlo "menos ancho" */
+    height: 380px; /* Aumentado de 280px a 380px para hacerlo "más largo (alto)" */
     position: relative;
     box-shadow: var(--box-shadow-default);
     border-radius: var(--border-radius-default);
-    overflow: hidden; /* IMPORANTE: Para ocultar las imágenes que se salen del ancho */
+    overflow: hidden; /* IMPORTANTE: Para ocultar las imágenes que se salen del ancho */
     background-color: #fff; /* Fondo blanco para las imágenes del carrusel */
     flex-shrink: 0; /* Evita que el carrusel se encoja en diseños flexbox */
 }
@@ -1055,7 +1055,7 @@ h3.elegant-title {
     .hero-image-carousel {
         width: 100%; /* En móviles, queremos que ocupe todo el ancho disponible */
         max-width: unset; /* Elimina la limitación de max-width en móvil */
-        height: 250px; /* Altura específica para móviles */
+        height: 300px; /* Ajuste la altura para móvil para que sea más largo */
     }
     .carousel-slide img {
         height: 100%; /* Ajusta la altura de la imagen al contenedor en móvil */
@@ -1068,8 +1068,8 @@ h3.elegant-title {
     }
     /* AJUSTE PARA EL SLIDER EN PANTALLAS GRANDES */
     .hero-image-carousel {
-        width: 350px; /* Mantenemos el ancho fijo para escritorio para una sola imagen */
-        height: 280px; /* Mantener la altura fija para escritorio */
+        width: 320px; /* Cambiado a 320px para hacerlo menos ancho en desktop */
+        height: 380px; /* Cambiado a 380px para hacerlo más largo (alto) en desktop */
     }
 }
 
@@ -1230,8 +1230,12 @@ h3.elegant-title {
         padding: 0 15px; /* Padding para columnas del footer en móviles muy pequeños */
     }
 
+    /* AJUSTE PARA EL SLIDER EN MÓVILES MUY PEQUEÑOS */
+    .hero-image-carousel {
+        height: 280px; /* Ajustada la altura del contenedor principal */
+    }
     .carousel-slide img {
-        height: 200px; /* Aún más pequeño si es necesario para pantallas muy compactas */
+        height: 100%; /* La imagen ocupa el 100% de la altura del contenedor */
     }
 }
 
