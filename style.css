@@ -1232,10 +1232,7 @@ h3.elegant-title {
 
     /* AJUSTE PARA EL SLIDER EN MÓVILES MUY PEQUEÑOS */
     .hero-image-carousel {
-        height: 280px; /* Ajustada la altura del contenedor principal */
-    }
-    .carousel-slide img {
-        height: 100%; /* La imagen ocupa el 100% de la altura del contenedor */
+        height: 200px; /* Aún más pequeño si es necesario para pantallas muy compactas */
     }
 }
 
