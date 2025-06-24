@@ -41,7 +41,7 @@ body {
     background-color: var(--primary-background);
     color: var(--text-primary);
     line-height: 1.6;
-    overflow-x: hidden; /* **Asegura que no haya scroll horizontal** */
+    overflow-x: hidden; /* **CRUCIAL: Evitar scroll horizontal por desbordamiento de elementos** */
     font-size: 16px; /* text-base */
     font-weight: 400; /* Normal */
 }
@@ -131,6 +131,8 @@ h3.elegant-title {
     top: 0;
     z-index: 1000;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Asegura que el header no cause desbordamiento */
+    box-sizing: border-box; /* Incluye padding en el ancho */
 }
 
 .logo a {
@@ -260,6 +262,8 @@ h3.elegant-title {
     padding: var(--padding-section) 0;
     background-color: var(--primary-background);
     text-align: center;
+    width: 100%; /* Asegura que la sección completa no desborde */
+    box-sizing: border-box; /* Incluye padding en el ancho */
 }
 
 .hero-content {
@@ -271,6 +275,8 @@ h3.elegant-title {
     gap: var(--spacing-large);
     text-align: left;
     padding: 0 var(--spacing-medium);
+    width: 100%; /* Asegura que el contenido interno no desborde */
+    box-sizing: border-box;
 }
 
 .hero-text {
@@ -403,6 +409,8 @@ h3.elegant-title {
     gap: var(--spacing-large);
     align-items: flex-start; /* Alinea el inicio del contenido */
     flex-wrap: wrap; /* Permite que las columnas se envuelvan en pantallas pequeñas */
+    width: 100%; /* Asegura que este contenedor no desborde */
+    box-sizing: border-box;
 }
 
 .text-content {
@@ -446,6 +454,8 @@ h3.elegant-title {
     gap: var(--spacing-medium);
     justify-content: center;
     margin-top: var(--spacing-large);
+    width: 100%; /* Asegura que la cuadrícula no desborde */
+    box-sizing: border-box;
 }
 
 .card {
@@ -484,6 +494,8 @@ h3.elegant-title {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: var(--spacing-medium);
     margin-top: var(--spacing-large);
+    width: 100%; /* Asegura que la cuadrícula no desborde */
+    box-sizing: border-box;
 }
 
 .branch-card {
@@ -534,6 +546,8 @@ h3.elegant-title {
     box-shadow: var(--box-shadow-default);
     max-width: 700px;
     margin: var(--spacing-large) auto 0;
+    width: 100%; /* Asegura que el formulario no desborde */
+    box-sizing: border-box;
 }
 
 .form-group {
@@ -633,6 +647,8 @@ h3.elegant-title {
     gap: var(--spacing-large);
     align-items: flex-start;
     flex-wrap: wrap;
+    width: 100%; /* Asegura que el contenido de contacto no desborde */
+    box-sizing: border-box;
 }
 
 .contact-info {
@@ -709,6 +725,8 @@ h3.elegant-title {
     color: var(--text-on-header-footer);
     padding: var(--padding-section) 0 var(--spacing-medium) 0; /* Más padding arriba */
     text-align: center;
+    width: 100%; /* Asegura que el footer no desborde */
+    box-sizing: border-box;
 }
 
 .footer-content {
@@ -1046,11 +1064,12 @@ h3.elegant-title {
         font-size: 14px; /* md:text-sm - aplicado a este breakpoint */
     }
 
-    /* AJUSTES PARA EL SLIDER EN MÓVIL */
+    /* AJUSTES PARA EL SLIDER EN MÓVIL (TABLETS Y MÓVILES GRANDES) */
     .hero-image-carousel {
-        width: 80%; /* Menos ancho */
-        max-width: 320px; /* No crezca demasiado en tablets pequeñas */
+        width: 90%; /* Menos ancho */
+        max-width: 350px; /* Asegura que no crezca demasiado en tablets pequeñas */
         height: 320px; /* Más largo */
+        margin: 0 auto; /* Centrar horizontalmente */
     }
     .carousel-slide img {
         height: 100%; /* Ajusta la altura de la imagen al contenedor en móvil */
@@ -1222,7 +1241,9 @@ h3.elegant-title {
 
     /* AJUSTE PARA EL SLIDER EN MÓVILES MUY PEQUEÑOS */
     .hero-image-carousel {
-        height: 280px; /* Aún más pequeño si es necesario para pantallas muy compactas */
+        width: 90%; /* Menos ancho */
+        max-width: 300px; /* Para pantallas aún más pequeñas */
+        height: 280px; /* Más largo */
     }
 }
 
