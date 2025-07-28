@@ -204,7 +204,7 @@
 <script src="https://cdn.emailjs.com/sdk/3.2/email.min.js"></script>
 <script>
   // Inicializa EmailJS con tu User ID
-  emailjs.init('TU_USER_ID_AQUI'); // <-- Cambia esto por tu User ID
+  emailjs.init('0HnTfYqj6c3WyzaMy'); // <-- Cambia esto por tu User ID
 
   const form = document.getElementById('contact-form');
   const message = document.getElementById('contact-message');
@@ -234,7 +234,7 @@
     });
 
     // Enviar correo con EmailJS (paralelo)
-    emailjs.sendForm('service_k3bbold', 'TU_TEMPLATE_ID_AQUI', this)
+    emailjs.sendForm('service_k3bbold', 'template_8vfdqce', this)
       .then(() => {
         console.log('Correo EmailJS enviado correctamente');
       }, (error) => {
