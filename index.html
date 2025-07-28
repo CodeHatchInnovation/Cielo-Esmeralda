@@ -139,7 +139,7 @@
                     <p>Asegura tu lugar en Cielo Esmeralda y prepárate para una experiencia gastronómica inolvidable.</p>
                 </div>
                 <div class="reservation-form-container">
-                   <form id="contact-form" action="https://formcarry.com/s/Wetcou0HvLi" method="POST">
+                   <form id="contact-form">
   <div class="form-group">
     <label for="branch"><i class="fas fa-building"></i> Sucursal</label>
     <select id="branch" name="branch" required>
@@ -203,8 +203,7 @@
 <!-- EmailJS SDK -->
 <script src="https://cdn.emailjs.com/sdk/3.2/email.min.js"></script>
 <script>
-  // Inicializa EmailJS con tu User ID
-  emailjs.init('0HnTfYqj6c3WyzaMy'); // <-- Cambia esto por tu User ID
+  emailjs.init('0HnTfYqj6c3WyzaMy');
 
   const form = document.getElementById('contact-form');
   const message = document.getElementById('contact-message');
@@ -214,34 +213,37 @@
 
     const data = new FormData(form);
 
-    // Enviar datos a Formcarry con fetch
-    fetch(form.action, {
+    // Enviar a Formcarry
+    fetch("https://formcarry.com/s/Wetcou0HvLi", {
       method: 'POST',
       body: data,
       headers: { 'Accept': 'application/json' }
-    }).then(response => {
+    })
+    .then(response => {
       if (response.ok) {
         message.textContent = '¡Reservación enviada con éxito!';
         message.style.color = 'green';
         form.reset();
       } else {
-        message.textContent = 'Hubo un error al enviar el formulario.';
+        message.textContent = 'Hubo un error al guardar la reservación.';
         message.style.color = 'red';
       }
-    }).catch(() => {
-      message.textContent = 'Ocurrió un error inesperado.';
+    })
+    .catch(() => {
+      message.textContent = 'Error de conexión al guardar la reservación.';
       message.style.color = 'red';
     });
 
-    // Enviar correo con EmailJS (paralelo)
-    emailjs.sendForm('service_k3bbold', 'template_8vfdqce', this)
+    // Enviar correo con EmailJS
+    emailjs.sendForm('service_k3bbold', 'template_8vfdqce', form)
       .then(() => {
-        console.log('Correo EmailJS enviado correctamente');
+        console.log('Correo enviado con EmailJS.');
       }, (error) => {
-        console.error('Error enviando correo EmailJS:', error);
+        console.error('Error al enviar correo:', error);
       });
   });
 </script>
+
 
                 </div>
             </div>
