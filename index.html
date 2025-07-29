@@ -223,7 +223,7 @@
     })
     .then(response => {
       if (!response.ok) throw new Error('Error al guardar la reservación en Formcarry');
-      return emailjs.sendForm('service_k3bbold', 'template_8vfdqce', form);
+      return emailjs.sendForm('service_k3bbold', 'template_ci5wk99', form);
     })
     .then(() => {
       message.textContent = '¡Reservación enviada con éxito!';
